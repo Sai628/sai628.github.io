@@ -1,9 +1,10 @@
-db.json
 .DS_Store
 _site
 .sass-cache
 .sass-cache
 _deploy
+.deploy_git
+db.json
 public
 sass.old
 source.old
