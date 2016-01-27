@@ -7,7 +7,7 @@ title: Sai628
 subtitle: However long the night, the dawn will break.
 description:
 author: Sai628
-language: en
+language: zh-Hans
 timezone:
 avatar: /images/avatar.png
 
@@ -65,6 +65,10 @@ pagination_dir: page
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
 theme: next
+
+
+# Swiftype search engine
+swiftype_key: PiGHzEMQ3MzzjrhGsytj
 
 
 # markdown
