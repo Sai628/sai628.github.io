@@ -66,7 +66,7 @@ scheme: Mist
 #  - hide    expand only when click on the sidebar toggle icon.
 #  - remove  Totally remove sidebar including sidebar toggle icon.
 sidebar: post
-# sidebar: always
+#sidebar: always
 #sidebar: hide
 #sidebar: remove
 
