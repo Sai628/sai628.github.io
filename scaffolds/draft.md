@@ -2,5 +2,4 @@
 title: {{ title }}
 tags:
 categories:
-
 ---
