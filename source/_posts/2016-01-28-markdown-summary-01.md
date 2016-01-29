@@ -19,6 +19,8 @@ categories:
 
 	`This is **_italics and bold_***`  This is **_italics and bold_**
 
+<!-- more -->
+
 ## 字号
 
 在某段字符串的最前面添加n个`#`号(n为1-6),可以使该行变为`header`效果.注意在`#`与文本之间添加一个空格.
