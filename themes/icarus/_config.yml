@@ -35,11 +35,11 @@ customize:
 # Widgets
 widgets:
     - recent_posts
-    - category
-    - archive
+#    - category
+#    - archive
     - tag
-    - tagcloud
-    - links
+#    - tagcloud
+#    - links
 
 # Search
 search:
