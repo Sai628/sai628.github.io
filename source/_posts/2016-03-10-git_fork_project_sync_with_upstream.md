@@ -8,14 +8,13 @@ categories:
 
 当在github上fork出一个项目后,该如何保持fork出的项目与上游的原始项目保持更新呢?   
 可以通过以下的步骤实现:
+<!-- more -->
 
 1. 首先需要在fork出的代码仓库中添加上游代码库(即原始项目)的remote源
 	
 	`git remote add {upstream} https://github.com/Sai628/cocos2d-x.git`
 	
 	其中`upstream`为上游代码仓库的名字，可以自由设置。
-    
-<!-- more -->
 	
 2. 提交本地的修改
 
