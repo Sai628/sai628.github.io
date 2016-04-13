@@ -6,7 +6,7 @@ menu:
   Tags: tags
   # About: about
 
-# Customize
+# Customizecd 
 customize:
     logo:
         enabled: true
@@ -23,7 +23,7 @@ customize:
         follow: https://github.com/Sai628
     highlight: androidstudio
     sidebar: right # sidebar position, options: left, right
-    thumbnail: true # enable posts thumbnail, options: true, false
+    thumbnail: false # enable posts thumbnail, options: true, false
     favicon: # path to favicon
     social_links:
         github: https://github.com/Sai628
