@@ -51,8 +51,8 @@ categories:
 	```
 	将待忽略的文件名添加到`.svnignore`中,一行一个.例如:  
 	.svnignore  
-	*.a  
-	*.out  
+	\*.a  
+	\*.out  
 	test.txt  
 		
 	最后:  
