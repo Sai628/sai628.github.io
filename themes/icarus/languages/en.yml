@@ -11,7 +11,7 @@ nav:
     older: 'Older'
     newer: 'Newer'
 widget:
-    recents: 'recents'
+    recents: 'recent'
     archives: 'archives'
     categories: 'categories'
     links: 'links'
@@ -28,3 +28,11 @@ profile:
     tag: 'tag'
     posts: 'posts'
     tags: 'tags'
+insight:
+    hint: 'Type something...'
+    posts: 'Posts'
+    pages: 'Pages'
+    categories: 'Categories'
+    tags: 'Tags'
+    untitled: '(Untitled)'
+
