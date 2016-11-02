@@ -17,11 +17,16 @@ A nice place to show yourself. You can add your own information in your site's `
 ### Self-hosted Insite Search Engine
 With the help of [Insight Search](https://github.com/ppoffice/hexo-theme-icarus/wiki/Search#insight-search), you can search anything inside your site without any third-party plugin.
 
-![](https://ooo.0o0.ooo/2016/04/07/57068467ad5ea.png)
+![](http://ppoffice.github.io/hexo-theme-icarus/gallery/insight-search.png "")
+
+### Custom Comment Services
+Icarus supports several comment services, give you better choices to communicate with your readers.
+
+![](http://ppoffice.github.io/hexo-theme-icarus/gallery/custom-comments.png "")
 
 ### Post Banner & Thumbnail
 
-Thanks to [atika](https://github.com/atika), you can now add thumbnails and banners to every post to create better reading experience.
+Thanks to [atika](https://github.com/atika), you can now [add thumbnails or banners](https://github.com/ppoffice/hexo-theme-icarus/wiki/Theme#thumbnail) to every post to create better reading experience.
 
 ### Responsive Layout
 
@@ -33,13 +38,11 @@ Icarus knows on what screen size you are browsering the website, and reorganize 
 
 Get your categories and tags listed in single pages to make your blog more methodic.
 
-### Fancybox
+### lightgallery
 
-Icarus uses [Fancybox] to showcase your photos. You can use Markdown syntax or fancybox tag plugin to add your photos.
+Icarus uses [lightgallery.js](https://sachinchoolur.github.io/lightgallery.js/) to showcase your photos. Just enable it in your configuration, and that's all!
 
-```
-![img caption](img url)
-```
+![](http://ppoffice.github.io/hexo-theme-icarus/gallery/lightgallery.jpg "")
 
 ### Sidebar
 
