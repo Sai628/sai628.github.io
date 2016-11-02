@@ -8,7 +8,7 @@ categories:
 
 
 ## init
-``` bash
+```bash
 hexo init [folder]
 ```
  
