@@ -4,10 +4,11 @@
 
 # Site
 title: Sai628
-subtitle: However long the night, the dawn will break.
-description:
+# subtitle: However long the night, the dawn will break.
+subtitle: 。
+description: Android & iOS Developer
 author: Sai628
-language: zh-CN
+language: zh-Hans
 timezone:
 since: 2016
 avatar: /images/avatar.png
@@ -76,14 +77,15 @@ tag_generator:
 # Extensions
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
-theme: icarus
+theme: next
 
 # Swiftype search engine
 #swiftype_key: PiGHzEMQ3MzzjrhGsytj
 
 # Social links
 social:
-  github: https://github.com/Sai628
+  Github: https://github.com/Sai628
+  Jianshu: http://www.jianshu.com/users/c1be039ac799
 
 # markdown
 marked:
