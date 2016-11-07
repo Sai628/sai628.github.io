@@ -1,5 +1,5 @@
 # Hexo Configuration
-## Docs: http://hexo.io/docs/configuration.html
+## Docs: https://hexo.io/docs/configuration.html
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
@@ -63,43 +63,24 @@ time_format: HH:mm:ss
 per_page: 10
 pagination_dir: page
 
+# add by Sai.
 index_generator:
   per_page: 5
 
+# add by Sai.
 archive_generator:
   per_page: 20
   yearly: true
   monthly: true
 
+# add by Sai.
 tag_generator:
   per_page: 10
 
 # Extensions
-## Plugins: http://hexo.io/plugins/
-## Themes: http://hexo.io/themes/
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
 theme: next
-
-# Swiftype search engine
-#swiftype_key: PiGHzEMQ3MzzjrhGsytj
-
-# Social links
-social:
-  Github: https://github.com/Sai628
-  Jianshu: http://www.jianshu.com/users/c1be039ac799
-
-# markdown
-marked:
-  gfm: true
-  pedantic: false
-  sanitize: false
-  tables: true
-  breaks: true
-  smartLists: true
-  smartypants: true
-
-#Plugins
-plugins:
-- hexo-generator-cname
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
