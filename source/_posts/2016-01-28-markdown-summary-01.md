@@ -8,23 +8,30 @@ categories:
 
 
 ## 字体
-* 斜体 _italics_ 在字符串的前后添加下划线 `_`.  
+__1. 斜体 _italics_ __
+在字符串的前后添加下划线 `_`.
+
 ``` bash
 This is _italics_
 ```
-  This is _italics_ 
 
-* 粗体 **bold** 在字符串的前后添加两个星号 `**`.  
+This is _italics_ 
+
+__2. 粗体 **bold** __
+在字符串的前后添加两个星号 `**`.  
+
 ``` bash
 This is **bold**
 ```
-  This is **bold**
+
+This is **bold**
 
 当然,如果想斜体同时粗体的话, 可以像下面这样:
 
 ``` bash
 This is **_italics and bold_***
 ```
+
 This is **_italics and bold_**
 
 <!-- more -->

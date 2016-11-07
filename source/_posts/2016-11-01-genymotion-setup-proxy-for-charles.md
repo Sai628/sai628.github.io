@@ -3,10 +3,10 @@ title: Genymotion 配合 Charles 进行网络抓包
 date: 2016-11-01 23:28:57
 tags: [charles, genymotion]
 categories:
+
 ---
 
-> #### 名词解释
-> 
+
 > [Charles](https://www.charlesproxy.com) 是在 Mac 下常用的网络封包截取工具. 在做移动开发时, 我们为了调试与服务器端的网络通讯协议, 常常需要截取网络封包来分析. Charles 通过将自己设置成系统的网络访问代理服务器, 使得所有的网络访问请求都通过它来完成, 从而实现了网络封包的截取和分析.
 
 > [Genymotion](http://www.genymotion.net) 是最新版的 Android 模拟器. 它使用 x86 架构, 因此更加高效, 加载 APP 的速度很快, 操作起来也很流畅. 借助 OpenGL 硬件加速的优势, 它可以让您以惊人的 3D 性能测试您的应用程序.
