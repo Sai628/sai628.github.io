@@ -6,6 +6,5 @@ categories:
 
 ---
 
-This is my first blog. 
-
+This is my first blog.
 Thanks the [Internet](https://www.google.com).
