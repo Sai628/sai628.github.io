@@ -1,8 +1,8 @@
 ---
 title: Hello Blog
 date: 2016-01-28 13:49:12
-tags: 
-categories: [others]
+tags: [others]
+categories:
 
 ---
 
