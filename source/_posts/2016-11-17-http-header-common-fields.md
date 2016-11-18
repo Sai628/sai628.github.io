@@ -67,7 +67,7 @@ categories:
 
 |首部字段名|说明|
 |:---|:---|
-|Allow|资源科支持的HTTP方法|
+|Allow|资源支持的HTTP方法|
 |Content-Encoding|实体主体适用的编码方式|
 |Content-Language|实体主体的自然语言|
 |Content-Length|实体主体的大小(单位:字节)|
@@ -88,7 +88,7 @@ categories:
 |Cookie|服务器接收到的Cookie信息|
 <br/>
 
-> set-cookie字段属性
+> Set-Cookie字段属性
 
 |属性|说明|
 |:---|:---|
