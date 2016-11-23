@@ -1,7 +1,7 @@
 ---
 title: 清除 MacOS 系统的 DNS 缓存
 date: 2016-11-12 22:02:41
-tags: [OSX, shell]
+tags: [MacOS, shell]
 categories:
 
 ---
