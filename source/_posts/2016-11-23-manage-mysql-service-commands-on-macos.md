@@ -21,6 +21,8 @@ $ /usr/local/mysql/support-files/mysql.server start
 $ /usr/local/mysql/support-files/mysql.server stop
 ```
 
+<!-- more -->
+
 * __重启:__
 
   ``` bash
