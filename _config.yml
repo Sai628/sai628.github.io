@@ -88,4 +88,4 @@ deploy:
   type: git
   repo:
     github: https://github.com/Sai628/sai628.github.io.git,master
-    # coding: https://git.coding.net/sai628/sai628.git,master
+    coding: https://git.coding.net/sai628/sai628.git,master
