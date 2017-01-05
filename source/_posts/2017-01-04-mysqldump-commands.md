@@ -83,7 +83,7 @@ $ mysql -u[user-name] -p[password] [database-name] < [backup-filename]
 #### 一个完整的 Shell 脚本备份 MySQL 数据库示例:
 
 ```bash
-$vi /data/backup/backup.sh
+$ vi /data/backup/backup.sh
 ```
 
 ```bash
