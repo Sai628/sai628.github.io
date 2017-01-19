@@ -1,7 +1,7 @@
 ---
 title: 使用 adb 命令进行截屏
 date: 2016-11-02 19:28:46
-tags: [android, adb, shell]
+tags: [Android, adb, shell]
 categories:
 ---
 
