@@ -5,30 +5,30 @@ tags: [Android]
 categories:
 ---
 
-|Platform Version|API Level|Version Code|
+|Code name|Version|API level|
 |--|--|--|
-|Android 7.1.1<br>Android 7.1|25|Nougat MR1|
-|Android 7.0|24|Nougat|
-|Android 6.0|23|Marshmallow|
-|Android 5.1|22|Lollipop MR1|
-|Android 5.0|21|Lollipop|
-|Android 4.4W|20|Kitkat Watch|
-|Android 4.4.4<br>Android 4.4|19|Kitkat|
-|Android 4.3|18|Jelly Bean MR2|
-|Android 4.2.2<br>Android 4.2|17|Jelly Bean MR1|
-|Android 4.1.1<br>Android 4.1|16|Jelly Bean|
-|Android 4.0.4<br>Android 4.0.3|15|Ice Cream Sandwich MR1|
-|Android 4.0.2<br>Android 4.0.1<br>Android 4.0|14|Ice Cream Sandwich|
-|Android 3.2|13|Honeycomb MR2|
-|Android 3.1.x|12|Honeycomb MR1|
-|Android 3.0.x|11|Honeycomb|
-|Android 2.3.4<br>Android 2.3.3|10|Gingerbread MR1|
-|Android 2.3.2<br>Android 2.3.1<br>Android 2.3|9|Gingerbread|
-|Android 2.2.x|8|Froyo|
-|Android 2.1.x|7|Eclair MR1|
-|Android 2.0.1|6|Eclair 0_1|
-|Android 2.0|5|Eclair|
-|Android 1.6|4|Donut|
-|Android 1.5|3|Cupcake|
-|Android 1.1|2|Base 1_1|
-|Android 1.0|1|Base|
+|Nougat|7.1|API level 25|
+|Nougat|7.0|API level 24|
+|Marshmallow|6.0|API level 23|
+|Lollipop|5.1|API level 22|
+|Lollipop|5.0|API level 21|
+|KitKat Watch|4.4W|API level 20|
+|KitKat|4.4-4.4.4|API level 19|
+|Jelly Bean|4.3.x|API level 18|
+|Jelly Bean|4.2.x|API level 17|
+|Jelly Bean|4.1.x|API level 16|
+|Ice Cream Sandwich|4.0.3-4.0.4|API level 15, NDK 8|
+|Ice Cream Sandwich|4.0.1-4.0.2|API level 14, NDK 7|
+|Honeycomb|3.2.x|API level 13|
+|Honeycomb|3.1|API level 12, NDK 6|
+|Honeycomb|3.0|API level 11|
+|Gingerbread|2.3.3-2.3.7|API level 10|
+|Gingerbread|2.3-2.3.2|API level 9, NDK 5|
+|Froyo|2.2.x|API level 8, NDK 4|
+|Eclair|2.1|API level 7, NDK 3|
+|Eclair|2.0.1|API level 6|
+|Eclair|2.0|API level 5|
+|Donut|1.6|API level 4, NDK 2|
+|Cupcake|1.5|API level 3, NDK 1|
+|(no code name)|1.1|API level 2|
+|(no code name)|1.0|API level 1|
