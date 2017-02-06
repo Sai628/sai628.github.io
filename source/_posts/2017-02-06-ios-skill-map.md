@@ -5,14 +5,14 @@ tags: [iOS, skill]
 categories:
 ---
 
-### 编程语言
+## 编程语言
 - Swift
 - Objective-C
 - C++/C
 - JavaScript
 
 
-### 操作系统
+## 操作系统
 - Mac OSX
 - iOS
 - watchOS
@@ -21,7 +21,7 @@ categories:
 
 <!-- more -->
 
-### 开发基础
+## 开发基础
 - UI 控件
 - Storyboard & Xib
 - Core Data & Sqlite
@@ -34,7 +34,7 @@ categories:
 - 手势识别, 重力感应
 
 
-### 开发进阶
+## 开发进阶
 - 引用计数
 - Runtime
 - Runloop
@@ -50,7 +50,7 @@ categories:
     * iOS Class Guard
 
 
-### 设计模式
+## 设计模式
 - MVC
 - MVVM
 - 通知
@@ -60,12 +60,12 @@ categories:
 - 命令模式
 
 
-### 函数式编程
+## 函数式编程
 - ReactiveCocoa
 - RxSwift
 
 
-### 开发工具
+## 开发工具
 - IDE
     * Xcode
     * AppCode
@@ -98,13 +98,13 @@ categories:
     * Bot
 
 
-### 包管理
+## 包管理
 - CocoaPods
 - Carthage
 * Swift Package Manager
 
 
-### 开源项目
+## 开源项目
 - AFNetworking & Alamofire
 - Masonry
 - SDWebImage
@@ -113,7 +113,7 @@ categories:
 - React Native
 
 
-### APP 打包上传与审核
+## APP 打包上传与审核
 - Apple Developer
 - iTunes Connect
 - IAP
@@ -121,7 +121,7 @@ categories:
 - 打包脚本
 
 
-### 第三方服务
+## 第三方服务
 - 崩溃收集
     * Bugly
     * Crashlytics
