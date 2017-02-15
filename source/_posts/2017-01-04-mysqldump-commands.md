@@ -78,6 +78,12 @@ $ mysqldump -uroot -p123 --no-data --databases test1 test2 test3 > test.dump
 $ mysql -u[user-name] -p[password] [database-name] < [backup-filename]
 ```
 
+Demo:
+
+```bash
+$ mysql -uroot -p123 test1 < backup.sql
+```
+
 <br/>
 
 #### 一个完整的 Shell 脚本备份 MySQL 数据库示例:
