@@ -120,13 +120,15 @@ categories:
 
 
 ## 第三方服务
+- 云测试
+    * [Testin](http://testin.cn)
 - 崩溃收集
     * [腾讯Bugly](https://bugly.qq.com/v2/index)
     * [BugHD](http://bughd.com)
 - 数据统计
     * [友盟](http://mobile.umeng.com/analytics)
     * [腾讯移动分析 MTA](http://mta.qq.com)
-- 应用分发应
+- 应用分发
     * [蒲公英](https://www.pgyer.com)
     * [Fir.im](https://fir.im)
     * [TestFlight](http://www.jianshu.com/p/27545c2d4d8b)
