@@ -7,7 +7,7 @@ categories:
 
 
 ## 0x00 Git客户端
-推荐使用 [SourceTree](https://www.sourcetreeapp.com). MacOS 与 Windows 平台均支持.
+推荐使用 [SourceTree](https://www.sourcetreeapp.com). macOS 与 Windows 平台均支持.
 当然如果你觉得方便的话, 也可以直接命令行.
 
 
@@ -52,7 +52,7 @@ PreferredAuthentications publickey
 IdentityFile ~/.ssh/my_new_rsa
 ```
 
-   MacOS 用户也通过以下命令, 直接将 my\_new\_rsa 的信息添加到系统的钥匙串 keychain 中, 而不必配置 config 文件:
+   macOS 用户也通过以下命令, 直接将 my\_new\_rsa 的信息添加到系统的钥匙串 keychain 中, 而不必配置 config 文件:
  
   ``` bash
 $ ssh-add -K ~/.ssh/my_new_rsa

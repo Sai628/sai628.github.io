@@ -1,7 +1,7 @@
 ---
-title: MacOS 中管理 MySQL 服务的常用命令 
+title: macOS 中管理 MySQL 服务的常用命令 
 date: 2016-11-23 14:30:11
-tags: [MacOS, MySQL]
+tags: [macOS, MySQL]
 categories:
 
 ---

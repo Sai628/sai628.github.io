@@ -5,7 +5,7 @@ tags: [Android, adb, shell]
 categories:
 ---
 
-在 MacOS 中, 利用 adb 命令进行截屏:
+在 macOS 中, 利用 adb 命令进行截屏:
 
 ``` bash
 # 最后输出定位符 `>` 右边的参数为输出文件路径, 可任意指定 
