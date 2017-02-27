@@ -1,0 +1,652 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="standard,Golang," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="注释在编码的阶段同时写好变量、函数、包等的注释.注释必须是完整的句子, 以需要注释的内容作为开头, 句点作为结尾.程序中每一个被导出的(大写的)名字, 都应该有一个文档注释.  
+包注释每个程序包都应该有一个包注释, 一个位于 package 子句之前的块注释或行注释.包如果有多个 go 文件, 包注释只需要出现在一个 go 文件中即可.
+12// Package regexp implement">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Golang 编码规范">
+<meta property="og:url" content="http://sai628.com/2017-01-31-golang-coding-standard.html">
+<meta property="og:site_name" content="Sai628">
+<meta property="og:description" content="注释在编码的阶段同时写好变量、函数、包等的注释.注释必须是完整的句子, 以需要注释的内容作为开头, 句点作为结尾.程序中每一个被导出的(大写的)名字, 都应该有一个文档注释.  
+包注释每个程序包都应该有一个包注释, 一个位于 package 子句之前的块注释或行注释.包如果有多个 go 文件, 包注释只需要出现在一个 go 文件中即可.
+12// Package regexp implement">
+<meta property="og:updated_time" content="2017-01-31T15:31:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Golang 编码规范">
+<meta name="twitter:description" content="注释在编码的阶段同时写好变量、函数、包等的注释.注释必须是完整的句子, 以需要注释的内容作为开头, 句点作为结尾.程序中每一个被导出的(大写的)名字, 都应该有一个文档注释.  
+包注释每个程序包都应该有一个包注释, 一个位于 package 子句之前的块注释或行注释.包如果有多个 go 文件, 包注释只需要出现在一个 go 文件中即可.
+12// Package regexp implement">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://sai628.com/2017-01-31-golang-coding-standard.html"/>
+
+
+  <title> Golang 编码规范 | Sai628 </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Sai628</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Golang 编码规范
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-01-31T21:25:36+08:00" content="2017-01-31">
+              2017-01-31
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h1><p>在编码的阶段同时写好变量、函数、包等的注释.<br>注释必须是完整的句子, 以需要注释的内容作为开头, 句点作为结尾.<br>程序中每一个被导出的(大写的)名字, 都应该有一个文档注释.  </p>
+<h2 id="包注释"><a href="#包注释" class="headerlink" title="包注释"></a>包注释</h2><p>每个程序包都应该有一个包注释, 一个位于 package 子句之前的块注释或行注释.<br>包如果有多个 go 文件, 包注释只需要出现在一个 go 文件中即可.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Package regexp implements a simple library for regular expressions.</span></div><div class="line"><span class="keyword">package</span> regexp</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="可导出类型"><a href="#可导出类型" class="headerlink" title="可导出类型"></a>可导出类型</h2><p>第一条语句应该为一条概括语句, 并且使用被声明的名字作为开头.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Compile parses a regular expression and returns, if successful, a Regexp object  </span></div><div class="line"><span class="comment">// that can be used to match against text.</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">Compile</span><span class="params">(str <span class="keyword">string</span>)</span> <span class="params">(regexp *Regexp, err error)</span></span> &#123;</div><div class="line">    <span class="comment">// implement code</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><br></p>
+<h1 id="命名"><a href="#命名" class="headerlink" title="命名"></a>命名</h1><p>使用短命名, 长名字并不会自动使得事物更易读, 文档注释会比格外长的名字更有用.</p>
+<h2 id="包名"><a href="#包名" class="headerlink" title="包名"></a>包名</h2><p>包名应该为小写单词, 不要使用下划线或者混合大小写.</p>
+<h2 id="接口名"><a href="#接口名" class="headerlink" title="接口名"></a>接口名</h2><p>单个函数的接口名以 “er” 作为后缀, 如 Reader, Writer.<br>接口的实现则去掉 “er”.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">type</span> Reader <span class="keyword">interface</span> &#123;</div><div class="line">    Read(p []<span class="keyword">byte</span>) (n <span class="keyword">int</span>, err error)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>两个函数的接口名, 综合两个函数名:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">type</span> WriteFlusher <span class="keyword">interface</span> &#123;</div><div class="line">    Write([]<span class="keyword">byte</span>) (<span class="keyword">int</span>, error)</div><div class="line">    Flush() error</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>而三个以上函数的接口名, 类似于结构体名:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">type</span> Car <span class="keyword">interface</span> &#123;</div><div class="line">    Start([]<span class="keyword">byte</span>)</div><div class="line">    Stop() error</div><div class="line">    Recover()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="混合大小写"><a href="#混合大小写" class="headerlink" title="混合大小写"></a>混合大小写</h2><p>采用驼峰式命名<br>MixedCaps 大写开头, 可导出<br>mixedCaps 小写开头, 不可导出</p>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>函数采用命名的多值返回<br>传入变量和返回变量以小写字母开头</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">nextInt</span><span class="params">(b []<span class="keyword">byte</span>, pos <span class="keyword">int</span>)</span> <span class="params">(value, nextPos, <span class="keyword">int</span>)</span></span> &#123;</div><div class="line">    <span class="comment">// implement code</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><br></p>
+<h1 id="控制结构"><a href="#控制结构" class="headerlink" title="控制结构"></a>控制结构</h1><h2 id="if"><a href="#if" class="headerlink" title="if"></a>if</h2><p>if 接受初始化语句, 约定如下方式建立局部变量:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> err := file.Chmod(<span class="number">0644</span>); err != <span class="literal">nil</span> &#123;</div><div class="line">    <span class="keyword">return</span> err</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="for"><a href="#for" class="headerlink" title="for"></a>for</h2><p>采用短声明建立局部变量:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sum := <span class="number">0</span></div><div class="line"><span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ &#123;</div><div class="line">    sum += i</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="range"><a href="#range" class="headerlink" title="range"></a>range</h2><p>如果只需要第一项(key), 就丢弃第二个:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> key := <span class="keyword">range</span> m &#123;</div><div class="line">    <span class="keyword">if</span> key.expired() &#123;</div><div class="line">        <span class="built_in">delete</span>(m, key)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果只需要第二项, 则把第一项置为下划线:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sum := <span class="number">0</span></div><div class="line"><span class="keyword">for</span> _, value := <span class="keyword">range</span> array &#123;</div><div class="line">    sum += value</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="return"><a href="#return" class="headerlink" title="return"></a>return</h2><p>尽早 return. 一旦有错误发生, 马上返回.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">f, err := os.Open(name)</div><div class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">    <span class="keyword">return</span> err</div><div class="line">&#125;</div><div class="line">d, err := f.Stat()</div><div class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">    f.Close()</div><div class="line">    <span class="keyword">return</span> err</div><div class="line">&#125;</div><div class="line"></div><div class="line">codeUsing(f, d)</div></pre></td></tr></table></figure>
+<p><br></p>
+<h1 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h1><p>error 作为函数的值返回, 必须对 error 进行处理.<br>错误描述如果是英文, 必须为小写, 并且不需要标点. 结尾采用独立的错误流进行处理.</p>
+<p>不要像下面这样做:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">    <span class="comment">// error handling</span></div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="comment">// normal code</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>而应该采用以下的方式:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">    <span class="comment">// error handling</span></div><div class="line">    <span class="keyword">return</span> <span class="comment">// or continue, etc.</span></div><div class="line">&#125;</div><div class="line"><span class="comment">// normal code</span></div></pre></td></tr></table></figure>
+<p>如果返回值需要初始化, 则采用下面的方式:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">x, err := f()</div><div class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">    <span class="comment">// error handling</span></div><div class="line">    <span class="keyword">return</span></div><div class="line">&#125;</div><div class="line"><span class="comment">// use x</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h1 id="panic"><a href="#panic" class="headerlink" title="panic"></a>panic</h1><p>尽量不要使用 panic, 除非你知道自己在做什么.</p>
+<p><br></p>
+<h1 id="import"><a href="#import" class="headerlink" title="import"></a>import</h1><p>对 import 的包进行分组管理, 而且遵循 <code>标准库</code>、<code>第三方库</code>、<code>自库</code> 的分组顺序.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> main</div><div class="line"></div><div class="line"><span class="keyword">import</span> (</div><div class="line">    <span class="string">"fmt"</span></div><div class="line">    <span class="string">"hash/adler32"</span></div><div class="line">    <span class="string">"os"</span></div><div class="line"></div><div class="line">    <span class="string">"code.google.com/p/x/y"</span></div><div class="line">    <span class="string">"github.com/foo/bar"</span></div><div class="line"></div><div class="line">    <span class="string">"appengine/user"</span></div><div class="line">    <span class="string">"appengine/foo"</span></div><div class="line">)</div></pre></td></tr></table></figure>
+<p><br></p>
+<h1 id="缩写"><a href="#缩写" class="headerlink" title="缩写"></a>缩写</h1><p>采用全部大写, 或者全部小写来表示缩写单词.<br>比如对于 url 这个单词, 不要使用 <code>UrlPony</code>, 而要使用 <code>urlPony</code> 或者 <code>URLPony</code>.</p>
+<p><br></p>
+<h1 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h1><ul>
+<li>对于少量数据, 不要传递指针.</li>
+<li>对于大量数据的 <code>struct</code>, 可以考虑使用指针.</li>
+<li>传入参数是 <code>map</code>、<code>slice</code>、<code>chan</code>, 不要传递指针(因为这3种为引用类型).</li>
+</ul>
+<p><br></p>
+<h1 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h1><p>接受者名称, 统一采用单字母 <code>p</code> 而不是 <code>this</code>, <code>me</code> 或者 <code>this</code>:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">type</span> T <span class="keyword">struct</span> &#123;&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="params">(p *T)</span> <span class="title">Get</span><span class="params">()</span></span> &#123;&#125;</div></pre></td></tr></table></figure>
+<p>接受者的类型如果不清楚, 统一采用指针型:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="params">(p *T)</span> <span class="title">Get</span><span class="params">()</span></span> &#123;&#125;</div></pre></td></tr></table></figure>
+<p>而不是:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="params">(p T)</span> <span class="title">Get</span><span class="params">()</span></span> &#123;&#125;</div></pre></td></tr></table></figure>
+<p>在某些情况下, 出于性能的考虑, 或者类型本来就是引用类型, 存在以下的特例情况:</p>
+<ul>
+<li><strong>如果接收者是 <code>map</code>、<code>slice</code>、<code>chan</code>, 不要用指针传递:</strong></li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Map</span></div><div class="line"><span class="keyword">package</span> main</div><div class="line"></div><div class="line"><span class="keyword">import</span> (</div><div class="line">    <span class="string">"fmt"</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="keyword">type</span> mp <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">string</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="params">(m mp)</span> <span class="title">Set</span><span class="params">(k, v <span class="keyword">string</span>)</span></span> &#123;</div><div class="line">    m[k] = v</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    m := <span class="built_in">make</span>(mp)</div><div class="line">    m.Set(<span class="string">"k"</span>, <span class="string">"v"</span>)</div><div class="line">    fmt.Println(m)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Channel</span></div><div class="line"><span class="keyword">package</span> main</div><div class="line"></div><div class="line"><span class="keyword">import</span> (</div><div class="line">    <span class="string">"fmt"</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="keyword">type</span> ch <span class="keyword">chan</span> <span class="keyword">interface</span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c ch)</span> <span class="title">Push</span><span class="params">(i <span class="keyword">interface</span>&#123;&#125;)</span></span> &#123;</div><div class="line">    c &lt;- i</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c ch)</span> <span class="title">Pop</span><span class="params">()</span> <span class="title">interface</span></span>&#123;&#125; &#123;</div><div class="line">    <span class="keyword">return</span> &lt;-c</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    c := <span class="built_in">make</span>(ch, <span class="number">1</span>)</div><div class="line">    c.Push(<span class="string">"i"</span>)</div><div class="line">    fmt.Println(c.Pop())</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>如果需要对 <code>slice</code> 进行修改, 通过返回值的方式重新赋值:</strong></li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// slice</span></div><div class="line"><span class="keyword">package</span> main</div><div class="line"></div><div class="line"><span class="keyword">import</span> (</div><div class="line">    <span class="string">"fmt"</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="keyword">type</span> slice []<span class="keyword">byte</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="params">(s slice)</span> <span class="title">addOne</span><span class="params">(b <span class="keyword">byte</span>)</span> []<span class="title">byte</span></span> &#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">append</span>(s, b)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    s := <span class="built_in">make</span>(slice, <span class="number">0</span>)</div><div class="line">    s = s.addOne(<span class="number">42</span>)</div><div class="line">    fmt.Println(s)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>如果接收者是含有 <code>sync.Mutex</code> 或者类似同步字段的结构体, 必须使用指针传递, 以避免复制:</strong></li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> main</div><div class="line"></div><div class="line"><span class="keyword">import</span> (</div><div class="line">    <span class="string">"sync"</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="keyword">type</span> T <span class="keyword">struct</span> &#123;</div><div class="line">    m sync.Mutex</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="params">(t *T)</span> <span class="title">lock</span><span class="params">()</span></span> &#123;</div><div class="line">    t.m.Lock()</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line">Wrong !!!</div><div class="line">func (t T) lock() &#123;</div><div class="line">    t.m.Lock()</div><div class="line">&#125;</div><div class="line">*/</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    t := <span class="built_in">new</span>(T)</div><div class="line">    t.lock()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>如果接收者是大的结构体或者数组, 使用指针传递会更有效率:</strong></li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> main</div><div class="line"></div><div class="line"><span class="keyword">import</span> (</div><div class="line">    <span class="string">"fmt"</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="keyword">type</span> T <span class="keyword">struct</span> &#123;</div><div class="line">    data [<span class="number">1024</span>]<span class="keyword">byte</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="params">(t *T)</span> <span class="title">Get</span><span class="params">()</span> <span class="title">byte</span></span> &#123;</div><div class="line">    <span class="keyword">return</span> t.data[<span class="number">0</span>]</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    t := <span class="built_in">new</span>(T)</div><div class="line">    fmt.Println(t.Get())</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/standard/" rel="tag">#standard</a>
+          
+            <a href="/tags/Golang/" rel="tag">#Golang</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017-01-30-android-api-level.html" rel="next" title="Android API Level">
+                <i class="fa fa-chevron-left"></i> Android API Level
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017-02-06-ios-skill-map.html" rel="prev" title="iOS 技能图谱">
+                iOS 技能图谱 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Sai628" />
+          <p class="site-author-name" itemprop="name">Sai628</p>
+          <p class="site-description motion-element" itemprop="description">Software Developer</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Sai628" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/c1be039ac799" target="_blank" title="Jianshu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Jianshu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://google.com/" title="Google" target="_blank">Google</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.cocoachina.com" title="cocoachina" target="_blank">cocoachina</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.ibireme.com/" title="ibireme" target="_blank">ibireme</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://ifeve.com/overview/" title="ifeve" target="_blank">ifeve</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sai628</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

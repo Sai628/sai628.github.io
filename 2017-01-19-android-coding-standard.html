@@ -1,0 +1,884 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android,standard," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="无规矩，不成方圆。
+
+
+0x00 源文件基础文件名源文件以最顶层的类名来命名, 大小写敏感.比如: LoginActivity.java MainActivity.java
+文件编码UTF-8">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 编码规范">
+<meta property="og:url" content="http://sai628.com/2017-01-19-android-coding-standard.html">
+<meta property="og:site_name" content="Sai628">
+<meta property="og:description" content="无规矩，不成方圆。
+
+
+0x00 源文件基础文件名源文件以最顶层的类名来命名, 大小写敏感.比如: LoginActivity.java MainActivity.java
+文件编码UTF-8">
+<meta property="og:updated_time" content="2017-01-19T08:37:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android 编码规范">
+<meta name="twitter:description" content="无规矩，不成方圆。
+
+
+0x00 源文件基础文件名源文件以最顶层的类名来命名, 大小写敏感.比如: LoginActivity.java MainActivity.java
+文件编码UTF-8">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://sai628.com/2017-01-19-android-coding-standard.html"/>
+
+
+  <title> Android 编码规范 | Sai628 </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Sai628</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android 编码规范
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-01-19T14:39:47+08:00" content="2017-01-19">
+              2017-01-19
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>无规矩，不成方圆。</p>
+</blockquote>
+<p><br></p>
+<h1 id="0x00-源文件基础"><a href="#0x00-源文件基础" class="headerlink" title="0x00 源文件基础"></a>0x00 源文件基础</h1><h2 id="文件名"><a href="#文件名" class="headerlink" title="文件名"></a>文件名</h2><p>源文件以最顶层的类名来命名, 大小写敏感.<br>比如: <code>LoginActivity.java</code> <code>MainActivity.java</code></p>
+<h2 id="文件编码"><a href="#文件编码" class="headerlink" title="文件编码"></a>文件编码</h2><p>UTF-8</p>
+<a id="more"></a>
+<p><br></p>
+<h1 id="0x01-命名"><a href="#0x01-命名" class="headerlink" title="0x01 命名"></a>0x01 命名</h1><blockquote>
+<p>简洁明了, 但慎用缩写, 除非约定俗定.<br>尽量使用常用英文单词, 而非中文拼音.</p>
+</blockquote>
+<h2 id="包-package"><a href="#包-package" class="headerlink" title="包(package)"></a>包(package)</h2><p>包名全部使用小写, 按文件的功能作用来组织不同的包</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">com.[domain].[appname].activity.account</div><div class="line">com.[domain].[appname].activity.main</div><div class="line"></div><div class="line">com.[domain].[appname].config</div><div class="line"></div><div class="line">com.[domain].[appname].service.db</div><div class="line">com.[domain].[appname].service.network</div><div class="line"></div><div class="line">com.[domain].[appname].util</div><div class="line">com.[domain].[appname].view</div><div class="line">...</div></pre></td></tr></table></figure>
+<h2 id="类-class"><a href="#类-class" class="headerlink" title="类(class)"></a>类(class)</h2><p><strong>类名采用 <a href="http://baike.baidu.com/link?url=S3f2dkN7rbxkebQtoRFIi8M6yHvACTC1wiahDLDLpzxCdvI1W4cQ0o3WQ6YjBavWT5LjN-RzTyygGNIiYBKBLa" target="_blank" rel="external">大驼峰法</a></strong>.</p>
+<ul>
+<li>对于继承自 Android 组件的类来说, 命名应以该组件的名称结尾.</li>
+<li><strong>模型实体类可直接使用名词或名词组合, 不需在后面添加类似 <code>Model</code> <code>Entity</code> 等后缀</strong>.</li>
+<li>工具类使用 <code>XXXUtil</code> 形式的命名, 辅助帮助类使用 <code>XXXHelper</code>, 管理类使用 <code>XXXManager</code></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginActivity</span></span></div><div class="line"><span class="title">public</span> <span class="title">class</span> <span class="title">ChooseImageActivity</span></div><div class="line"><span class="title">public</span> <span class="title">class</span> <span class="title">EditUserLocationFragment</span></div><div class="line"><span class="title">public</span> <span class="title">class</span> <span class="title">BaseNetService</span></div><div class="line"><span class="title">public</span> <span class="title">class</span> <span class="title">DownloadReceiver</span></div><div class="line"></div><div class="line"><span class="title">public</span> <span class="title">class</span> <span class="title">CustomMenuDialog</span></div><div class="line"><span class="title">public</span> <span class="title">class</span> <span class="title">NewsDetailAdapter</span></div><div class="line"></div><div class="line"><span class="title">public</span> <span class="title">class</span> <span class="title">UserInfo</span></div><div class="line"><span class="title">public</span> <span class="title">class</span> <span class="title">Books</span></div><div class="line"><span class="title">public</span> <span class="title">class</span> <span class="title">FavouriteHistory</span></div><div class="line"></div><div class="line"><span class="title">public</span> <span class="title">class</span> <span class="title">StringUtil</span></div><div class="line"><span class="title">public</span> <span class="title">class</span> <span class="title">ImageUtil</span></div><div class="line"><span class="title">public</span> <span class="title">class</span> <span class="title">NetHelper</span></div><div class="line"><span class="title">public</span> <span class="title">class</span> <span class="title">AnimationHelper</span></div><div class="line">...</div></pre></td></tr></table></figure>
+<h2 id="接口-interface"><a href="#接口-interface" class="headerlink" title="接口(interface)"></a>接口(interface)</h2><p><strong>接口采用 <a href="http://baike.baidu.com/link?url=S3f2dkN7rbxkebQtoRFIi8M6yHvACTC1wiahDLDLpzxCdvI1W4cQ0o3WQ6YjBavWT5LjN-RzTyygGNIiYBKBLa" target="_blank" rel="external">大驼峰法</a></strong>.</p>
+<ul>
+<li>对于一般的接口, 在接口名中添加 <code>Callback</code> <code>able</code> <code>ible</code> 等后缀.</li>
+<li>对于自定义的UI控件监听类的接口, 使用类似 <code>OnXXXListener</code> <code>ClassNameOnXXXListener</code> 等形式来命名.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">NetCallback</span></span></div><div class="line"><span class="title">public</span> <span class="title">interface</span> <span class="title">UploadCallback</span></div><div class="line"><span class="title">public</span> <span class="title">interface</span> <span class="title">Runnable</span></div><div class="line"></div><div class="line"><span class="title">public</span> <span class="title">interface</span> <span class="title">OnRefreshListener</span></div><div class="line"><span class="title">public</span> <span class="title">interface</span> <span class="title">ScrollerOnTouchListener</span></div><div class="line">...</div></pre></td></tr></table></figure>
+<h2 id="方法-methods"><a href="#方法-methods" class="headerlink" title="方法(methods)"></a>方法(methods)</h2><p><strong>方法采用 <a href="http://baike.baidu.com/link?url=S3f2dkN7rbxkebQtoRFIi8M6yHvACTC1wiahDLDLpzxCdvI1W4cQ0o3WQ6YjBavWT5LjN-RzTyygGNIiYBKBLa" target="_blank" rel="external">小驼峰法</a></strong>.</p>
+<p>开头一般为动词或动名词, 不要使用名词. 因为一个方法一般都为一个 <code>动作</code> 或者 <code>操作</code>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">方法名</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">initXXX()</td>
+<td style="text-align:left">与初始化相关</td>
+</tr>
+<tr>
+<td style="text-align:left">isXXX() checkXXX()</td>
+<td style="text-align:left">返回值为 <code>boolean</code> 型的方法</td>
+</tr>
+<tr>
+<td style="text-align:left">getXXX()</td>
+<td style="text-align:left">返回某个值</td>
+</tr>
+<tr>
+<td style="text-align:left">handleXXX()</td>
+<td style="text-align:left">对数据进行处理</td>
+</tr>
+<tr>
+<td style="text-align:left">saveXXX()</td>
+<td style="text-align:left">与数据保存相关</td>
+</tr>
+<tr>
+<td style="text-align:left">resetXXX()</td>
+<td style="text-align:left">与数据重置相关</td>
+</tr>
+<tr>
+<td style="text-align:left">clearXXX() removeXXX()</td>
+<td style="text-align:left">与数据清除相关</td>
+</tr>
+<tr>
+<td style="text-align:left">…</td>
+<td style="text-align:left">…</td>
+</tr>
+</tbody>
+</table>
+<h2 id="变量-variables"><a href="#变量-variables" class="headerlink" title="变量(variables)"></a>变量(variables)</h2><p><strong>变量采用 <a href="http://baike.baidu.com/link?url=S3f2dkN7rbxkebQtoRFIi8M6yHvACTC1wiahDLDLpzxCdvI1W4cQ0o3WQ6YjBavWT5LjN-RzTyygGNIiYBKBLa" target="_blank" rel="external">小驼峰法</a></strong>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Good</th>
+<th style="text-align:left">Bad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">String url</td>
+<td style="text-align:left">String URL</td>
+</tr>
+<tr>
+<td style="text-align:left">String name</td>
+<td style="text-align:left">String nameString</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>ArrayList&lt;User&gt;</code> users</td>
+<td style="text-align:left"><code>ArrayList&lt;User&gt;</code> userArrayList</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>在变量中<strong>不要使用</strong> <code>m</code> <code>s</code> 等前缀, 比如:<br><code>private mName  // 不要这样做</code><br><code>private List&lt;NoticeInfo&gt; mInfos  // 不要这样做</code></p>
+</blockquote>
+<h2 id="常量-Constants"><a href="#常量-Constants" class="headerlink" title="常量(Constants)"></a>常量(Constants)</h2><p><strong>常量命名使用大写字母加 <code>_</code> 符的方式</strong>. 而且常量开头的单词, 最好应说明其类型或用途.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String CONFIG_WEIXIN_APPID = <span class="string">"abcdefg"</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String API_DOMAIN = <span class="string">"http://api.domain.com"</span></div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> LOCATION_TYPE_HOME = <span class="number">0</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>这里值得一提的是, 在 Activity 间跳转传参时, 人们往往习惯性的在 <code>intent.putExtra()</code> 时直接使用字符串的字面量值去指定其中的 <code>name</code>.<br>这时, 你更应该在将要跳转到的 Activity 类中将这些 <code>name</code> 声明为公有的常量值. 这可以避免一些不必要的 bug 的产生.</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Intent intent = <span class="keyword">new</span> Intent(<span class="keyword">this</span>, NewsDetailActivity.class);</div><div class="line">intent.putExtra(NewsDetailActivity.UID, uid);</div><div class="line">intent.putExtra(NewsDetailActivity.EXTRA_NEWS_DETAIL, newsDetail);</div><div class="line">startActivity(intent);</div></pre></td></tr></table></figure>
+<h2 id="UI控件-widgets"><a href="#UI控件-widgets" class="headerlink" title="UI控件(widgets)"></a>UI控件(widgets)</h2><p>这里的UI控件命名, 指的是其变量命名. 一般的形式为 <code>功能/用途</code> + <code>控件缩写后缀</code>.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> Button loginBtn;</div><div class="line"><span class="keyword">private</span> ImageView logoIv;</div><div class="line"><span class="keyword">private</span> TextView versionNameTv;</div><div class="line"></div><div class="line"><span class="keyword">private</span> ListView resultListView;</div><div class="line"><span class="keyword">private</span> GridView photoGridView;</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">缩写</th>
+<th style="text-align:left">用例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Button</td>
+<td style="text-align:left">Btn</td>
+<td style="text-align:left">loginBtn</td>
+</tr>
+<tr>
+<td style="text-align:left">TextView</td>
+<td style="text-align:left">Tv</td>
+<td style="text-align:left">nameTv</td>
+</tr>
+<tr>
+<td style="text-align:left">EditText</td>
+<td style="text-align:left">Et</td>
+<td style="text-align:left">passwordEt</td>
+</tr>
+<tr>
+<td style="text-align:left">ImageView</td>
+<td style="text-align:left">Iv</td>
+<td style="text-align:left">logoIv</td>
+</tr>
+<tr>
+<td style="text-align:left">ImageButton</td>
+<td style="text-align:left">imageBtn</td>
+<td style="text-align:left">delImageBtn</td>
+</tr>
+<tr>
+<td style="text-align:left">LinearLayout</td>
+<td style="text-align:left">Ll</td>
+<td style="text-align:left">navigationBarLl</td>
+</tr>
+<tr>
+<td style="text-align:left">RelativeLayout</td>
+<td style="text-align:left">Rl</td>
+<td style="text-align:left">bottomMenuRl</td>
+</tr>
+<tr>
+<td style="text-align:left">FrameLayout</td>
+<td style="text-align:left">Fl</td>
+<td style="text-align:left">photoFl</td>
+</tr>
+<tr>
+<td style="text-align:left">…</td>
+<td style="text-align:left">…</td>
+<td style="text-align:left">…</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>对于一些自定义的UI控件, 或者是类名比较长的UI控件的变量命名, 应该慎用缩写.<br>因为前者的缩写让一个新手去阅读代码时, 会不知所措. 而后者往往是因为缩写对各人有异.</p>
+</blockquote>
+<h2 id="资源文件-layout-drawable-anim-dimens-colors-strings"><a href="#资源文件-layout-drawable-anim-dimens-colors-strings" class="headerlink" title="资源文件(layout/drawable/anim/dimens/colors/strings)"></a>资源文件(layout/drawable/anim/dimens/colors/strings)</h2><p>不管是文件名还是资源ID名, 全部采用小写, 以下划线 <code>_</code> 分隔各单词.</p>
+<ul>
+<li>Animation 对应的资源文件, 命名为 <code>anim_xxx</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">anim_scale_in.xml</div><div class="line">anim_alpha_out.xml</div><div class="line">anim.popup_enter.xml</div></pre></td></tr></table></figure>
+<ul>
+<li>ListView/GridView Item 对应的资源文件, 命名为 <code>listview_item_xxxx</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">listview_item_subtitle.xml</div><div class="line">listview_item_choose_file.xml</div><div class="line">gridview_item_subscription.xml</div><div class="line">gridview_item_choose_picture.xml</div></pre></td></tr></table></figure>
+<ul>
+<li>Activity对应的布局资源文件, 命名为 <code>模块名_类名简称_view</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">account_login_view.xml</div><div class="line">account_register_view.xml</div></pre></td></tr></table></figure>
+<ul>
+<li>Dialog对话框对应的布局文件, 命名为 <code>dialog_描述.xml</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">dialog_with_scroller_view.xml</div><div class="line">dialog_with_checkbox_view.xml</div></pre></td></tr></table></figure>
+<ul>
+<li>用于某布局中的子布局资源文件, 比如通过 <code>include</code> 方式引用的子布局, 命名为 <code>content_layout_用途</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">content_layout_empty_prompt.xml</div><div class="line">content_layout_input_panel.xml</div></pre></td></tr></table></figure>
+<ul>
+<li>自定义的 <code>style</code> 名(<strong>注意这里指的非文件名</strong>), 命名为 <code>my_控件名/用途_style_风格名</code></li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"my_listview_style_default"</span> <span class="attr">parent</span>=<span class="string">"@android:style/Widget.ListView"</span>&gt;</span><span class="xml"></span></div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"my_listview_style_card"</span> <span class="attr">parent</span>=<span class="string">"@android:style/Widget.ListView"</span>&gt;</span><span class="xml"></span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"my_divide_line_style_horizontal"</span>&gt;</span><span class="xml"></span></div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"my_divide_line_style_vertical"</span>&gt;</span><span class="undefined"></span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h1 id="0x02-变量声明"><a href="#0x02-变量声明" class="headerlink" title="0x02 变量声明"></a>0x02 变量声明</h1><blockquote>
+<p><strong>一行只写一个变量声明</strong>.<br><strong>需要时才声明, 并尽快进行初始化</strong>.</p>
+</blockquote>
+<p>本节没有其它的了.</p>
+<p><br></p>
+<h1 id="0x03-注释"><a href="#0x03-注释" class="headerlink" title="0x03 注释"></a>0x03 注释</h1><blockquote>
+<p>能不写注释时, 尽量不要写(写注释就像交朋友, 宁缺勿滥).<br>但必要的注释一定要添加, 像公开的API方法, 复杂算法的大体思路等(就像你不太可能独身地过完这一生).</p>
+</blockquote>
+<p>说到写注释, 你应该更关注 <code>方法/变量</code> 的命名. 如果命名适当, 那就没注释什么事了.</p>
+<p>以下注释的样式以代码的形式出现, 在进行相应地方的注释撰写时, 格式上参照样例代码的样式.</p>
+<h2 id="文件头注释"><a href="#文件头注释" class="headerlink" title="文件头注释"></a>文件头注释</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@author</span> zhangshan</div><div class="line"> * <span class="doctag">@ClassName</span>: LoginActivity</div><div class="line"> * <span class="doctag">@Description</span>: 登录页面</div><div class="line"> * <span class="doctag">@date</span> Aug 24, 2016 11:22:33 PM</div><div class="line"> */</div></pre></td></tr></table></figure>
+<h2 id="方法注释"><a href="#方法注释" class="headerlink" title="方法注释"></a>方法注释</h2><ul>
+<li><strong>public 方法</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 文件容量单位转换为可识别的文本.</div><div class="line"> * 根据传入的文件大小识别为 B 或 KB 或 MB 显示，型如："12B"、"23.45KB"、"34.56MB"</div><div class="line"> *</div><div class="line"> * <span class="doctag">@param</span>  fileSize 要转换的大小，单位为Byte</div><div class="line"> * <span class="doctag">@return</span> String</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getHumanSize</span><span class="params">(<span class="keyword">long</span> fileSize)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">// implement code</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>另外, 接口 interface 中定义方法很有必要添加注释.</p>
+</blockquote>
+<ul>
+<li><strong>private 方法</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 初始化View</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initView</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">// implement code</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>注意: 上面的注释其实是多余的!!! 上面的注释其实是多余的!!! 上面的注释其实是多余的!!!<br>方法名 <code>initView</code> 已经明示它的作用. 当方法名都无法说明它的作用时, 你应该先考虑一下换个方法命名, 再决定是否添加注释, 更何况这是一个私有的方法.</p>
+</blockquote>
+<ul>
+<li><strong>protected 方法</strong><br>自行掂量掂量吧</li>
+</ul>
+<h2 id="常量-变量注释"><a href="#常量-变量注释" class="headerlink" title="常量/变量注释"></a>常量/变量注释</h2><ul>
+<li><strong>常量</strong><br>一般来说, 常量都有添加注释的必要, 特殊是全局变量.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 密码最短长度 6</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> LIMIT_PASSWORD_MIN_SIZE = <span class="number">6</span>;</div><div class="line"><span class="comment">/**</span></div><div class="line"> * 密码最长长度 20</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> LIMIT_PASSWORD_MAX_SIZE = <span class="number">20</span>;</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>变量</strong><br>变量一般无须添加注释, 而是在命名上见名知义.<br>但有时当一些变量是作特殊用途时, 此时注释的内容应该是描述它起的作用, 而不是描述变量的字面意思.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> Button loginBtn; <span class="comment">// 登陆按钮 (多余的注释, 应该去掉)</span></div><div class="line"></div><div class="line"><span class="keyword">private</span> String password; <span class="comment">// 密码，本地MD5加密</span></div><div class="line"><span class="keyword">private</span> String logo; <span class="comment">// 用户头像的完整URL</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>在上面的样例代码中, loginBtn 由其命名已经知道这是一个登陆的 Button, 再添加注释是多余的, 这会加重代码阅读者的负担.<br>而对于 <code>password</code> 与 <code>logo</code>, 在某些情况下添加注释是需要的. 像如果这两个字段是属于模型类 <code>User</code> 中的字段, 为它们添加注释可以很明确了解后台返回的各字段含义.</p>
+</blockquote>
+<h2 id="代码块注释"><a href="#代码块注释" class="headerlink" title="代码块注释"></a>代码块注释</h2><p>对于代码块的注释说明, 最好是可以用一行文字在块的前面简要描述该块代码起到的作用.<br>对于复杂的算法, 可以多写几行, 描述算法的大体思路. 当有相应的资源链接时, 最好是在注释中添加上.</p>
+<blockquote>
+<p>当某些代码不再使用到时, 最好的做法是及时删除掉, 而不是注释掉. 时刻保持项目代码的整洁是一样美德.</p>
+</blockquote>
+<h2 id="TODO标释"><a href="#TODO标释" class="headerlink" title="TODO标释"></a>TODO标释</h2><p>当某个功能代码待实现, 或者某个方法有 bug, 或是某处的代码待优化时, 你应该添加上 <code>// TODO</code> 标注, 并简单说明还需要做的事情.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">doSomething</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">// TODO 还需要进行网络缓存的优化</span></div><div class="line">    <span class="comment">// implement code</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>简单起见, 在这里我们统一使用 <code>// TODO &quot;the message about should do something&quot;</code> 的标释.</p>
+<blockquote>
+<p>对于调试的过程中, 临时性地注释掉某些代码时, 最好也加上 <code>TODO</code> 标释, 避免调试完后忘记了打开注释而产生一些奇怪的问题.</p>
+</blockquote>
+<p><br></p>
+<h1 id="0x04-括号"><a href="#0x04-括号" class="headerlink" title="0x04 括号"></a>0x04 括号</h1><blockquote>
+<p>当无法保持简单时, 也不要自我制造复杂.</p>
+</blockquote>
+<h2 id="大括号"><a href="#大括号" class="headerlink" title="大括号"></a>大括号</h2><p>除了数组的初始化声明外, <strong>对于全部的大括号, 另起一新行, 并且 <code>{</code> 与 <code>}</code> 应对齐显示.</strong><br>一些空白待实现的方法, 其两个大括号也应独立使用两行. (此时你需要在空白实现中添加上 <code>// TODO</code> 标释)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">int</span>[] a = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (x &gt; <span class="number">0</span>)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> someVariable = a ? x : y;</div><div class="line">&#125;</div><div class="line"><span class="keyword">else</span> <span class="keyword">if</span> (x &lt; <span class="number">0</span>)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> someVariable = (y + z);</div><div class="line">    someVariable = x = x + y;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bar</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">// TODO wait for implement</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>对于 <code>if/else</code> 语句, 即使只有一行代码, 也应在外层加上大括号. 因为谁也不知道哪天你要扩充这里.</p>
+</blockquote>
+<h2 id="小括号"><a href="#小括号" class="headerlink" title="小括号"></a>小括号</h2><p>在三目运算符 <code>? :</code>, 或者是逻辑运算符 <code>&amp;&amp;　||</code>　中, 当它们很长或者涉及其它方法调用时, 应该在其外层添加上小括号. 当然, 如果代码逻辑已经简洁到一目了然时, 你也可以不添加.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> ((a &amp;&amp; b) || (c &amp;&amp; d))</div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> someVariable = a ? x : y;</div><div class="line">    x = (y &gt;= <span class="number">0</span> ? arr[y] : -<span class="number">1</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>很多时候, 使用小括号去限定一组逻辑, 这都是你的本职所在.<br>我们最好假设没有一个人能记住整个 java 运算符优先级表.</p>
+</blockquote>
+<p><br></p>
+<h1 id="0x05-缩进与间隔"><a href="#0x05-缩进与间隔" class="headerlink" title="0x05 缩进与间隔"></a>0x05 缩进与间隔</h1><blockquote>
+<p>保持层次感与内聚性.<br>队形很重要.</p>
+</blockquote>
+<h2 id="列限制"><a href="#列限制" class="headerlink" title="列限制"></a>列限制</h2><p>在IDE中设置一行的列限制为 <code>130</code> 个字符长度(当然, 这个数字可根据实际情况适当加减. 但强烈建议在团队中各成员采用一致的数值).任何一行如果超出该限制, 必须自动换行.<br><strong>而以下情况时, 可保持为一行</strong>:</p>
+<ol>
+<li>很长的URL字符串</li>
+<li>注释中那些可能需要被剪切粘贴到 shell 中的命令行</li>
+<li>很长的方法声明(若真的出现很长的方法声明, 此时你应该先考虑是否要修改方法的命名)</li>
+</ol>
+<blockquote>
+<p>对于很长的链式调用, 可以不必每次调用时都换一行, 在将要超出列限制长度时换行即可.<br>若换行时, 方法调用前的 <code>.</code> 字符必须跟在方法的新行中.</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">doAction1().doAction2().doAction()</div><div class="line">           .doAction3().doAction4()</div><div class="line">           ......</div></pre></td></tr></table></figure>
+<h2 id="缩进"><a href="#缩进" class="headerlink" title="缩进"></a>缩进</h2><p><strong>缩进使用 4 个空格. 不要使用 tab 字符进行缩进. 可以在 IDE 中设置 tab 键为 4 个空格.</strong><br><strong>另外: 对于自行换行时, 新行至少要缩放 <code>8</code> 个空格.</strong></p>
+<p>缩进样例:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Foo</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] X = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">11</span>&#125;;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">boolean</span> a, <span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> z)</span></span></div><div class="line">    &#123;</div><div class="line">        label1:</div><div class="line">        <span class="keyword">do</span></div><div class="line">        &#123;</div><div class="line">            <span class="keyword">try</span></div><div class="line">            &#123;</div><div class="line">                <span class="keyword">if</span> (x &gt; <span class="number">0</span>)</div><div class="line">                &#123;</div><div class="line">                    <span class="keyword">int</span> someVariable = a ? x : y;</div><div class="line">                    <span class="keyword">int</span> anotherVariable = a ? x : y;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (x &lt; <span class="number">0</span>)</div><div class="line">                &#123;</div><div class="line">                    <span class="keyword">int</span> someVariable = (y + z);</div><div class="line">                    someVariable = x = x + y;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">else</span></div><div class="line">                &#123;</div><div class="line">                    label2:</div><div class="line">                    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</div><div class="line">                    &#123;</div><div class="line">                        doSomething(i);</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                <span class="keyword">switch</span> (a)</div><div class="line">                &#123;</div><div class="line">                    <span class="keyword">case</span> <span class="number">0</span>:</div><div class="line">                        doCase0();</div><div class="line">                        <span class="keyword">break</span>;</div><div class="line"></div><div class="line">                    <span class="keyword">default</span>:</div><div class="line">                        doDefault();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">catch</span> (Exception e)</div><div class="line">            &#123;</div><div class="line">                processException(e.getMessage(), x + y, z, a);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">finally</span></div><div class="line">            &#123;</div><div class="line">                processFinally();</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">while</span> (<span class="keyword">true</span>);</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (<span class="number">2</span> &lt; <span class="number">3</span>)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (<span class="number">3</span> &lt; <span class="number">4</span>)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">do</span></div><div class="line">        &#123;</div><div class="line">            x++;</div><div class="line">        &#125; <span class="keyword">while</span> (x &lt; <span class="number">10000</span>);</div><div class="line"></div><div class="line">        <span class="keyword">while</span> (x &lt; <span class="number">50000</span>)</div><div class="line">        &#123;</div><div class="line">            x++;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</div><div class="line">        &#123;</div><div class="line">            System.out.println(i);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">InnerClass</span> <span class="keyword">implements</span> <span class="title">I1</span>, <span class="title">I2</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bar</span><span class="params">()</span> <span class="keyword">throws</span> E1, E2</span></div><div class="line">        &#123;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>对于XML资源的缩进</strong><br>XML里的元素内没有其他元素时, 应该使用自结束的标签</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/text_view_username"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span> /&gt;</div></pre></td></tr></table></figure>
+<p>下面是一个不规范的样例:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 不要这样做 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/text_view_profile"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span> &gt;</div><div class="line"><span class="tag">&lt;/<span class="name">TextView</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="空格"><a href="#空格" class="headerlink" title="空格"></a>空格</h2><p>此处的空格为行代码空格, 指的是一行代码中的各组成元素之间的空格.<br>包含 <code>变量/常量名</code> 与 <code>关键字</code>, <code>参数列表</code>, <code>运算符</code>, <code>括号</code>, <code>逗句</code> 等等元素.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Annotation</span>(param1 = <span class="string">"value1"</span>, param2 = <span class="string">"value2"</span>)</div><div class="line"><span class="meta">@SuppressWarnings</span>(&#123;<span class="string">"ALL"</span>&#125;)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Foo</span>&lt;<span class="title">T</span> <span class="keyword">extends</span> <span class="title">Bar</span> &amp; <span class="title">Abba</span>, <span class="title">U</span>&gt;</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span>[] X = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">87</span>, <span class="number">1213</span>, <span class="number">2</span>&#125;;</div><div class="line">    <span class="keyword">int</span>[] empty = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;&#125;;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span></div><div class="line">    &#123;</div><div class="line">        Runnable r = () -&gt; &#123;&#125;;</div><div class="line">        Runnable r1 = <span class="keyword">this</span>::bar;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; x; i++)</div><div class="line">        &#123;</div><div class="line">            y += (y ^ <span class="number">0x123</span>) &lt;&lt; <span class="number">2</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">do</span></div><div class="line">        &#123;</div><div class="line">            <span class="keyword">try</span> (MyResource r1 = getResource(); MyResource r2 = <span class="keyword">null</span>)</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">if</span> (<span class="number">0</span> &lt; x &amp;&amp; x &lt; <span class="number">10</span>)</div><div class="line">                &#123;</div><div class="line">                    <span class="keyword">while</span> (x != y)</div><div class="line">                    &#123;</div><div class="line">                        x = f(x * <span class="number">3</span> + <span class="number">5</span>);</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">else</span></div><div class="line">                &#123;</div><div class="line">                    <span class="keyword">synchronized</span> (<span class="keyword">this</span>)</div><div class="line">                    &#123;</div><div class="line">                        <span class="keyword">switch</span> (e.getCode())</div><div class="line">                        &#123;</div><div class="line">                            <span class="comment">//...</span></div><div class="line">                        &#125;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">catch</span> (MyException e)</div><div class="line">            &#123;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">finally</span></div><div class="line">            &#123;</div><div class="line">                <span class="keyword">int</span>[] arr = (<span class="keyword">int</span>[]) g(y);</div><div class="line">                x = y &gt;= <span class="number">0</span> ? arr[y] : -<span class="number">1</span>;</div><div class="line">                Map&lt;String, String&gt; sMap = <span class="keyword">new</span> HashMap&lt;String, String&gt;();</div><div class="line">                Bar.&lt;String, Integer&gt;mess(<span class="keyword">null</span>);</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">while</span> (<span class="keyword">true</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">bar</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bar</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">static</span> &lt;U, T&gt; <span class="function">U <span class="title">mess</span><span class="params">(T t)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Abba</span></span></div><div class="line">&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="空白行"><a href="#空白行" class="headerlink" title="空白行"></a>空白行</h2><ul>
+<li>类/接口/方法之间相互空两行  2</li>
+<li>相关的变量声明之间不空行  0</li>
+<li>不相关的变量声明之间空一行  1</li>
+<li>类/接口内的前后不空行  0</li>
+<li>方法体内的前后不空行  0</li>
+<li>在一个方法体内, 联系不紧密的逻辑之间空一行 0</li>
+<li>可适当的在 return 语句前空一行  0/1</li>
+<li>在XML布局文件中, 控件之间的声明空一行 1.<br>但父控件的结束标签与最后的子控件之间不用空行</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.intellij.samples;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.intellij.idea.Main;</div><div class="line"></div><div class="line"><span class="keyword">import</span> javax.swing.*;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.Vector;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Foo</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> field1;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> field2;</div><div class="line"></div><div class="line">    &#123;</div><div class="line">        field1 = <span class="number">2</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">foo1</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">new</span> Runnable()</div><div class="line">        &#123;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span></div><div class="line">            &#123;</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">foo2</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        field1 = <span class="number">3</span>;</div><div class="line">        field2 = field1 * field2;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> field2;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InnerClass</span></span></div><div class="line">    &#123;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">AnotherClass</span></span></div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">TestInterface</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> MAX = <span class="number">10</span>;</div><div class="line">    <span class="keyword">int</span> MIN = <span class="number">1</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">method1</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">method2</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">    <span class="attr">style</span>=<span class="string">"@style/my_layout_style_common"</span></div><div class="line">    <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">RelativeLayout</span> <span class="attr">style</span>=<span class="string">"@style/my_layout_navigationbar_style_default"</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">ImageView</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/account_bind_phone_step_one_view_back_imageview"</span></div><div class="line">            <span class="attr">style</span>=<span class="string">"@style/my_navigationbar_item_back_menu_style"</span>/&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">            <span class="attr">style</span>=<span class="string">"@style/my_navigationbar_title_text_style"</span></div><div class="line">            <span class="attr">android:layout_toRightOf</span>=<span class="string">"@id/account_bind_phone_step_one_view_back_imageview"</span>/&gt;</div><div class="line">    <span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:orientation</span>=<span class="string">"horizontal"</span>&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:gravity</span>=<span class="string">"center"</span>/&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span>=<span class="string">"@style/my_divide_line_style_vertical"</span>/&gt;</span></div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">EditText</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/account_bind_phone_step_one_view_phonenumber_edittext"</span></div><div class="line">            <span class="attr">style</span>=<span class="string">"@style/my_edittext_style_singleline_plain"</span></div><div class="line">            <span class="attr">android:hint</span>=<span class="string">"@string/please_input_your_mobilephone_number"</span>/&gt;</div><div class="line">    <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/account_bind_phone_step_one_view_prompt_textview"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:singleLine</span>=<span class="string">"false"</span></div><div class="line">        <span class="attr">android:textColor</span>=<span class="string">"@color/red"</span></div><div class="line">        <span class="attr">android:textSize</span>=<span class="string">"@dimen/text_fontsize_small"</span>/&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/account_bind_phone_step_one_view_verifycode_button"</span></div><div class="line">        <span class="attr">style</span>=<span class="string">"@style/my_button_style_primary"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"@dimen/button_height"</span></div><div class="line">        <span class="attr">android:enabled</span>=<span class="string">"false"</span></div><div class="line">        <span class="attr">android:text</span>=<span class="string">"@string/get_verify_code"</span>/&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h1 id="0x06-顺序与位置"><a href="#0x06-顺序与位置" class="headerlink" title="0x06 顺序与位置"></a>0x06 顺序与位置</h1><blockquote>
+<p>先公有, 后私有; 先重写, 后实现; 先一般, 后个性.</p>
+</blockquote>
+<p>以 <code>Activity</code> 类文件为例, 按以下顺序进行文件组织:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> 当前包名</div><div class="line"></div><div class="line"><span class="keyword">import</span> 包名;  <span class="comment">// 具体根据IDE自动导入的排序</span></div><div class="line"></div><div class="line">ClassName extends 父类 implements 接口<span class="number">1</span>, 接口<span class="number">2</span>, ...</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> `fields`  <span class="comment">// 公有类常量, 按使用的先后顺序</span></div><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> `fields`  <span class="comment">// 私有类常量, 按使用的先后顺序</span></div><div class="line"></div><div class="line">UI控件变量  <span class="comment">// 具体排序可按照UI的layout文件布局从上到下, 从左到右的顺序</span></div><div class="line">普通成员变量  <span class="comment">// 按使用的先后顺序</span></div><div class="line"></div><div class="line">自定义handler</div><div class="line"></div><div class="line">Lifecycle `methods`	<span class="comment">// 按生命周期的先后顺序</span></div><div class="line">Override `methods` ...</div><div class="line"></div><div class="line">initData  <span class="comment">// 初始化相关数据方法</span></div><div class="line">initView  <span class="comment">// 初始化相关UI方法</span></div><div class="line"></div><div class="line"><span class="comment">// 发起异步任务方法</span></div><div class="line">loadDataByNetwork()</div><div class="line">loadDatabaseData()</div><div class="line"></div><div class="line">handleSomethingEvent()  <span class="comment">// 事件响应方法</span></div><div class="line">doSomething()  <span class="comment">// 普通逻辑方法</span></div><div class="line"></div><div class="line">listener  <span class="comment">// UI控件监听器</span></div><div class="line"></div><div class="line">custom adapter  <span class="comment">// 自定义适配器</span></div><div class="line">custom <span class="class"><span class="keyword">class</span>  // 自定义内部类</span></div><div class="line"></div><div class="line"><span class="title">interface</span> 内部接口声明</div></pre></td></tr></table></figure>
+<p>其它的类文件参照该原则进行组织.</p>
+<blockquote>
+<p>当一个类有多个构造方法时, 或是多个同名方法时, 这些方法应该按参数从少到多的顺序出现在一起, 切忌分开来写.</p>
+</blockquote>
+<p><br></p>
+<h1 id="0x07-更多"><a href="#0x07-更多" class="headerlink" title="0x07 更多"></a>0x07 更多</h1><blockquote>
+<p>最好不要让这个文档有<code>更多</code>了.<br>实现无尽的需求已经够让我们喝一壶的了. 谁还希望在这时有更多的束缚?</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+            <a href="/tags/standard/" rel="tag">#standard</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017-01-04-mysqldump-commands.html" rel="next" title="MySQL 数据备份命令 mysqldump 的使用">
+                <i class="fa fa-chevron-left"></i> MySQL 数据备份命令 mysqldump 的使用
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017-01-30-android-api-level.html" rel="prev" title="Android API Level">
+                Android API Level <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Sai628" />
+          <p class="site-author-name" itemprop="name">Sai628</p>
+          <p class="site-description motion-element" itemprop="description">Software Developer</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Sai628" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/c1be039ac799" target="_blank" title="Jianshu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Jianshu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://google.com/" title="Google" target="_blank">Google</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.cocoachina.com" title="cocoachina" target="_blank">cocoachina</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.ibireme.com/" title="ibireme" target="_blank">ibireme</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://ifeve.com/overview/" title="ifeve" target="_blank">ifeve</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sai628</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
