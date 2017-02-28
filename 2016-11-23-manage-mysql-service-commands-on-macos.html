@@ -60,41 +60,26 @@
 
 <meta name="description" content="命令用法:  
 
-mysql.server  {start|stop|restart|reload|force-reload|status}
+mysql.server  {start | stop | restart | reload | force-reload | status}
 
-
-启动:
-1$ /usr/local/mysql/support-files/mysql.server start
-
-停止:
-1$ /usr/local/mysql/support-files/mysql.server stop">
+1234567891011121314151617# 启动$ /usr/local/mysql/support-files/mysql.server start# 停止$ /usr/local/mysql/support-files/m">
 <meta property="og:type" content="article">
 <meta property="og:title" content="macOS 中管理 MySQL 服务的常用命令">
 <meta property="og:url" content="http://sai628.com/2016-11-23-manage-mysql-service-commands-on-macos.html">
 <meta property="og:site_name" content="Sai628">
 <meta property="og:description" content="命令用法:  
 
-mysql.server  {start|stop|restart|reload|force-reload|status}
+mysql.server  {start | stop | restart | reload | force-reload | status}
 
-
-启动:
-1$ /usr/local/mysql/support-files/mysql.server start
-
-停止:
-1$ /usr/local/mysql/support-files/mysql.server stop">
-<meta property="og:updated_time" content="2017-02-27T07:21:41.000Z">
+1234567891011121314151617# 启动$ /usr/local/mysql/support-files/mysql.server start# 停止$ /usr/local/mysql/support-files/m">
+<meta property="og:updated_time" content="2017-02-28T04:48:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="macOS 中管理 MySQL 服务的常用命令">
 <meta name="twitter:description" content="命令用法:  
 
-mysql.server  {start|stop|restart|reload|force-reload|status}
+mysql.server  {start | stop | restart | reload | force-reload | status}
 
-
-启动:
-1$ /usr/local/mysql/support-files/mysql.server start
-
-停止:
-1$ /usr/local/mysql/support-files/mysql.server stop">
+1234567891011121314151617# 启动$ /usr/local/mysql/support-files/mysql.server start# 停止$ /usr/local/mysql/support-files/m">
 
 
 
@@ -280,31 +265,11 @@ mysql.server  {start|stop|restart|reload|force-reload|status}
       
         <p>命令用法:  </p>
 <blockquote>
-<p>mysql.server  {start|stop|restart|reload|force-reload|status}</p>
+<p>mysql.server  {start | stop | restart | reload | force-reload | status}</p>
 </blockquote>
-<ul>
-<li><p><strong>启动:</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ /usr/<span class="built_in">local</span>/mysql/support-files/mysql.server start</div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>停止:</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ /usr/<span class="built_in">local</span>/mysql/support-files/mysql.server stop</div></pre></td></tr></table></figure>
-</li>
-</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 启动</span></div><div class="line">$ /usr/<span class="built_in">local</span>/mysql/support-files/mysql.server start</div><div class="line"></div><div class="line"><span class="comment"># 停止</span></div><div class="line">$ /usr/<span class="built_in">local</span>/mysql/support-files/mysql.server stop</div><div class="line"></div><div class="line"><span class="comment"># 重启</span></div><div class="line">$ /usr/<span class="built_in">local</span>/mysql/support-files/mysql.server restart</div><div class="line"></div><div class="line"><span class="comment"># 重新加载</span></div><div class="line">$ /usr/<span class="built_in">local</span>/mysql/support-files/mysql.server reload</div><div class="line"></div><div class="line"><span class="comment"># 强制重新加载</span></div><div class="line">$ /usr/<span class="built_in">local</span>/mysql/support-files/mysql.server force-reload</div><div class="line"></div><div class="line"><span class="comment"># 查看状态</span></div><div class="line">$ /usr/<span class="built_in">local</span>/mysql/support-files/mysql.server status</div></pre></td></tr></table></figure>
 <a id="more"></a>
-<ul>
-<li><p><strong>重启:</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ /usr/<span class="built_in">local</span>/mysql/support-files/mysql.server restart</div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>重新加载:</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ /usr/<span class="built_in">local</span>/mysql/support-files/mysql.server reload</div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>强制重新加载:</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ /usr/<span class="built_in">local</span>/mysql/support-files/mysql.server force-reload</div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>查看状态:</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ /usr/<span class="built_in">local</span>/mysql/support-files/mysql.server status</div></pre></td></tr></table></figure>
-</li>
-</ul>
+<p><br></p>
 <p>可使用 <code>alias</code> 来简化以上命令操作. 在 <code>~/.bash_aliases</code> 文件中添加以下命令:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">alias</span> mysql-start=<span class="string">'/usr/local/mysql/support-files/mysql.server start'</span></div><div class="line"><span class="built_in">alias</span> mysql-stop=<span class="string">'/usr/local/mysql/support-files/mysql.server stop'</span></div><div class="line"><span class="built_in">alias</span> mysql-restart=<span class="string">'/usr/local/mysql/support-files/mysql.server restart'</span></div><div class="line"><span class="built_in">alias</span> mysql-reload=<span class="string">'/usr/local/mysql/support-files/mysql.server reload'</span></div><div class="line"><span class="built_in">alias</span> mysql-force-reload=<span class="string">'/usr/local/mysql/support-files/mysql.server force-reload'</span></div><div class="line"><span class="built_in">alias</span> mysql-status=<span class="string">'/usr/local/mysql/support-files/mysql.server status'</span></div></pre></td></tr></table></figure>
 <blockquote>
@@ -314,6 +279,8 @@ mysql.server  {start|stop|restart|reload|force-reload|status}
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> [[ <span class="_">-f</span> ~/.bash_aliases ]]; <span class="keyword">then</span></div><div class="line">    . ~/.bash_aliases</div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure>
 <p>最后, 使设置生效:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">source</span> ~/.bash_profile</div></pre></td></tr></table></figure>
+<p>这时, 若想启动 MySQL 服务, 只需运行以下命令:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mysql-start</div></pre></td></tr></table></figure>
       
     </div>
 
