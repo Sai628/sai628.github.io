@@ -7,49 +7,36 @@ categories:
 ---
 
 命令用法:  
-> mysql.server  {start|stop|restart|reload|force-reload|status}
+> mysql.server  {start | stop | restart | reload | force-reload | status}
 
-* __启动:__
 
-  ``` bash
+```bash
+# 启动
 $ /usr/local/mysql/support-files/mysql.server start
-```
 
-* __停止:__
-
-  ``` bash
+# 停止
 $ /usr/local/mysql/support-files/mysql.server stop
+
+# 重启
+$ /usr/local/mysql/support-files/mysql.server restart
+
+# 重新加载
+$ /usr/local/mysql/support-files/mysql.server reload
+
+# 强制重新加载
+$ /usr/local/mysql/support-files/mysql.server force-reload
+
+# 查看状态
+$ /usr/local/mysql/support-files/mysql.server status
 ```
 
 <!-- more -->
 
-* __重启:__
-
-  ``` bash
-$ /usr/local/mysql/support-files/mysql.server restart
-```
-
-* __重新加载:__
-
-  ``` bash
-$ /usr/local/mysql/support-files/mysql.server reload
-```
-
-* __强制重新加载:__
-
-  ``` bash
-$ /usr/local/mysql/support-files/mysql.server force-reload
-```
-
-* __查看状态:__
-
-  ``` bash
-$ /usr/local/mysql/support-files/mysql.server status
-```
+<br/>
 
 可使用 `alias` 来简化以上命令操作. 在 `~/.bash_aliases` 文件中添加以下命令:
 
-``` bash
+```bash
 alias mysql-start='/usr/local/mysql/support-files/mysql.server start'
 alias mysql-stop='/usr/local/mysql/support-files/mysql.server stop'
 alias mysql-restart='/usr/local/mysql/support-files/mysql.server restart'
@@ -62,7 +49,7 @@ alias mysql-status='/usr/local/mysql/support-files/mysql.server status'
 
 然后, 在 `~/.bash_profile` 文件的末尾添加以下代码:
 
-``` bash
+```bash
 if [[ -f ~/.bash_aliases ]]; then
     . ~/.bash_aliases
 fi
@@ -70,6 +57,12 @@ fi
 
 最后, 使设置生效:
 
-``` bash
+```bash
 $ source ~/.bash_profile
+```
+
+这时, 若想启动 MySQL 服务, 只需运行以下命令:
+
+```bash
+$ mysql-start
 ```
