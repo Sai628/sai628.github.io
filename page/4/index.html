@@ -314,7 +314,7 @@
               
                 
                 <a class="post-title-link" href="/2016-08-15-hexo-commands.html" itemprop="url">
-                  Hexo常用命令总结
+                  Hexo 常用命令总结
                 </a>
               
             
@@ -358,6 +358,11 @@
         
           <h2 id="init"><a href="#init" class="headerlink" title="init"></a>init</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init [folder]</div></pre></td></tr></table></figure>
 <p>新建一个网站. 如果没有设置 <code>folder</code>, Hexo 默认在当前的文件夹下建立网站.</p>
+<p><br/></p>
+<h2 id="new"><a href="#new" class="headerlink" title="new"></a>new</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new [layout] &lt;title&gt;</div></pre></td></tr></table></figure>
+<p>新建一篇文件. 如果没有设置 <code>layout</code> 的话, 默认使用 <code>_config.yml</code> 文件中的 <code>default_layout</code> 参数代替. 如果标题 <code>title</code> 包含空格的话, 需要使用引号括起来.</p>
+<p>例如:  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"my post"</span></div></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016-08-15-hexo-commands.html#more" rel="contents">
               Read more &raquo;
@@ -411,7 +416,7 @@
               
                 
                 <a class="post-title-link" href="/2016-04-13-svn-ignore.html" itemprop="url">
-                  svn:ignore的用法(忽略文件及目录)
+                  svn:ignore 的用法(忽略文件及目录)
                 </a>
               
             
@@ -454,6 +459,8 @@
       
         
           <p>在 svn 中忽略文件或目录, 可以通过 svn:ignore 命令来设置.<br>具体可分为以下几种情况:</p>
+<p><strong>若想创建一个文件夹, 并且把它加入版本控制 ,但忽略文件夹中的所有文件内容:</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ svn mkdir myDir</div><div class="line">$ svn add myDir</div><div class="line">$ svn commit -m <span class="string">"add myDir"</span></div><div class="line">$ svn propset svn:ignore <span class="string">'*'</span> myDir</div><div class="line">$ svn commit -m <span class="string">"ignore contents in myDir"</span></div></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016-04-13-svn-ignore.html#more" rel="contents">
               Read more &raquo;
@@ -507,7 +514,7 @@
               
                 
                 <a class="post-title-link" href="/2016-03-10-git_fork_project_sync_with_upstream.html" itemprop="url">
-                  Git保证fork后的项目与原项目同步更新
+                  Git 保证 fork 后的项目与原项目同步更新
                 </a>
               
             
@@ -550,6 +557,9 @@
       
         
           <p>当在github上fork出一个项目后, 该如何保持fork出的项目与上游的原始项目保持更新呢?<br>可以通过以下的步骤实现:</p>
+<p><strong>1. 首先, 需要在 fork 出的代码仓库中添加上游代码库(即原始项目)的 remote 源:</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git remote add &#123;upstream&#125; https://github.com/Sai628/cocos2d-x.git</div></pre></td></tr></table></figure>
+<p>其中<code>upstream</code>为上游代码仓库的名字，可以自由设置.</p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016-03-10-git_fork_project_sync_with_upstream.html#more" rel="contents">
               Read more &raquo;
@@ -603,7 +613,7 @@
               
                 
                 <a class="post-title-link" href="/2016-01-28-markdown-summary-01.html" itemprop="url">
-                  Markdown语法概要(一)
+                  Markdown 语法概要
                 </a>
               
             
@@ -645,15 +655,12 @@
 
       
         
-          <h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><p><strong>1. 斜体 <em>italics</em> </strong><br>在字符串的前后添加下划线 <code>_</code>.</p>
+          <h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><p><strong>1. 斜体</strong><br>在字符串的前后添加下划线 <code>_</code>.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">This is _italics_</div></pre></td></tr></table></figure>
 <p>This is <em>italics</em> </p>
-<p><strong>2. 粗体 <strong>bold</strong> </strong><br>在字符串的前后添加两个星号 <code>**</code>.  </p>
+<p><strong>2. 粗体</strong><br>在字符串的前后添加两个星号 <code>**</code>.  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">This is **bold**</div></pre></td></tr></table></figure>
 <p>This is <strong>bold</strong></p>
-<p>当然,如果想斜体同时粗体的话, 可以像下面这样:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">This is **_italics and bold_***</div></pre></td></tr></table></figure>
-<p>This is <strong><em>italics and bold</em></strong></p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016-01-28-markdown-summary-01.html#more" rel="contents">
               Read more &raquo;

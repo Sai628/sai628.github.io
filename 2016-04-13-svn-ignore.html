@@ -58,16 +58,22 @@
 
 
 
-<meta name="description" content="在 svn 中忽略文件或目录, 可以通过 svn:ignore 命令来设置.具体可分为以下几种情况:">
+<meta name="description" content="在 svn 中忽略文件或目录, 可以通过 svn:ignore 命令来设置.具体可分为以下几种情况:
+若想创建一个文件夹, 并且把它加入版本控制 ,但忽略文件夹中的所有文件内容:
+12345$ svn mkdir myDir$ svn add myDir$ svn commit -m &quot;add myDir&quot;$ svn propset svn:ignore &apos;*&apos; myDir$ svn commit">
 <meta property="og:type" content="article">
-<meta property="og:title" content="svn:ignore的用法(忽略文件及目录)">
+<meta property="og:title" content="svn:ignore 的用法(忽略文件及目录)">
 <meta property="og:url" content="http://sai628.com/2016-04-13-svn-ignore.html">
 <meta property="og:site_name" content="Sai628">
-<meta property="og:description" content="在 svn 中忽略文件或目录, 可以通过 svn:ignore 命令来设置.具体可分为以下几种情况:">
-<meta property="og:updated_time" content="2016-11-07T06:33:05.000Z">
+<meta property="og:description" content="在 svn 中忽略文件或目录, 可以通过 svn:ignore 命令来设置.具体可分为以下几种情况:
+若想创建一个文件夹, 并且把它加入版本控制 ,但忽略文件夹中的所有文件内容:
+12345$ svn mkdir myDir$ svn add myDir$ svn commit -m &quot;add myDir&quot;$ svn propset svn:ignore &apos;*&apos; myDir$ svn commit">
+<meta property="og:updated_time" content="2017-03-10T08:36:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="svn:ignore的用法(忽略文件及目录)">
-<meta name="twitter:description" content="在 svn 中忽略文件或目录, 可以通过 svn:ignore 命令来设置.具体可分为以下几种情况:">
+<meta name="twitter:title" content="svn:ignore 的用法(忽略文件及目录)">
+<meta name="twitter:description" content="在 svn 中忽略文件或目录, 可以通过 svn:ignore 命令来设置.具体可分为以下几种情况:
+若想创建一个文件夹, 并且把它加入版本控制 ,但忽略文件夹中的所有文件内容:
+12345$ svn mkdir myDir$ svn add myDir$ svn commit -m &quot;add myDir&quot;$ svn propset svn:ignore &apos;*&apos; myDir$ svn commit">
 
 
 
@@ -91,7 +97,7 @@
   <link rel="canonical" href="http://sai628.com/2016-04-13-svn-ignore.html"/>
 
 
-  <title> svn:ignore的用法(忽略文件及目录) | Sai628 </title>
+  <title> svn:ignore 的用法(忽略文件及目录) | Sai628 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="en">
@@ -211,7 +217,7 @@
             
             
               
-                svn:ignore的用法(忽略文件及目录)
+                svn:ignore 的用法(忽略文件及目录)
               
             
           </h1>
@@ -252,27 +258,22 @@
 
       
         <p>在 svn 中忽略文件或目录, 可以通过 svn:ignore 命令来设置.<br>具体可分为以下几种情况:</p>
-<a id="more"></a>
-<ul>
-<li><p><strong>若想创建一个文件夹, 并且把它加入版本控制 ,但忽略文件夹中的所有文件内容:</strong></p>
+<p><strong>若想创建一个文件夹, 并且把它加入版本控制 ,但忽略文件夹中的所有文件内容:</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ svn mkdir myDir</div><div class="line">$ svn add myDir</div><div class="line">$ svn commit -m <span class="string">"add myDir"</span></div><div class="line">$ svn propset svn:ignore <span class="string">'*'</span> myDir</div><div class="line">$ svn commit -m <span class="string">"ignore contents in myDir"</span></div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>若想创建一个文件夹, 但不加入版本控制, 即忽略这个文件夹:</strong></p>
+<a id="more"></a>
+<p><br></p>
+<p><strong>若想创建一个文件夹, 但不加入版本控制, 即忽略这个文件夹:</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ mkdir myDir</div><div class="line">$ svn propset svn:ignore <span class="string">'myDir'</span> .  <span class="comment"># 注意最后的`.`不能少</span></div><div class="line">$ svn commit -m <span class="string">'ignore myDir'</span></div></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
-<li><p><strong>若已经创建了文件夹, 并且加入了版本控制, 现在想忽略这个文件夹, 但要保持文件夹的内容:</strong></p>
+<p><br></p>
+<p><strong>若已经创建了文件夹, 并且加入了版本控制, 现在想忽略这个文件夹, 但要保持文件夹的内容:</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ svn <span class="built_in">export</span> myDir myDir-temp  <span class="comment"># 将myDir导出为myDir-temp, 并且导出后myDir-temp不受版本控制</span></div><div class="line">$ svn rm myDir</div><div class="line">$ svn commit -m <span class="string">'remove myDir'</span></div><div class="line">$ mv myDir-temp myDir</div><div class="line">$ svn propset svn:ignore <span class="string">'myDir'</span> .  <span class="comment">#注意最后的`.`不能少</span></div><div class="line">$ svn commit -m <span class="string">'ignore myDir'</span></div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>若要忽略文件夹里的某几个文件:</strong></p>
+<p><br></p>
+<p><strong>若要忽略文件夹里的某几个文件:</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ svn mkdir myDir</div><div class="line">$ svn add myDir</div><div class="line">$ svn commit -m <span class="string">'add myDir'</span></div><div class="line">$ vi .svnignore  <span class="comment"># 创建/编辑.svnignore文件</span></div></pre></td></tr></table></figure>
 <p>将待忽略的文件名添加到 <code>.svnignore</code> 中, 一行一个. 例如:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.svnignore  </div><div class="line">\*.a  </div><div class="line">\*.out  </div><div class="line">test.txt</div></pre></td></tr></table></figure>
 <p>最后:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ svn propset svn:ignore -F .svnignore  <span class="comment"># 参数 -F 表示从某文件中读取属性值</span></div><div class="line">$ svn commit -m <span class="string">'ignore some files'</span></div></pre></td></tr></table></figure>
-</li>
-</ul>
 
       
     </div>
@@ -304,16 +305,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016-03-10-git_fork_project_sync_with_upstream.html" rel="next" title="Git保证fork后的项目与原项目同步更新">
-                <i class="fa fa-chevron-left"></i> Git保证fork后的项目与原项目同步更新
+              <a href="/2016-03-10-git_fork_project_sync_with_upstream.html" rel="next" title="Git 保证 fork 后的项目与原项目同步更新">
+                <i class="fa fa-chevron-left"></i> Git 保证 fork 后的项目与原项目同步更新
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016-08-15-hexo-commands.html" rel="prev" title="Hexo常用命令总结">
-                Hexo常用命令总结 <i class="fa fa-chevron-right"></i>
+              <a href="/2016-08-15-hexo-commands.html" rel="prev" title="Hexo 常用命令总结">
+                Hexo 常用命令总结 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

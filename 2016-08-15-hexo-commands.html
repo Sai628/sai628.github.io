@@ -59,18 +59,27 @@
 
 
 <meta name="description" content="init1$ hexo init [folder]
-新建一个网站. 如果没有设置 folder, Hexo 默认在当前的文件夹下建立网站.">
+新建一个网站. 如果没有设置 folder, Hexo 默认在当前的文件夹下建立网站.
+
+new1$ hexo new [layout] &amp;lt;title&amp;gt;
+新建一篇文件. 如果没有设置 layout 的话, 默认使用 _config.yml 文件中的 default_layout 参数代替. 如果标题 title 包含空格的话, 需要使">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo常用命令总结">
+<meta property="og:title" content="Hexo 常用命令总结">
 <meta property="og:url" content="http://sai628.com/2016-08-15-hexo-commands.html">
 <meta property="og:site_name" content="Sai628">
 <meta property="og:description" content="init1$ hexo init [folder]
-新建一个网站. 如果没有设置 folder, Hexo 默认在当前的文件夹下建立网站.">
-<meta property="og:updated_time" content="2016-11-07T07:16:45.000Z">
+新建一个网站. 如果没有设置 folder, Hexo 默认在当前的文件夹下建立网站.
+
+new1$ hexo new [layout] &amp;lt;title&amp;gt;
+新建一篇文件. 如果没有设置 layout 的话, 默认使用 _config.yml 文件中的 default_layout 参数代替. 如果标题 title 包含空格的话, 需要使">
+<meta property="og:updated_time" content="2017-03-10T08:30:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo常用命令总结">
+<meta name="twitter:title" content="Hexo 常用命令总结">
 <meta name="twitter:description" content="init1$ hexo init [folder]
-新建一个网站. 如果没有设置 folder, Hexo 默认在当前的文件夹下建立网站.">
+新建一个网站. 如果没有设置 folder, Hexo 默认在当前的文件夹下建立网站.
+
+new1$ hexo new [layout] &amp;lt;title&amp;gt;
+新建一篇文件. 如果没有设置 layout 的话, 默认使用 _config.yml 文件中的 default_layout 参数代替. 如果标题 title 包含空格的话, 需要使">
 
 
 
@@ -94,7 +103,7 @@
   <link rel="canonical" href="http://sai628.com/2016-08-15-hexo-commands.html"/>
 
 
-  <title> Hexo常用命令总结 | Sai628 </title>
+  <title> Hexo 常用命令总结 | Sai628 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="en">
@@ -214,7 +223,7 @@
             
             
               
-                Hexo常用命令总结
+                Hexo 常用命令总结
               
             
           </h1>
@@ -256,11 +265,13 @@
       
         <h2 id="init"><a href="#init" class="headerlink" title="init"></a>init</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init [folder]</div></pre></td></tr></table></figure>
 <p>新建一个网站. 如果没有设置 <code>folder</code>, Hexo 默认在当前的文件夹下建立网站.</p>
-<a id="more"></a>
+<p><br></p>
 <h2 id="new"><a href="#new" class="headerlink" title="new"></a>new</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new [layout] &lt;title&gt;</div></pre></td></tr></table></figure>
 <p>新建一篇文件. 如果没有设置 <code>layout</code> 的话, 默认使用 <code>_config.yml</code> 文件中的 <code>default_layout</code> 参数代替. 如果标题 <code>title</code> 包含空格的话, 需要使用引号括起来.</p>
 <p>例如:  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"my post"</span></div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p><br></p>
 <h2 id="generate"><a href="#generate" class="headerlink" title="generate"></a>generate</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate  <span class="comment"># 可使用简写: hexo g</span></div></pre></td></tr></table></figure>
 <p>生成静态文件.</p>
 <table>
@@ -285,8 +296,10 @@
 </tr>
 </tbody>
 </table>
+<p><br></p>
 <h2 id="publish"><a href="#publish" class="headerlink" title="publish"></a>publish</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo publish [layout] &lt;filename&gt;</div></pre></td></tr></table></figure>
 <p>发表草稿.</p>
+<p><br></p>
 <h2 id="server"><a href="#server" class="headerlink" title="server"></a>server</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server  <span class="comment"># 可使用简写: hexo s</span></div></pre></td></tr></table></figure>
 <p>启动服务器并监视文件变化. 默认情况下, 访问网址为 <code>http://0.0.0.0:4000/</code></p>
 <table>
@@ -319,6 +332,7 @@
 </tr>
 </tbody>
 </table>
+<p><br></p>
 <h2 id="deploy"><a href="#deploy" class="headerlink" title="deploy"></a>deploy</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy  <span class="comment"># 可使用简写: hexo d</span></div></pre></td></tr></table></figure>
 <p>部署网站.</p>
 <table>
@@ -339,10 +353,13 @@
 </tr>
 </tbody>
 </table>
+<p><br></p>
 <h2 id="clean"><a href="#clean" class="headerlink" title="clean"></a>clean</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo clean</div></pre></td></tr></table></figure>
 <p>清除缓存文件 <code>(db.json)</code> 以及已生成的静态文件 <code>(public)</code>.</p>
+<p><br></p>
 <h2 id="list"><a href="#list" class="headerlink" title="list"></a>list</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo list &lt;<span class="built_in">type</span>&gt;</div></pre></td></tr></table></figure>
 <p>列出网站资料. <code>&lt;type&gt;</code> 的可选类型有: <code>page, post, route, tag</code></p>
+<p><br></p>
 <h2 id="version"><a href="#version" class="headerlink" title="version"></a>version</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo version</div></pre></td></tr></table></figure>
 <p>显示Hexo版本.</p>
 
@@ -376,8 +393,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016-04-13-svn-ignore.html" rel="next" title="svn:ignore的用法(忽略文件及目录)">
-                <i class="fa fa-chevron-left"></i> svn:ignore的用法(忽略文件及目录)
+              <a href="/2016-04-13-svn-ignore.html" rel="next" title="svn:ignore 的用法(忽略文件及目录)">
+                <i class="fa fa-chevron-left"></i> svn:ignore 的用法(忽略文件及目录)
               </a>
             
           </div>
