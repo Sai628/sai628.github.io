@@ -1,30 +1,31 @@
 ---
-title: Markdown语法概要(一)
+title: Markdown 语法概要
 date: 2016-01-28 17:50:21
 tags: [Markdown]
 categories:
-
 ---
 
 
 ## 字体
-__1. 斜体 _italics_ __
+__1. 斜体__
 在字符串的前后添加下划线 `_`.
 
-``` bash
+```bash
 This is _italics_
 ```
 
 This is _italics_ 
 
-__2. 粗体 **bold** __
+__2. 粗体__
 在字符串的前后添加两个星号 `**`.  
 
-``` bash
+```bash
 This is **bold**
 ```
 
 This is **bold**
+
+<!-- more -->
 
 当然,如果想斜体同时粗体的话, 可以像下面这样:
 
@@ -33,8 +34,6 @@ This is **_italics and bold_***
 ```
 
 This is **_italics and bold_**
-
-<!-- more -->
 
 ## 字号
 在某段字符串的最前面添加n个 `#` 号(n为1-6), 可以使该行变为 `header` 效果. 注意在 `#` 与文本之间添加一个空格.

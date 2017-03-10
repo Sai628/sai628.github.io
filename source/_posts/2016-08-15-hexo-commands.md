@@ -1,11 +1,9 @@
 ---
-title: Hexo常用命令总结
+title: Hexo 常用命令总结
 date: 2016-08-15 00:12:24
 tags: [hexo]
 categories:
-
 ---
-
 
 
 ## init
@@ -16,8 +14,7 @@ $ hexo init [folder]
  
 新建一个网站. 如果没有设置 `folder`, Hexo 默认在当前的文件夹下建立网站.
 
-<!--more-->
-
+<br/>
 
 ## new
 
@@ -33,6 +30,10 @@ $ hexo new [layout] <title>
 $ hexo new "my post"
 ```
 
+<!--more-->
+
+<br/>
+
 ## generate
 
 ``` bash
@@ -47,6 +48,7 @@ $ hexo generate  # 可使用简写: hexo g
 |`-f, --force`|强制重新生成|
 |`-w, --watch`|监视文件变动|
 
+<br/>
 
 ## publish
 
@@ -55,6 +57,8 @@ $ hexo publish [layout] <filename>
 ```
 
 发表草稿.
+
+<br/>
 
 ## server
 
@@ -72,6 +76,8 @@ $ hexo server  # 可使用简写: hexo s
 |`-p, --port`|重设端口|
 |`-s, --static`|只使用静态文件|
 
+<br/>
+
 ## deploy
 
 ``` bash
@@ -85,6 +91,8 @@ $ hexo deploy  # 可使用简写: hexo d
 |`--setup`|仅设置,不部署|
 |`-g, --generate`|部署之前预先生成静态文件|
 
+<br/>
+
 ## clean
 
 ``` bash
@@ -93,6 +101,7 @@ $ hexo clean
 
 清除缓存文件 `(db.json)` 以及已生成的静态文件 `(public)`.
 
+<br/>
 
 ## list
 
@@ -101,6 +110,8 @@ $ hexo list <type>
 ```
 
 列出网站资料. `<type>` 的可选类型有: `page, post, route, tag`
+
+<br/>
 
 ## version
 
