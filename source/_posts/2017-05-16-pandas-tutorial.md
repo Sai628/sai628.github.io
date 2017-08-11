@@ -6,7 +6,7 @@ categories:
 ---
 
 > 原文: http://pandas.pydata.org/pandas-docs/stable/10min.html
-> [Jupyter Notebook](http://nbviewer.jupyter.org/github/Sai628/jupyter-notebook/blob/master/Python/pandas-tutorial.ipynb)
+> [Jupyter Notebook](http://nbviewer.jupyter.org/github/Sai628/jupyter-notebook/blob/master/Python/000_pandas-tutorial.ipynb)
 
 <br/>
 
