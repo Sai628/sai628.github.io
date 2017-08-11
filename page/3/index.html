@@ -213,6 +213,106 @@
             
               
                 
+                <a class="post-title-link" href="/2016-11-21-resolve-LC-CTYPE-warning-on-centos.html" itemprop="url">
+                  解决 CentOS 中有关 LC_CTYPE warning 的问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-11-21T16:13:20+08:00" content="2016-11-21">
+              2016-11-21
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>解决使用终端登录 CentOS 系统时, 提示以下警示的问题:</p>
+<blockquote>
+<p>-bash warning: setlocale: LC_CTYPE: cannot change locale (UTF-8): No such file or directory</p>
+</blockquote>
+<p>问题相关 <a href="https://gist.github.com/jampajeen/841d4eed4da3e6c758bf">链接</a></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016-11-21-resolve-LC-CTYPE-warning-on-centos.html#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016-11-17-http-header-common-fields.html" itemprop="url">
                   HTTP 常用首部字段一览表
                 </a>
@@ -626,101 +726,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016-11-02-using-adb-to-screenshot-on-macosx.html" itemprop="url">
-                  使用 adb 命令进行截屏
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-11-02T19:28:46+08:00" content="2016-11-02">
-              2016-11-02
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在 macOS 中, 利用 adb 命令进行截屏:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 最后输出定位符 `&gt;` 右边的参数为输出文件路径, 可任意指定 </span></div><div class="line">$ adb shell screencap -p | perl -pe <span class="string">'s/\x0D\x0A/\x0A/g'</span> &gt; ~/Desktop/screenshot_$(date +%Y_%m_%d_%H_%M_%S).png</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -766,7 +771,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-count">23</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -776,7 +781,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
