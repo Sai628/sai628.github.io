@@ -1,5 +1,5 @@
 ---
-title: pandas 学习教程
+title: pandas 学习教程简介
 date: 2017-05-16 15:47:36
 tags: [python, pandas]
 categories:
