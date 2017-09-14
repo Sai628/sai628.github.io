@@ -213,6 +213,106 @@
             
               
                 
+                <a class="post-title-link" href="/2016-11-23-manage-mysql-service-commands-on-macos.html" itemprop="url">
+                  macOS 中管理 MySQL 服务的常用命令
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-11-23T14:30:11+08:00" content="2016-11-23">
+              2016-11-23
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>命令用法:  </p>
+<blockquote>
+<p>mysql.server  {start | stop | restart | reload | force-reload | status}</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 启动</span></div><div class="line">$ /usr/<span class="built_in">local</span>/mysql/support-files/mysql.server start</div><div class="line"></div><div class="line"><span class="comment"># 停止</span></div><div class="line">$ /usr/<span class="built_in">local</span>/mysql/support-files/mysql.server stop</div><div class="line"></div><div class="line"><span class="comment"># 重启</span></div><div class="line">$ /usr/<span class="built_in">local</span>/mysql/support-files/mysql.server restart</div><div class="line"></div><div class="line"><span class="comment"># 重新加载</span></div><div class="line">$ /usr/<span class="built_in">local</span>/mysql/support-files/mysql.server reload</div><div class="line"></div><div class="line"><span class="comment"># 强制重新加载</span></div><div class="line">$ /usr/<span class="built_in">local</span>/mysql/support-files/mysql.server force-reload</div><div class="line"></div><div class="line"><span class="comment"># 查看状态</span></div><div class="line">$ /usr/<span class="built_in">local</span>/mysql/support-files/mysql.server status</div></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016-11-23-manage-mysql-service-commands-on-macos.html#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016-11-21-resolve-chinese-messy-code-when-using-vim-on-centos.html" itemprop="url">
                   解决在 CentOS 中使用 Vim 时中文乱码的问题
                 </a>
@@ -631,104 +731,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016-11-08-pip-upgrade-raise-read-timeout-error.html" itemprop="url">
-                  使用 pip 更新库版本时, 报错 ReadTimeoutError 的解决办法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-11-08T20:09:09+08:00" content="2016-11-08">
-              2016-11-08
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>今天, 我本想更新一下 <code>Flask</code> 的版本. 于是, 我先运行下面的升级命令: </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo pip install --upgrade flask</div></pre></td></tr></table></figure>
-<p>刚开始时, 它下载 <code>Flask</code> 的更新库是没问题的, 但在继续下载 <code>Flask</code> 依赖的 <code>Jinja2</code> 库是时, 却提示出错了:</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016-11-08-pip-upgrade-raise-read-timeout-error.html#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -774,7 +776,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">24</span>
+              <span class="site-state-item-count">25</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
