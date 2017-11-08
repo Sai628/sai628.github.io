@@ -96,5 +96,5 @@ categories:
 |expires=DATE|Cookie的有效期(若不明确指定则默认为浏览器关闭前为止)|
 |path=PATH|将服务器上的文件目录作为Cookie的适用对象(若不指定则默认为文档所在的目录)|
 |domain=域名|作为Cookie适用对象的域名(若不指定则默认为创建Cookie的服务器的域名)|
-|Scure|仅在HTTPS安全通信时才会发送Cookie|
+|Secure|仅在HTTPS安全通信时才会发送Cookie|
 |HttpOnly|加以限制, 使Cookie不能被JavaScript脚本访问|
