@@ -11,4 +11,3 @@ categories:
 # 最后输出定位符 `>` 右边的参数为输出文件路径, 可任意指定 
 $ adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > ~/Desktop/screenshot_$(date +%Y_%m_%d_%H_%M_%S).png
 ```
-
