@@ -42,7 +42,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hexo," />
+  <meta name="keywords" content="CentOS,linux,Ubuntu," />
 
 
 
@@ -58,28 +58,19 @@
 
 
 
-<meta name="description" content="init1$ hexo init [folder]
-新建一个网站. 如果没有设置 folder, Hexo 默认在当前的文件夹下建立网站.
-
-new1$ hexo new [layout] &amp;lt;title&amp;gt;
-新建一篇文件. 如果没有设置 layout 的话, 默认使用 _config.yml 文件中的 default_layout 参数代替. 如果标题 title 包含空格的话, 需要使">
+<meta name="description" content="介绍在 Linux 系统中, 一般对于非 root 用户, 想要使用管理员权限去运行一些命令的话, 可以在命令的前面加上 sudo(这要求当前运行命令的用户能够具有 sudo 的使用权).
+本文将介绍一种很简单的方式去创建具有 sudo 使用权的系统新用户, 并且不需要修改你服务器上的 sudoers 文件. 若你想直接对已存在的用户配置 sudo 的使用权, 可以直接跳到步骤3.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo 常用命令总结">
-<meta property="og:url" content="http://sai628.com/2016-08-15-hexo-commands.html">
+<meta property="og:title" content="在 CentOS 或 Ubuntu 中添加 Sudo User">
+<meta property="og:url" content="http://sai628.com/2017-12-25-centos-and-ubuntu-add-sudo-user.html">
 <meta property="og:site_name" content="Sai628">
-<meta property="og:description" content="init1$ hexo init [folder]
-新建一个网站. 如果没有设置 folder, Hexo 默认在当前的文件夹下建立网站.
-
-new1$ hexo new [layout] &amp;lt;title&amp;gt;
-新建一篇文件. 如果没有设置 layout 的话, 默认使用 _config.yml 文件中的 default_layout 参数代替. 如果标题 title 包含空格的话, 需要使">
-<meta property="og:updated_time" content="2017-03-10T08:30:59.000Z">
+<meta property="og:description" content="介绍在 Linux 系统中, 一般对于非 root 用户, 想要使用管理员权限去运行一些命令的话, 可以在命令的前面加上 sudo(这要求当前运行命令的用户能够具有 sudo 的使用权).
+本文将介绍一种很简单的方式去创建具有 sudo 使用权的系统新用户, 并且不需要修改你服务器上的 sudoers 文件. 若你想直接对已存在的用户配置 sudo 的使用权, 可以直接跳到步骤3.">
+<meta property="og:updated_time" content="2017-12-25T13:22:12.216Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo 常用命令总结">
-<meta name="twitter:description" content="init1$ hexo init [folder]
-新建一个网站. 如果没有设置 folder, Hexo 默认在当前的文件夹下建立网站.
-
-new1$ hexo new [layout] &amp;lt;title&amp;gt;
-新建一篇文件. 如果没有设置 layout 的话, 默认使用 _config.yml 文件中的 default_layout 参数代替. 如果标题 title 包含空格的话, 需要使">
+<meta name="twitter:title" content="在 CentOS 或 Ubuntu 中添加 Sudo User">
+<meta name="twitter:description" content="介绍在 Linux 系统中, 一般对于非 root 用户, 想要使用管理员权限去运行一些命令的话, 可以在命令的前面加上 sudo(这要求当前运行命令的用户能够具有 sudo 的使用权).
+本文将介绍一种很简单的方式去创建具有 sudo 使用权的系统新用户, 并且不需要修改你服务器上的 sudoers 文件. 若你想直接对已存在的用户配置 sudo 的使用权, 可以直接跳到步骤3.">
 
 
 
@@ -100,10 +91,10 @@ new1$ hexo new [layout] &amp;lt;title&amp;gt;
 
 
 
-  <link rel="canonical" href="http://sai628.com/2016-08-15-hexo-commands.html"/>
+  <link rel="canonical" href="http://sai628.com/2017-12-25-centos-and-ubuntu-add-sudo-user.html"/>
 
 
-  <title> Hexo 常用命令总结 | Sai628 </title>
+  <title> 在 CentOS 或 Ubuntu 中添加 Sudo User | Sai628 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="en">
@@ -223,7 +214,7 @@ new1$ hexo new [layout] &amp;lt;title&amp;gt;
             
             
               
-                Hexo 常用命令总结
+                在 CentOS 或 Ubuntu 中添加 Sudo User
               
             
           </h1>
@@ -235,8 +226,8 @@ new1$ hexo new [layout] &amp;lt;title&amp;gt;
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-08-15T00:12:24+08:00" content="2016-08-15">
-              2016-08-15
+            <time itemprop="dateCreated" datetime="2017-12-25T20:14:54+08:00" content="2017-12-25">
+              2017-12-25
             </time>
           </span>
 
@@ -263,105 +254,30 @@ new1$ hexo new [layout] &amp;lt;title&amp;gt;
       
 
       
-        <h2 id="init"><a href="#init" class="headerlink" title="init"></a>init</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init [folder]</div></pre></td></tr></table></figure>
-<p>新建一个网站. 如果没有设置 <code>folder</code>, Hexo 默认在当前的文件夹下建立网站.</p>
-<p><br></p>
-<h2 id="new"><a href="#new" class="headerlink" title="new"></a>new</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new [layout] &lt;title&gt;</div></pre></td></tr></table></figure>
-<p>新建一篇文件. 如果没有设置 <code>layout</code> 的话, 默认使用 <code>_config.yml</code> 文件中的 <code>default_layout</code> 参数代替. 如果标题 <code>title</code> 包含空格的话, 需要使用引号括起来.</p>
-<p>例如:  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"my post"</span></div></pre></td></tr></table></figure>
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>在 <code>Linux</code> 系统中, 一般对于非 <code>root</code> 用户, 想要使用管理员权限去运行一些命令的话, 可以在命令的前面加上 <code>sudo</code>(这要求当前运行命令的用户能够具有 <code>sudo</code> 的使用权).</p>
+<p>本文将介绍一种很简单的方式去创建具有 <code>sudo</code> 使用权的系统新用户, 并且不需要修改你服务器上的 <code>sudoers</code> 文件. 若你想直接对已存在的用户配置 <code>sudo</code> 的使用权, 可以直接跳到步骤3.</p>
 <a id="more"></a>
 <p><br></p>
-<h2 id="generate"><a href="#generate" class="headerlink" title="generate"></a>generate</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate  <span class="comment"># 可使用简写: hexo g</span></div></pre></td></tr></table></figure>
-<p>生成静态文件.</p>
-<table>
-<thead>
-<tr>
-<th>选项</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>-d, --deploy</code></td>
-<td>文件生成后立即部署网站</td>
-</tr>
-<tr>
-<td><code>-f, --force</code></td>
-<td>强制重新生成</td>
-</tr>
-<tr>
-<td><code>-w, --watch</code></td>
-<td>监视文件变动</td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
-<h2 id="publish"><a href="#publish" class="headerlink" title="publish"></a>publish</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo publish [layout] &lt;filename&gt;</div></pre></td></tr></table></figure>
-<p>发表草稿.</p>
-<p><br></p>
-<h2 id="server"><a href="#server" class="headerlink" title="server"></a>server</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server  <span class="comment"># 可使用简写: hexo s</span></div></pre></td></tr></table></figure>
-<p>启动服务器并监视文件变化. 默认情况下, 访问网址为 <code>http://0.0.0.0:4000/</code></p>
-<table>
-<thead>
-<tr>
-<th>选项</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>-i, --ip</code></td>
-<td>重设默认的服务器IP,默认绑定全部的IP地址</td>
-</tr>
-<tr>
-<td><code>-l, --log [format]</code></td>
-<td>启动日记记录,使用覆盖记录格式</td>
-</tr>
-<tr>
-<td><code>-o, --open</code></td>
-<td>立即在你的默认浏览器打开服务器的URL</td>
-</tr>
-<tr>
-<td><code>-p, --port</code></td>
-<td>重设端口</td>
-</tr>
-<tr>
-<td><code>-s, --static</code></td>
-<td>只使用静态文件</td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
-<h2 id="deploy"><a href="#deploy" class="headerlink" title="deploy"></a>deploy</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy  <span class="comment"># 可使用简写: hexo d</span></div></pre></td></tr></table></figure>
-<p>部署网站.</p>
-<table>
-<thead>
-<tr>
-<th>选项</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>--setup</code></td>
-<td>仅设置,不部署</td>
-</tr>
-<tr>
-<td><code>-g, --generate</code></td>
-<td>部署之前预先生成静态文件</td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
-<h2 id="clean"><a href="#clean" class="headerlink" title="clean"></a>clean</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo clean</div></pre></td></tr></table></figure>
-<p>清除缓存文件 <code>(db.json)</code> 以及已生成的静态文件 <code>(public)</code>.</p>
-<p><br></p>
-<h2 id="list"><a href="#list" class="headerlink" title="list"></a>list</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo list &lt;<span class="built_in">type</span>&gt;</div></pre></td></tr></table></figure>
-<p>列出网站资料. <code>&lt;type&gt;</code> 的可选类型有: <code>page, post, route, tag</code></p>
-<p><br></p>
-<h2 id="version"><a href="#version" class="headerlink" title="version"></a>version</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo version</div></pre></td></tr></table></figure>
-<p>显示Hexo版本.</p>
+<h2 id="创建-Sudo-User-步骤"><a href="#创建-Sudo-User-步骤" class="headerlink" title="创建 Sudo User 步骤"></a>创建 Sudo User 步骤</h2><h4 id="1-使用-root-用户登录你的服务器"><a href="#1-使用-root-用户登录你的服务器" class="headerlink" title="1. 使用 root 用户登录你的服务器"></a>1. 使用 <code>root</code> 用户登录你的服务器</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">local</span>$ ssh root@server_ip_address</div></pre></td></tr></table></figure>
+<h4 id="2-使用-adduser-命令-在系统中添加一个新的用户"><a href="#2-使用-adduser-命令-在系统中添加一个新的用户" class="headerlink" title="2. 使用 adduser 命令, 在系统中添加一个新的用户"></a>2. 使用 <code>adduser</code> 命令, 在系统中添加一个新的用户</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ adduser [user-name]</div></pre></td></tr></table></figure>
+<blockquote>
+<p><code>Ubuntu</code> 会在运行 <code>adduser</code> 时, 提示你去设置密码;<br>而在 <code>CentOS</code> 中, 需要使用 <code>passwd</code> 命令修改新用户的密码:</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ passwd [user-name]  <span class="comment"># for CentOS</span></div></pre></td></tr></table></figure>
+<h4 id="3-使用-usermod-命令将新创建的用户添加到具有-sudo-权限的组中"><a href="#3-使用-usermod-命令将新创建的用户添加到具有-sudo-权限的组中" class="headerlink" title="3. 使用 usermod 命令将新创建的用户添加到具有 sudo 权限的组中"></a>3. 使用 <code>usermod</code> 命令将新创建的用户添加到具有 <code>sudo</code> 权限的组中</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ usermod <span class="_">-a</span>G wheel [user-name]  <span class="comment"># for CentOS</span></div><div class="line">$ usermod <span class="_">-a</span>G sudo [user-name]  <span class="comment"># for Ubuntu</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>在 <code>CentOS</code> 中, 默认 <code>wheel</code> 组的成员具有 <code>sudo</code> 权限;<br>而在 <code>Ubuntu</code> 中, 则是 <code>sudo</code> 组的成员.</p>
+</blockquote>
+<h4 id="4-在新的用户账户中-测试-sudo-使用权"><a href="#4-在新的用户账户中-测试-sudo-使用权" class="headerlink" title="4. 在新的用户账户中, 测试 sudo 使用权"></a>4. 在新的用户账户中, 测试 <code>sudo</code> 使用权</h4><ul>
+<li><p>使用 <code>su</code> 命令切换到新用户的账户</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ su - [user-name]</div></pre></td></tr></table></figure>
+</li>
+<li><p>作为新用户, 在你想运行命令的前面添加上 <code>sudo</code>, 去检测是否可以使用超级用户权限去运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">username$ sudo command_to_run</div></pre></td></tr></table></figure>
+</li>
+<li><p>例如, 你可以尝试显示 <code>/root</code> 目录下的内容, 一般这仅对于 <code>root</code> 用户才可以访问</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">username$ sudo ls -lah /root</div></pre></td></tr></table></figure></li>
+</ul>
 
       
     </div>
@@ -384,7 +300,11 @@ new1$ hexo new [layout] &amp;lt;title&amp;gt;
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag">#hexo</a>
+            <a href="/tags/CentOS/" rel="tag">#CentOS</a>
+          
+            <a href="/tags/linux/" rel="tag">#linux</a>
+          
+            <a href="/tags/Ubuntu/" rel="tag">#Ubuntu</a>
           
         </div>
       
@@ -393,17 +313,13 @@ new1$ hexo new [layout] &amp;lt;title&amp;gt;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016-04-13-svn-ignore.html" rel="next" title="svn:ignore 的用法(忽略文件及目录)">
-                <i class="fa fa-chevron-left"></i> svn:ignore 的用法(忽略文件及目录)
+              <a href="/2017-09-14-centos7-firewall.html" rel="next" title="CentOS 7 配置防火墙">
+                <i class="fa fa-chevron-left"></i> CentOS 7 配置防火墙
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016-10-26-xcode-install-simulators-manually.html" rel="prev" title="手动安装 Xcode simulator">
-                手动安装 Xcode simulator <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
