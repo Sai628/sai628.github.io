@@ -58,18 +58,18 @@
 
 
 
-<meta name="description" content="介绍在 Linux 系统中, 一般对于非 root 用户, 想要使用管理员权限去运行一些命令的话, 可以在命令的前面加上 sudo(这要求当前运行命令的用户能够具有 sudo 的使用权).
+<meta name="description" content="介绍在 Linux 系统中, 一般对于非 root 用户, 想要使用管理员权限去运行一些命令的话, 可以在命令的前面加上 sudo(这要求当前运行命令的用户具有 sudo 的使用权).
 本文将介绍一种很简单的方式去创建具有 sudo 使用权的系统新用户, 并且不需要修改你服务器上的 sudoers 文件. 若你想直接对已存在的用户配置 sudo 的使用权, 可以直接跳到步骤3.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在 CentOS 或 Ubuntu 中添加 Sudo User">
 <meta property="og:url" content="http://sai628.com/2017-12-25-centos-and-ubuntu-add-sudo-user.html">
 <meta property="og:site_name" content="Sai628">
-<meta property="og:description" content="介绍在 Linux 系统中, 一般对于非 root 用户, 想要使用管理员权限去运行一些命令的话, 可以在命令的前面加上 sudo(这要求当前运行命令的用户能够具有 sudo 的使用权).
+<meta property="og:description" content="介绍在 Linux 系统中, 一般对于非 root 用户, 想要使用管理员权限去运行一些命令的话, 可以在命令的前面加上 sudo(这要求当前运行命令的用户具有 sudo 的使用权).
 本文将介绍一种很简单的方式去创建具有 sudo 使用权的系统新用户, 并且不需要修改你服务器上的 sudoers 文件. 若你想直接对已存在的用户配置 sudo 的使用权, 可以直接跳到步骤3.">
-<meta property="og:updated_time" content="2017-12-25T13:22:12.216Z">
+<meta property="og:updated_time" content="2017-12-26T03:33:45.637Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在 CentOS 或 Ubuntu 中添加 Sudo User">
-<meta name="twitter:description" content="介绍在 Linux 系统中, 一般对于非 root 用户, 想要使用管理员权限去运行一些命令的话, 可以在命令的前面加上 sudo(这要求当前运行命令的用户能够具有 sudo 的使用权).
+<meta name="twitter:description" content="介绍在 Linux 系统中, 一般对于非 root 用户, 想要使用管理员权限去运行一些命令的话, 可以在命令的前面加上 sudo(这要求当前运行命令的用户具有 sudo 的使用权).
 本文将介绍一种很简单的方式去创建具有 sudo 使用权的系统新用户, 并且不需要修改你服务器上的 sudoers 文件. 若你想直接对已存在的用户配置 sudo 的使用权, 可以直接跳到步骤3.">
 
 
@@ -254,7 +254,7 @@
       
 
       
-        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>在 <code>Linux</code> 系统中, 一般对于非 <code>root</code> 用户, 想要使用管理员权限去运行一些命令的话, 可以在命令的前面加上 <code>sudo</code>(这要求当前运行命令的用户能够具有 <code>sudo</code> 的使用权).</p>
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>在 <code>Linux</code> 系统中, 一般对于非 <code>root</code> 用户, 想要使用管理员权限去运行一些命令的话, 可以在命令的前面加上 <code>sudo</code>(这要求当前运行命令的用户具有 <code>sudo</code> 的使用权).</p>
 <p>本文将介绍一种很简单的方式去创建具有 <code>sudo</code> 使用权的系统新用户, 并且不需要修改你服务器上的 <code>sudoers</code> 文件. 若你想直接对已存在的用户配置 <code>sudo</code> 的使用权, 可以直接跳到步骤3.</p>
 <a id="more"></a>
 <p><br></p>
@@ -276,7 +276,8 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">username$ sudo command_to_run</div></pre></td></tr></table></figure>
 </li>
 <li><p>例如, 你可以尝试显示 <code>/root</code> 目录下的内容, 一般这仅对于 <code>root</code> 用户才可以访问</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">username$ sudo ls -lah /root</div></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">username$ sudo ls -lah /root</div></pre></td></tr></table></figure>
+</li>
 </ul>
 
       
