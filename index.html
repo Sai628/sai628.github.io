@@ -213,6 +213,107 @@
             
               
                 
+                <a class="post-title-link" href="/2018-06-05-setup-ethereum-private-net-on-macos.html" itemprop="url">
+                  macOS 在本地搭建 Ethereum 私有链
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2018-06-05T18:41:12+08:00" content="2018-06-05">
+              2018-06-05
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h5 id="1-安装-Go-语言开发环境"><a href="#1-安装-Go-语言开发环境" class="headerlink" title="1. 安装 Go 语言开发环境"></a>1. 安装 Go 语言开发环境</h5><p>参见 Golang 官方安装向导: <a href="https://golang.org/doc/install">https://golang.org/doc/install</a></p>
+<p><br/></p>
+<h5 id="2-安装-Geth-环境"><a href="#2-安装-Geth-环境" class="headerlink" title="2. 安装 Geth 环境"></a>2. 安装 Geth 环境</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ brew tap ethereum/ethereum <span class="comment"># 添加仓库</span></div><div class="line">$ brew install ethereum  <span class="comment"># 安装 go-ethereum</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>通过 <code>geth -h</code> 查看是否安装成功</p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018-06-05-setup-ethereum-private-net-on-macos.html#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2018-01-03-effective-java-summary-03-methods-common-to-all-objects.html" itemprop="url">
                   Effective Java中文版(第2版)读书笔记总结之 三(对于所有对象都通用的方法)
                 </a>
@@ -595,100 +696,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017-09-14-centos7-firewall.html" itemprop="url">
-                  CentOS 7 配置防火墙
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2017-09-14T14:38:52+08:00" content="2017-09-14">
-              2017-09-14
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ systemctl &#123; <span class="built_in">enable</span> | start | stop | restart | status &#125; firewalld  <span class="comment"># 防火墙 启用|运行|停止|重启|查看状态</span></div><div class="line"></div><div class="line">$ firewall-cmd --state  <span class="comment"># 检查防火墙状态</span></div><div class="line">$ firewall-cmd --list-all  <span class="comment"># 查看防火墙配置信息</span></div><div class="line">$ firewall-cmd --zone=public --add-port=80/tcp --permanent    <span class="comment"># 永久开放80端口TCP协议</span></div><div class="line">$ firewall-cmd --zone=public --add-port=5000/udp --permanent  <span class="comment"># 永久开放5000端口UDP协议</span></div><div class="line">$ firewall-cmd --reload  <span class="comment"># 重新加载防火墙配置</span></div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -734,7 +741,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-count">30</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -744,7 +751,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">35</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
