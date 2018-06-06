@@ -77,41 +77,72 @@ $ geth init ./genesis.json --datadir "./chain"
 <br/>
 
 ## 5. 启动私有链
+
 ```bash
 $ geth --datadir "./chain" --networkid 15 --identity "TestNode" --rpc \
-$ --rpcport "8545" --port "30303" --nodiscover console 2>console.log
+$ --rpcport "8545" --port "30303" --rpcaddr "0.0.0.0" --rpccorsdomain "*" \
+$ --rpcapi "db,eth,net,web3" --nodiscover console 2>console.log
 ```
 
-- datadir: 指定当前区块链网络数据存放的位置
-- networkid: 设置当前区块链的网络ID，用于区分不同的网络，是一个数字(1表示 Ethereum 主链, 默认为1)
-- identity: 区块链的标示，随便填写，用于标示目前网络的名字
-- rpc: 启动rpc通信，可以进行智能合约的部署和调试
-- rpcport: rpc端口号. 默认为8545
-- port: P2P网络监听端口. 默认为30303
+- datadir: 指定当前区块链网络数据存放的位置.
+- networkid: 设置当前区块链的网络ID，用于区分不同的网络，是一个数字(1表示 Ethereum 主链, 默认为1).
+- identity: 区块链的标示，随便填写，用于标示目前网络的名字.
+- rpc: 启动rpc通信，可以进行智能合约的部署和调试.
+- rpcport: rpc端口号, 默认为8545.
+- port: P2P网络监听端口, 默认为30303.
+- rpcaddr: 指定监听地址, 默认为127.0.0.1. 设置为"0.0.0.0"表示监听所有的地址, 允许外部进行RPC连接(从安全性上考虑, 建议 __不要__ 指定该值).
+- rpccorsdomain: 指定RPC可跨域连接的域名. 设置为"*"表示允许所有的域名连接(从安全性上考虑, 建议 __不要__ 指定该值).
+- rpcapi: 指定允许连接的RPC客户端的API方法, 默认为"db,eth,net,web3"
 - nodiscover: 禁止被发现. 添加这个参数可以确保你的节点不会被非手动添加你的人发现. 否则，你的节点可能因为你与其它的链有相同的创世文件和网络ID而被陌生人的区块链无意添加.
 - console: 启动命令行模式，可以在Geth中执行命令
 
 <br/>
 
-## 6. 使用 Ethereum Wallet 连接本地私有链
+## 6. 使用 geth 连接已启动的节点
+
+当启动一个本地或远程的私有链节点后, 可通过使用 `geth attach` 命令连接上该节点上.
+
+#### 通过本地IPC的方式:
+```bash
+$ geth attach "<path-of-datadir>/geth.ipc"  #连接本地的IPC
+```
+
+#### 通过HTTP-RPC的方式:
+```bash
+$ geth attach http://localhost:8545  #localhost换成远程IP, 可连接到远程节点上
+```
+
+> 当通过RPC方式连接远程节点时, 需要暴露远程节点的RPC端口与地址, 而 geth 默认是没有相应的鉴权机制, 而会存在安全性问题.
+> __推荐使用以下的方式连接:__
+
+```bash
+$ ssh user@remote-ip "geth attach ipc:///<path-of-datadir>/geth.ipc"
+```
+
+例如: 
+```bash
+$ ssh root@11.22.33.44 "geth attach ipc:///root/Ethereum/chain/geth.ipc"
+```
+
+<br/>
+
+## 7. 使用 Ethereum Wallet 连接私有链
 先到 Ethereum 的官网下载 Wallet 应用: https://www.ethereum.org
 
 安装 Ethereum Wallet 应用后, 若直接运行, 它将会尝试连接 Ethereum 的主网络.  
 若我们没创建私有链, 或者没有启动本地私有链的话, 运行 Ethereum Wallet 应该是没问题的. 如果我们启动了本地私有链并且没有更改默认端口 30303, 打开 Ethereum Wallet 会报无法连接节点的错误:
 > Fatal: Error starting protocol stack: listen tcp :30303: bind: address already in use
 
-这是因为我们刚启动的私有链占用了 30303 端口, Ethereum 启动也需要使用 30303 端口.
+这是因为我们刚启动的私有链占用了 30303 端口, Ethereum 启动也需要使用 30303 端口. 所以这里我们使用命令行的方式启动 Ethereum Wallet:
 
-所以这里我们使用命令行的方式启动 Ethereum Wallet:
-
+#### 通过本地IPC的方式:
 ```bash
 $ cd /Applications/Ethereum\ Wallet.app/Contents/MacOS
-$ ./Ethereum\ Wallet --rpc "私有链的ipc地址"
+$ ./Ethereum\ Wallet --rpc "/Users/Sai/opt/Ethereum/chain/geth.ipc"
 ```
 
-
-
-
-
-
-
+#### 通过HTTP-RPC的方式:
+```bash
+$ cd /Applications/Ethereum\ Wallet.app/Contents/MacOS
+$ ./Ethereum\ Wallet --rpc http://localhost:8545  #localhost换成远程IP, 可连接到远程节点上
+```
