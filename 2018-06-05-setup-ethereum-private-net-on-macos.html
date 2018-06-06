@@ -72,7 +72,7 @@
 2. 安装 Geth 客户端12$ brew tap ethereum/ethereum # 添加仓库$ brew install ethereum  # 安装 go-ethereum
 
 通过 geth -h 查看是否安装成功">
-<meta property="og:updated_time" content="2018-06-06T04:38:26.474Z">
+<meta property="og:updated_time" content="2018-06-06T10:57:34.753Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在 macOS 中搭建 Ethereum 私有链">
 <meta name="twitter:description" content="1. 安装 Go 语言开发环境参见 Golang 官方安装向导: https://golang.org/doc/install
@@ -292,26 +292,38 @@
 <li>datadir: 指定数据存放的文件夹</li>
 </ul>
 <p><br></p>
-<h2 id="5-启动私有链"><a href="#5-启动私有链" class="headerlink" title="5. 启动私有链"></a>5. 启动私有链</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ geth --datadir <span class="string">"./chain"</span> --networkid 15 --identity <span class="string">"TestNode"</span> --rpc \</div><div class="line">$ --rpcport <span class="string">"8545"</span> --port <span class="string">"30303"</span> --nodiscover console 2&gt;console.log</div></pre></td></tr></table></figure>
+<h2 id="5-启动私有链"><a href="#5-启动私有链" class="headerlink" title="5. 启动私有链"></a>5. 启动私有链</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ geth --datadir <span class="string">"./chain"</span> --networkid 15 --identity <span class="string">"TestNode"</span> --rpc \</div><div class="line">$ --rpcport <span class="string">"8545"</span> --port <span class="string">"30303"</span> --rpcaddr <span class="string">"0.0.0.0"</span> --rpccorsdomain <span class="string">"*"</span> \</div><div class="line">$ --rpcapi <span class="string">"db,eth,net,web3"</span> --nodiscover console 2&gt;console.log</div></pre></td></tr></table></figure>
 <ul>
-<li>datadir: 指定当前区块链网络数据存放的位置</li>
-<li>networkid: 设置当前区块链的网络ID，用于区分不同的网络，是一个数字(1表示 Ethereum 主链, 默认为1)</li>
-<li>identity: 区块链的标示，随便填写，用于标示目前网络的名字</li>
-<li>rpc: 启动rpc通信，可以进行智能合约的部署和调试</li>
-<li>rpcport: rpc端口号. 默认为8545</li>
-<li>port: P2P网络监听端口. 默认为30303</li>
+<li>datadir: 指定当前区块链网络数据存放的位置.</li>
+<li>networkid: 设置当前区块链的网络ID，用于区分不同的网络，是一个数字(1表示 Ethereum 主链, 默认为1).</li>
+<li>identity: 区块链的标示，随便填写，用于标示目前网络的名字.</li>
+<li>rpc: 启动rpc通信，可以进行智能合约的部署和调试.</li>
+<li>rpcport: rpc端口号, 默认为8545.</li>
+<li>port: P2P网络监听端口, 默认为30303.</li>
+<li>rpcaddr: 指定监听地址, 默认为127.0.0.1. 设置为”0.0.0.0”表示监听所有的地址, 允许外部进行RPC连接(从安全性上考虑, 建议 <strong>不要</strong> 指定该值).</li>
+<li>rpccorsdomain: 指定RPC可跨域连接的域名. 设置为”*”表示允许所有的域名连接(从安全性上考虑, 建议 <strong>不要</strong> 指定该值).</li>
+<li>rpcapi: 指定允许连接的RPC客户端的API方法, 默认为”db,eth,net,web3”</li>
 <li>nodiscover: 禁止被发现. 添加这个参数可以确保你的节点不会被非手动添加你的人发现. 否则，你的节点可能因为你与其它的链有相同的创世文件和网络ID而被陌生人的区块链无意添加.</li>
 <li>console: 启动命令行模式，可以在Geth中执行命令</li>
 </ul>
 <p><br></p>
-<h2 id="6-使用-Ethereum-Wallet-连接本地私有链"><a href="#6-使用-Ethereum-Wallet-连接本地私有链" class="headerlink" title="6. 使用 Ethereum Wallet 连接本地私有链"></a>6. 使用 Ethereum Wallet 连接本地私有链</h2><p>先到 Ethereum 的官网下载 Wallet 应用: <a href="https://www.ethereum.org" target="_blank" rel="external">https://www.ethereum.org</a></p>
+<h2 id="6-使用-geth-连接已启动的节点"><a href="#6-使用-geth-连接已启动的节点" class="headerlink" title="6. 使用 geth 连接已启动的节点"></a>6. 使用 geth 连接已启动的节点</h2><p>当启动一个本地或远程的私有链节点后, 可通过使用 <code>geth attach</code> 命令连接上该节点上.</p>
+<h4 id="通过本地IPC的方式"><a href="#通过本地IPC的方式" class="headerlink" title="通过本地IPC的方式:"></a>通过本地IPC的方式:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ geth attach <span class="string">"&lt;path-of-datadir&gt;/geth.ipc"</span>  <span class="comment">#连接本地的IPC</span></div></pre></td></tr></table></figure>
+<h4 id="通过HTTP-RPC的方式"><a href="#通过HTTP-RPC的方式" class="headerlink" title="通过HTTP-RPC的方式:"></a>通过HTTP-RPC的方式:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ geth attach http://localhost:8545  <span class="comment">#localhost换成远程IP, 可连接到远程节点上</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>当通过RPC方式连接远程节点时, 需要暴露远程节点的RPC端口与地址, 而 geth 默认是没有相应的鉴权机制, 而会存在安全性问题.<br><strong>推荐使用以下的方式连接:</strong></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh user@remote-ip <span class="string">"geth attach ipc:///&lt;path-of-datadir&gt;/geth.ipc"</span></div></pre></td></tr></table></figure>
+<p>例如:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh root@11.22.33.44 <span class="string">"geth attach ipc:///root/Ethereum/chain/geth.ipc"</span></div></pre></td></tr></table></figure></p>
+<p><br></p>
+<h2 id="7-使用-Ethereum-Wallet-连接私有链"><a href="#7-使用-Ethereum-Wallet-连接私有链" class="headerlink" title="7. 使用 Ethereum Wallet 连接私有链"></a>7. 使用 Ethereum Wallet 连接私有链</h2><p>先到 Ethereum 的官网下载 Wallet 应用: <a href="https://www.ethereum.org" target="_blank" rel="external">https://www.ethereum.org</a></p>
 <p>安装 Ethereum Wallet 应用后, 若直接运行, 它将会尝试连接 Ethereum 的主网络.<br>若我们没创建私有链, 或者没有启动本地私有链的话, 运行 Ethereum Wallet 应该是没问题的. 如果我们启动了本地私有链并且没有更改默认端口 30303, 打开 Ethereum Wallet 会报无法连接节点的错误:</p>
 <blockquote>
 <p>Fatal: Error starting protocol stack: listen tcp :30303: bind: address already in use</p>
 </blockquote>
-<p>这是因为我们刚启动的私有链占用了 30303 端口, Ethereum 启动也需要使用 30303 端口.</p>
-<p>所以这里我们使用命令行的方式启动 Ethereum Wallet:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> /Applications/Ethereum\ Wallet.app/Contents/MacOS</div><div class="line">$ ./Ethereum\ Wallet --rpc <span class="string">"私有链的ipc地址"</span></div></pre></td></tr></table></figure>
+<p>这是因为我们刚启动的私有链占用了 30303 端口, Ethereum 启动也需要使用 30303 端口. 所以这里我们使用命令行的方式启动 Ethereum Wallet:</p>
+<h4 id="通过本地IPC的方式-1"><a href="#通过本地IPC的方式-1" class="headerlink" title="通过本地IPC的方式:"></a>通过本地IPC的方式:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> /Applications/Ethereum\ Wallet.app/Contents/MacOS</div><div class="line">$ ./Ethereum\ Wallet --rpc <span class="string">"/Users/Sai/opt/Ethereum/chain/geth.ipc"</span></div></pre></td></tr></table></figure>
+<h4 id="通过HTTP-RPC的方式-1"><a href="#通过HTTP-RPC的方式-1" class="headerlink" title="通过HTTP-RPC的方式:"></a>通过HTTP-RPC的方式:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> /Applications/Ethereum\ Wallet.app/Contents/MacOS</div><div class="line">$ ./Ethereum\ Wallet --rpc http://localhost:8545  <span class="comment">#localhost换成远程IP, 可连接到远程节点上</span></div></pre></td></tr></table></figure>
 
       
     </div>
