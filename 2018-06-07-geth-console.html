@@ -1,0 +1,739 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="BlockChain,Ethereum,geth," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="当我们搭建了一条以太坊的私有链后, 使用 geth console 命令可启动节点, 并进入一个交互式的控制台.
+1$ geth --datadir &quot;./chain&quot; --networkid 15 console
+运行上面命令后, 将会得到像以下的输出:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="go-ethereum 的常用 console 命令">
+<meta property="og:url" content="http://sai628.com/2018-06-07-geth-console.html">
+<meta property="og:site_name" content="Sai628">
+<meta property="og:description" content="当我们搭建了一条以太坊的私有链后, 使用 geth console 命令可启动节点, 并进入一个交互式的控制台.
+1$ geth --datadir &quot;./chain&quot; --networkid 15 console
+运行上面命令后, 将会得到像以下的输出:">
+<meta property="og:updated_time" content="2018-06-07T09:27:01.786Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="go-ethereum 的常用 console 命令">
+<meta name="twitter:description" content="当我们搭建了一条以太坊的私有链后, 使用 geth console 命令可启动节点, 并进入一个交互式的控制台.
+1$ geth --datadir &quot;./chain&quot; --networkid 15 console
+运行上面命令后, 将会得到像以下的输出:">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://sai628.com/2018-06-07-geth-console.html"/>
+
+
+  <title> go-ethereum 的常用 console 命令 | Sai628 </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Sai628</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                go-ethereum 的常用 console 命令
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2018-06-07T13:04:48+08:00" content="2018-06-07">
+              2018-06-07
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>当我们搭建了一条以太坊的私有链后, 使用 <code>geth console</code> 命令可启动节点, 并进入一个交互式的控制台.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ geth --datadir <span class="string">"./chain"</span> --networkid 15 console</div></pre></td></tr></table></figure>
+<p>运行上面命令后, 将会得到像以下的输出:</p>
+<a id="more"></a>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">INFO [06-07|13:29:04] Maximum peer count                       ETH=25 LES=0 total=25</div><div class="line">INFO [06-07|13:29:04] Starting peer-to-peer node               instance=Geth/v1.8.10-stable/darwin-amd64/go1.10.2</div><div class="line">INFO [06-07|13:29:04] Allocated cache and file handles         database=/Users/Sai/opt/Ethereum/chain/geth/chaindata cache=768 handles=1024</div><div class="line">... <span class="comment">#中间省略 </span></div><div class="line">...</div><div class="line">WARN [06-07|13:29:04] Blockchain not empty, fast sync disabled</div><div class="line">INFO [06-07|13:29:04] Starting P2P networking</div><div class="line">INFO [06-07|13:29:04] UDP listener up                          self=enode://0f28c8850e733dabbcc4845191c3013c5c73c7d338cc62<span class="built_in">fc</span>79318111765fd49db48724b0874b0ab32<span class="built_in">cd</span>259f32feaf6e794a7a036d99749766c867ada0589ea9f@192.168.1.18:30303</div><div class="line">INFO [06-07|13:29:04] RLPx listener up                         self=enode://0f28c8850e733dabbcc4845191c3013c5c73c7d338cc62<span class="built_in">fc</span>79318111765fd49db48724b0874b0ab32<span class="built_in">cd</span>259f32feaf6e794a7a036d99749766c867ada0589ea9f@192.168.1.18:30303</div><div class="line">INFO [06-07|13:29:04] IPC endpoint opened                      url=/Users/Sai/opt/Ethereum/chain/geth.ipc</div><div class="line">Welcome to the Geth JavaScript console!</div><div class="line"></div><div class="line">instance: Geth/v1.8.10-stable/darwin-amd64/go1.10.2</div><div class="line">INFO [06-07|13:29:04] Mapped network port                      proto=udp extport=30303 intport=30303 interface=NAT-PMP(192.168.199.1)</div><div class="line">INFO [06-07|13:29:04] Etherbase automatically configured       address=0xD2b80AE509A46Af16B2dD7480C6b00e073133ad1</div><div class="line">coinbase: 0xd2b80ae509a46af16b2dd7480c6b00e073133ad1</div><div class="line">at block: 3735 (Wed, 06 Jun 2018 17:52:40 CST)</div><div class="line"> datadir: /Users/Sai/opt/Ethereum/chain</div><div class="line"> modules: admin:1.0 debug:1.0 eth:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0</div><div class="line"></div><div class="line">&gt; INFO [06-07|13:29:04] Mapped network port                      proto=tcp extport=30303 intport=30303 interface=NAT-PMP(192.168.199.1)</div><div class="line"></div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<p>这是一个交互式的 Javascript 执行环境, 可以直接在 <code>&gt;</code> 提示符后输入 Javascript 代码, 它会将执行后的结果在当前窗口中输出.<br>不过很可能一些 <code>console</code> 的日志或辅助信息也会在当前窗口中输出, 影响 Javascript 代码结果的查看. 所以一个更好的启动 <code>geth console</code> 方式, 是使用以下的命令, 将 <code>console</code> 的输出重定向到一个文件中:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ geth --datadir <span class="string">"./chain"</span> --networkid 15 console 2&gt; console.log</div></pre></td></tr></table></figure>
+<p>运行上面的命令后, 我们将进入一个更清爽的交互式环境:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Welcome to the Geth JavaScript console!</div><div class="line"></div><div class="line">instance: Geth/v1.8.10-stable/darwin-amd64/go1.10.2</div><div class="line">coinbase: 0xd2b80ae509a46af16b2dd7480c6b00e073133ad1</div><div class="line">at block: 3735 (Wed, 06 Jun 2018 17:52:40 CST)</div><div class="line"> datadir: /Users/Sai/opt/Ethereum/chain</div><div class="line"> modules: admin:1.0 debug:1.0 eth:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0</div><div class="line"></div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<p>然后我们可以另起一个终端窗口, 使用命令 <code>tail -f console.log</code> 来查看 <code>console</code> 的日志或辅助信息输出.</p>
+<p>在这个交互式的 Javascript 执行环境中, 内置了一些用来操作 Ethereum 节点网络的 Javascript 对象. 它们提供的功能很丰富, 比如: 查看区块与交易信息、创建账户、挖矿、发送交易、部署智能合约、管理节点、查看内存池状态等等. 在进入 Javascript 的执行环境后, 我们可以直接使用这些对象. </p>
+<p><strong>内置对象列表:</strong></p>
+<!-- 重写表格宽度的样式 -->
+<style>
+    table th:nth-of-type(1) {
+        width: 100px;
+    }
+</style>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left">对象</th>
+<th style="text-align:left">用处</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">personal</td>
+<td style="text-align:left">包含与账户管理相关的方法</td>
+</tr>
+<tr>
+<td style="text-align:left">admin</td>
+<td style="text-align:left">包含与节点节点相关的方法</td>
+</tr>
+<tr>
+<td style="text-align:left">miner</td>
+<td style="text-align:left">包含启动或停止挖矿的方法</td>
+</tr>
+<tr>
+<td style="text-align:left">eth</td>
+<td style="text-align:left">包含与操作区块链相关的方法</td>
+</tr>
+<tr>
+<td style="text-align:left">net</td>
+<td style="text-align:left">包含一些查看P2P网络状态的方法</td>
+</tr>
+<tr>
+<td style="text-align:left">txpool</td>
+<td style="text-align:left">包含一些查看交易内存池的方法</td>
+</tr>
+<tr>
+<td style="text-align:left">web3</td>
+<td style="text-align:left">包含了以上的对象, 还包含一些有关单位换算的工具类方法</td>
+</tr>
+</tbody>
+</table>
+<p>下面将介绍这些内置对象常用方法的使用. 前面带 <code>&gt;</code> 字符的表示输入的 Javascript 命令代码, 其它的表示输出.</p>
+<p><br></p>
+<h2 id="1-账户管理"><a href="#1-账户管理" class="headerlink" title="1. 账户管理"></a>1. 账户管理</h2><h3 id="1-1-查看账户"><a href="#1-1-查看账户" class="headerlink" title="1.1 查看账户"></a>1.1 查看账户</h3><p>先查看一下当前节点的账户信息:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; personal.listAccounts</div><div class="line">[]</div></pre></td></tr></table></figure></p>
+<p>或者使用以下命令查看:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; eth.accounts</div><div class="line">[]</div></pre></td></tr></table></figure></p>
+<h3 id="1-2-创建账户"><a href="#1-2-创建账户" class="headerlink" title="1.2 创建账户"></a>1.2 创建账户</h3><p>此时节点网络中没有任何的账户, 我们可以使用 <code>personal</code> 对象来创建账户:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; personal.newAccount()</div><div class="line">Passphrase:</div><div class="line">Repeat passphrase:</div><div class="line"><span class="string">"0x4378f11e3d4a1e26381cfd285f3237d4b7fc5593"</span></div></pre></td></tr></table></figure></p>
+<p>也可以在创建账户时, 指定密码:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; personal.newAccount(<span class="string">"123456"</span>)</div><div class="line"><span class="string">"0xe74fc1abfbac8f598a979b11f23177f69f4de6de"</span></div></pre></td></tr></table></figure></p>
+<p>我们再次查看账户:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; personal.listAccounts</div><div class="line">[<span class="string">"0x4378f11e3d4a1e26381cfd285f3237d4b7fc5593"</span>, <span class="string">"0xe74fc1abfbac8f598a979b11f23177f69f4de6de"</span>]</div></pre></td></tr></table></figure></p>
+<p>查看指定账户:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; personal.listAccounts[0]</div><div class="line"><span class="string">"0x4378f11e3d4a1e26381cfd285f3237d4b7fc5593"</span></div></pre></td></tr></table></figure></p>
+<h3 id="1-3-解锁账户"><a href="#1-3-解锁账户" class="headerlink" title="1.3 解锁账户"></a>1.3 解锁账户</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; personal.unlockAccount(eth.accounts[0])</div><div class="line">Unlock account 0x4378f11e3d4a1e26381cfd285f3237d4b7<span class="built_in">fc</span>5593</div><div class="line">Passphrase:</div><div class="line"><span class="literal">true</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>当进行发送交易时, 需要先对转出的账户进行解锁操作.</strong></p>
+</blockquote>
+<p>可以指定过期时间, 单位为秒(以下为设置5分钟后解锁过期):<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; personal.unlockAccount(eth.accounts[1], <span class="string">"123456"</span>, 60*5)</div><div class="line"><span class="literal">true</span></div></pre></td></tr></table></figure></p>
+<p>假如我们想在指定过期时间时, 依然在密码提示符后输入密码, 而不是直接在代码命令中输入密码明文, 可以在密码参数一项传入 <code>null</code>:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; personal.unlockAccount(eth.accounts[1], null, 60*5)</div><div class="line">Unlock account 0xe74<span class="built_in">fc</span>1abfbac8f598a979b11f23177f69f4de6de</div><div class="line">Passphrase:</div><div class="line"><span class="literal">true</span></div></pre></td></tr></table></figure></p>
+<h3 id="1-4-查看钱包的所有账户信息"><a href="#1-4-查看钱包的所有账户信息" class="headerlink" title="1.4 查看钱包的所有账户信息"></a>1.4 查看钱包的所有账户信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&gt; personal.listWallets</div><div class="line">[&#123;</div><div class="line">    accounts: [&#123;</div><div class="line">        address: <span class="string">"0x4378f11e3d4a1e26381cfd285f3237d4b7fc5593"</span>,</div><div class="line">        url: <span class="string">"keystore:///Users/Sai/opt/Ethereum/chain/keystore/UTC--2018-06-07T06-24-49.837760495Z--4378f11e3d4a1e26381cfd285f3237d4b7fc5593"</span></div><div class="line">    &#125;],</div><div class="line">    status: <span class="string">"Unlocked"</span>,</div><div class="line">    url: <span class="string">"keystore:///Users/Sai/opt/Ethereum/chain/keystore/UTC--2018-06-07T06-24-49.837760495Z--4378f11e3d4a1e26381cfd285f3237d4b7fc5593"</span></div><div class="line">&#125;, &#123;</div><div class="line">    accounts: [&#123;</div><div class="line">        address: <span class="string">"0xe74fc1abfbac8f598a979b11f23177f69f4de6de"</span>,</div><div class="line">        url: <span class="string">"keystore:///Users/Sai/opt/Ethereum/chain/keystore/UTC--2018-06-07T06-27-20.273464191Z--e74fc1abfbac8f598a979b11f23177f69f4de6de"</span></div><div class="line">    &#125;],</div><div class="line">    status: <span class="string">"Locked"</span>,</div><div class="line">    url: <span class="string">"keystore:///Users/Sai/opt/Ethereum/chain/keystore/UTC--2018-06-07T06-27-20.273464191Z--e74fc1abfbac8f598a979b11f23177f69f4de6de"</span></div><div class="line">&#125;]</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="2-admin-管理"><a href="#2-admin-管理" class="headerlink" title="2. admin 管理"></a>2. admin 管理</h2><h3 id="2-1-查看数据目录"><a href="#2-1-查看数据目录" class="headerlink" title="2.1 查看数据目录"></a>2.1 查看数据目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; admin.datadir</div><div class="line"><span class="string">"/Users/Sai/opt/Ethereum/chain"</span></div></pre></td></tr></table></figure>
+<h3 id="2-2-显示当前节点信息"><a href="#2-2-显示当前节点信息" class="headerlink" title="2.2 显示当前节点信息"></a>2.2 显示当前节点信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">&gt; admin.nodeInfo</div><div class="line">&#123;</div><div class="line">  enode: <span class="string">"enode://a14d711a9cd37c00c10807edda1a0ad5f7076125132319cbc8ce1a37cfadb4db22028be6b8103bea208ceb114e4ed81fbd5f3fa927561a90b9f52b725ef4fa0e@192.168.1.18:30303"</span>,</div><div class="line">  id: <span class="string">"a14d711a9cd37c00c10807edda1a0ad5f7076125132319cbc8ce1a37cfadb4db22028be6b8103bea208ceb114e4ed81fbd5f3fa927561a90b9f52b725ef4fa0e"</span>,</div><div class="line">  ip: <span class="string">"192.168.1.18"</span>,</div><div class="line">  listenAddr: <span class="string">"[::]:30303"</span>,</div><div class="line">  name: <span class="string">"Geth/v1.8.10-stable/darwin-amd64/go1.10.2"</span>,</div><div class="line">  ports: &#123;</div><div class="line">    discovery: 30303,</div><div class="line">    listener: 30303</div><div class="line">  &#125;,</div><div class="line">  protocols: &#123;</div><div class="line">    eth: &#123;</div><div class="line">      config: &#123;</div><div class="line">        chainId: 15,</div><div class="line">        eip150Hash: <span class="string">"0x0000000000000000000000000000000000000000000000000000000000000000"</span>,</div><div class="line">        eip155Block: 0,</div><div class="line">        eip158Block: 0,</div><div class="line">        homesteadBlock: 0</div><div class="line">      &#125;,</div><div class="line">      difficulty: 1024,</div><div class="line">      genesis: <span class="string">"0x2720038ef46044a7a895296b85745294340ecfcedc32f8c9e9802129aeb62890"</span>,</div><div class="line">      head: <span class="string">"0x2720038ef46044a7a895296b85745294340ecfcedc32f8c9e9802129aeb62890"</span>,</div><div class="line">      network: 15</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="2-3-查看当前节点地址"><a href="#2-3-查看当前节点地址" class="headerlink" title="2.3 查看当前节点地址"></a>2.3 查看当前节点地址</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; admin.nodeInfo.enode</div><div class="line"><span class="string">"enode://a14d711a9cd37c00c10807edda1a0ad5f7076125132319cbc8ce1a37cfadb4db22028be6b8103bea208ceb114e4ed81fbd5f3fa927561a90b9f52b725ef4fa0e@192.168.1.18:30303"</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>其中的 192.168.1.18 表示 ipv4 地址, 也可能为 “[::]”, 表示 ipv6 地址.</p>
+</blockquote>
+<h3 id="2-4-查看-networkid"><a href="#2-4-查看-networkid" class="headerlink" title="2.4 查看 networkid"></a>2.4 查看 networkid</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; admin.nodeInfo.protocols.eth.network</div><div class="line">15</div></pre></td></tr></table></figure>
+<h3 id="2-5-添加其它节点"><a href="#2-5-添加其它节点" class="headerlink" title="2.5 添加其它节点"></a>2.5 添加其它节点</h3><p>可以通过 <code>admin.addPeer(&quot;节点地址&quot;)</code> 方法连接到其它节点. 两个节点要想联通, 必须保证网络是相通的, 并且要指定相同的 networkid. 而且启动节点时, 注意去掉 –nodiscover 参数.</p>
+<p>先确保网络可用:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; net.listening</div><div class="line"><span class="literal">true</span></div></pre></td></tr></table></figure></p>
+<p>添加其它节点:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; admin.addPeer(<span class="string">"enode://87c10977acb3f48718e3a980a27f39e9c7a0bf00143f2b9143a22fa96e33e6b519d7e8407a32f5a61f9c6eb139d6bd46ad7f7288f169d0d0689e881d76e997c1@192.168.1.18:30301"</span>)</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>其中的节点地址, 是使用以下命令另外启动的一个节点:<br><code>geth --datadir &quot;./chain2&quot; --networkid 15 --port 30301 console 2&gt; console2.log</code></p>
+</blockquote>
+<h3 id="2-6-查看其它Peer节点信息"><a href="#2-6-查看其它Peer节点信息" class="headerlink" title="2.6 查看其它Peer节点信息"></a>2.6 查看其它Peer节点信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&gt; admin.peers</div><div class="line">[&#123;</div><div class="line">    caps: [<span class="string">"eth/63"</span>],</div><div class="line">    id: <span class="string">"87c10977acb3f48718e3a980a27f39e9c7a0bf00143f2b9143a22fa96e33e6b519d7e8407a32f5a61f9c6eb139d6bd46ad7f7288f169d0d0689e881d76e997c1"</span>,</div><div class="line">    name: <span class="string">"Geth/v1.8.10-stable/darwin-amd64/go1.10.2"</span>,</div><div class="line">    network: &#123;</div><div class="line">      inbound: <span class="literal">false</span>,</div><div class="line">      <span class="built_in">local</span>Address: <span class="string">"192.168.199.141:62161"</span>,</div><div class="line">      remoteAddress: <span class="string">"192.168.1.18:30301"</span>,</div><div class="line">      static: <span class="literal">true</span>,</div><div class="line">      trusted: <span class="literal">false</span></div><div class="line">    &#125;,</div><div class="line">    protocols: &#123;</div><div class="line">      eth: &#123;</div><div class="line">        difficulty: 1024,</div><div class="line">        head: <span class="string">"0x2720038ef46044a7a895296b85745294340ecfcedc32f8c9e9802129aeb62890"</span>,</div><div class="line">        version: 63</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">&#125;]</div></pre></td></tr></table></figure>
+<p>列表其它节点的 IP 地址:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; admin.peers.forEach(<span class="keyword">function</span>(p) &#123;console.log(p.network.remoteAddress)&#125;)</div><div class="line">192.168.1.18:30301</div><div class="line">undefined</div></pre></td></tr></table></figure></p>
+<p><br></p>
+<h2 id="3-miner-挖矿管理"><a href="#3-miner-挖矿管理" class="headerlink" title="3. miner 挖矿管理"></a>3. miner 挖矿管理</h2><h3 id="3-1-开始挖矿"><a href="#3-1-开始挖矿" class="headerlink" title="3.1 开始挖矿"></a>3.1 开始挖矿</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; miner.start(2)</div><div class="line">null</div></pre></td></tr></table></figure>
+<p>其中的参数表示挖矿时使用的线程数, 会根据计算机的硬件情况进行设置.<br>第一次启动挖矿时, 会先生成挖矿所需的 DAG 文件, 这个过程可能会比较慢, 等进度达到 100% 后, 就会开始挖矿.</p>
+<h3 id="3-2-停止挖矿"><a href="#3-2-停止挖矿" class="headerlink" title="3.2 停止挖矿"></a>3.2 停止挖矿</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; miner.stop()</div><div class="line"><span class="literal">true</span></div></pre></td></tr></table></figure>
+<h3 id="3-3-设置矿工账户"><a href="#3-3-设置矿工账户" class="headerlink" title="3.3 设置矿工账户"></a>3.3 设置矿工账户</h3><p>当挖到一个区块得到以太币奖励时, 所得的奖励会进入到矿工的账户中.<br>这个账户叫做 <code>coinbase</code>, 默认下矿工的账户为系统的第一个账户.<br>我们也可以设置其它的账户为 <code>coinbase</code> 账户 :</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; miner.setEtherbase(eth.accounts[1])</div><div class="line"><span class="literal">true</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="4-eth-管理"><a href="#4-eth-管理" class="headerlink" title="4. eth 管理"></a>4. eth 管理</h2><h3 id="4-1-查看矿工账户"><a href="#4-1-查看矿工账户" class="headerlink" title="4.1 查看矿工账户"></a>4.1 查看矿工账户</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; eth.coinbase</div><div class="line"><span class="string">"0x4378f11e3d4a1e26381cfd285f3237d4b7fc5593"</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>默认下 coinbase 为系统的第一个账户.</p>
+</blockquote>
+<h3 id="4-2-查看账号列表"><a href="#4-2-查看账号列表" class="headerlink" title="4.2 查看账号列表"></a>4.2 查看账号列表</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; eth.accounts</div><div class="line">[<span class="string">"0x4378f11e3d4a1e26381cfd285f3237d4b7fc5593"</span>, <span class="string">"0xe74fc1abfbac8f598a979b11f23177f69f4de6de"</span>]</div></pre></td></tr></table></figure>
+<p>查看指定的账户:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; eth.accounts[0]</div><div class="line"><span class="string">"0x4378f11e3d4a1e26381cfd285f3237d4b7fc5593"</span></div></pre></td></tr></table></figure></p>
+<h3 id="4-3-查看账户余额"><a href="#4-3-查看账户余额" class="headerlink" title="4.3 查看账户余额"></a>4.3 查看账户余额</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; eth.getBalance(eth.accounts[0])</div><div class="line">890000000000000000000</div></pre></td></tr></table></figure>
+<p><code>getBalance</code> 方法返回值的单位是 wei, wei是以太币的最小单位.<br>其中: 1以太币=10^18个wei.<br>可以使用 <code>web3.fromWei()</code> 方法将返回值换算成以太币:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; u0 = eth.accounts[0]</div><div class="line"><span class="string">"0x4378f11e3d4a1e26381cfd285f3237d4b7fc5593"</span></div><div class="line">&gt; web3.fromWei(eth.getBalance(u0), <span class="string">'ether'</span>)</div><div class="line">890</div></pre></td></tr></table></figure>
+<h3 id="4-4-一次查看所有的账户余额"><a href="#4-4-一次查看所有的账户余额" class="headerlink" title="4.4 一次查看所有的账户余额"></a>4.4 一次查看所有的账户余额</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="keyword">function</span> <span class="function"><span class="title">checkAllBalances</span></span>() &#123;</div><div class="line">...   web3.eth.getAccounts(<span class="keyword">function</span>(err, accounts) &#123;</div><div class="line">.........    accounts.forEach(<span class="keyword">function</span>(id) &#123;</div><div class="line">...............     web3.eth.getBalance(id, <span class="keyword">function</span>(err, balance) &#123;</div><div class="line">.....................      console.log(<span class="string">""</span> + id + <span class="string">":\tbalance: "</span> + web3.fromWei(balance, <span class="string">"ether"</span>) + <span class="string">" ether"</span>);</div><div class="line">.....................    &#125;);</div><div class="line">...............   &#125;);</div><div class="line">.........  &#125;);</div><div class="line">... &#125;;</div><div class="line">undefined</div><div class="line">&gt; checkAllBalances()</div><div class="line">0x4378f11e3d4a1e26381cfd285f3237d4b7<span class="built_in">fc</span>5593:	balance: 890 ether</div><div class="line">0xe74<span class="built_in">fc</span>1abfbac8f598a979b11f23177f69f4de6de:	balance: 0 ether</div><div class="line">undefined</div></pre></td></tr></table></figure>
+<h3 id="4-5-发送交易"><a href="#4-5-发送交易" class="headerlink" title="4.5 发送交易"></a>4.5 发送交易</h3><p>发送交易时, 需要先对发起交易的账户进行 <strong>解锁</strong>:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; personal.unlockAccount(eth.accounts[0])</div><div class="line">Unlock account 0x4378f11e3d4a1e26381cfd285f3237d4b7<span class="built_in">fc</span>5593</div><div class="line">Passphrase:</div><div class="line"><span class="literal">true</span></div></pre></td></tr></table></figure>
+<p>这里从 <strong>账户0</strong> 转10个以太币到 <strong>账户1</strong> 中:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; amount = web3.toWei(10, <span class="string">'ether'</span>)</div><div class="line"><span class="string">"10000000000000000000"</span></div><div class="line">&gt; eth.sendTransaction(&#123;from: eth.accounts[0], to: eth.accounts[1], value: amount&#125;)</div><div class="line"><span class="string">"0xdc6e22cf55db26a14486375e278712af8a19667f4541a8cca3d7ad67fcb5fad7"</span></div></pre></td></tr></table></figure>
+<p>我们去查看所有账户中的余额:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; checkAllBalances()</div><div class="line">0x4378f11e3d4a1e26381cfd285f3237d4b7<span class="built_in">fc</span>5593:	balance: 890 ether</div><div class="line">0xe74<span class="built_in">fc</span>1abfbac8f598a979b11f23177f69f4de6de:	balance: 0 ether</div><div class="line">undefined</div></pre></td></tr></table></figure>
+<p>发现还没转过来, 因为此时交易虽然已经提交到网络中, 但还未被处理.<br>我们需要启动挖矿, 然后等一会挖到区块后, 才能够查看到交易完成后的信息:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt; miner.start(2)</div><div class="line">null</div><div class="line">&gt; miner.stop()</div><div class="line"><span class="literal">true</span></div><div class="line">&gt; checkAllBalances()</div><div class="line">0x4378f11e3d4a1e26381cfd285f3237d4b7<span class="built_in">fc</span>5593:	balance: 905 ether</div><div class="line">0xe74<span class="built_in">fc</span>1abfbac8f598a979b11f23177f69f4de6de:	balance: 10 ether</div></pre></td></tr></table></figure>
+<blockquote>
+<p>注意: 这里的账户0中的余额变多了, 因为挖矿一段时间后, 会有新的以太币产生.</p>
+</blockquote>
+<h3 id="4-6-查看挂起的交易"><a href="#4-6-查看挂起的交易" class="headerlink" title="4.6 查看挂起的交易"></a>4.6 查看挂起的交易</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&gt; eth.pendingTransactions</div><div class="line">[&#123;</div><div class="line">    blockHash: null,</div><div class="line">    blockNumber: null,</div><div class="line">    from: <span class="string">"0x4378f11e3d4a1e26381cfd285f3237d4b7fc5593"</span>,</div><div class="line">    gas: 90000,</div><div class="line">    gasPrice: 18000000000,</div><div class="line">    <span class="built_in">hash</span>: <span class="string">"0xdc6e22cf55db26a14486375e278712af8a19667f4541a8cca3d7ad67fcb5fad7"</span>,</div><div class="line">    input: <span class="string">"0x"</span>,</div><div class="line">    nonce: 0,</div><div class="line">    r: <span class="string">"0x74796e42c71cf051c3a078e56524ff2e4c26ebdef240c4f79a08efc931e1dcbd"</span>,</div><div class="line">    s: <span class="string">"0x355af7b6a46d059cc53f73c878eadd59e0cede1131a7faa78e67e70913470c04"</span>,</div><div class="line">    to: <span class="string">"0xe74fc1abfbac8f598a979b11f23177f69f4de6de"</span>,</div><div class="line">    transactionIndex: 0,</div><div class="line">    v: <span class="string">"0x42"</span>,</div><div class="line">    value: 10000000000000000000</div><div class="line">&#125;]</div></pre></td></tr></table></figure>
+<p>如果返回值为空, 表示交易已全部完成:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; eth.pendingTransactions</div><div class="line">[]</div></pre></td></tr></table></figure>
+<h3 id="4-7-查看区块信息"><a href="#4-7-查看区块信息" class="headerlink" title="4.7 查看区块信息"></a>4.7 查看区块信息</h3><p>查看当前区块总数:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; eth.blockNumber</div><div class="line">183</div></pre></td></tr></table></figure>
+<p>查看某个区块信息:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">&gt; eth.getBlock(0)</div><div class="line">&#123;</div><div class="line">  difficulty: 1024,</div><div class="line">  extraData: <span class="string">"0x"</span>,</div><div class="line">  gasLimit: 4294967295,</div><div class="line">  gasUsed: 0,</div><div class="line">  <span class="built_in">hash</span>: <span class="string">"0x2720038ef46044a7a895296b85745294340ecfcedc32f8c9e9802129aeb62890"</span>,</div><div class="line">  logsBloom: <span class="string">"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"</span>,</div><div class="line">  miner: <span class="string">"0x0000000000000000000000000000000000000000"</span>,</div><div class="line">  mixHash: <span class="string">"0x0000000000000000000000000000000000000000000000000000000000000000"</span>,</div><div class="line">  nonce: <span class="string">"0x0000000000000042"</span>,</div><div class="line">  number: 0,</div><div class="line">  parentHash: <span class="string">"0x0000000000000000000000000000000000000000000000000000000000000000"</span>,</div><div class="line">  receiptsRoot: <span class="string">"0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421"</span>,</div><div class="line">  sha3Uncles: <span class="string">"0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347"</span>,</div><div class="line">  size: 507,</div><div class="line">  stateRoot: <span class="string">"0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421"</span>,</div><div class="line">  timestamp: 0,</div><div class="line">  totalDifficulty: 1024,</div><div class="line">  transactions: [],</div><div class="line">  transactionsRoot: <span class="string">"0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421"</span>,</div><div class="line">  uncles: []</div><div class="line">&#125;</div><div class="line">&gt; eth.getBlock(1)</div><div class="line">&#123;</div><div class="line">  difficulty: 131072,</div><div class="line">  extraData: <span class="string">"0xd98301080a846765746888676f312e31302e328664617277696e"</span>,</div><div class="line">  gasLimit: 4290772993,</div><div class="line">  gasUsed: 0,</div><div class="line">  <span class="built_in">hash</span>: <span class="string">"0x0dec1b5cb7304eea1bdd1d2d5ee73da53447ef54a4283557cea84025080d6d09"</span>,</div><div class="line">  logsBloom: <span class="string">"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"</span>,</div><div class="line">  miner: <span class="string">"0x4378f11e3d4a1e26381cfd285f3237d4b7fc5593"</span>,</div><div class="line">  mixHash: <span class="string">"0xf5ccd28f1816ecb5d3315811eca6273f913a86c4b1862174ce03fbb8c7f27a6b"</span>,</div><div class="line">  nonce: <span class="string">"0x1d781ecfc8e4b9cb"</span>,</div><div class="line">  number: 1,</div><div class="line">  parentHash: <span class="string">"0x2720038ef46044a7a895296b85745294340ecfcedc32f8c9e9802129aeb62890"</span>,</div><div class="line">  receiptsRoot: <span class="string">"0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421"</span>,</div><div class="line">  sha3Uncles: <span class="string">"0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347"</span>,</div><div class="line">  size: 538,</div><div class="line">  stateRoot: <span class="string">"0xf336d1c5cab05b1015a033c502a47e02b7cacb41f055363fc7d59f8db2cb9a47"</span>,</div><div class="line">  timestamp: 1528358068,</div><div class="line">  totalDifficulty: 132096,</div><div class="line">  transactions: [],</div><div class="line">  transactionsRoot: <span class="string">"0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421"</span>,</div><div class="line">  uncles: []</div><div class="line">&#125;</div><div class="line">&gt; eth.getBlock(1000)</div><div class="line">null</div></pre></td></tr></table></figure>
+<blockquote>
+<p><code>getBlock</code> 方法传入的是区块的序号数, 从0开始计数. 当区块不存在时, 将返回 <code>null</code>.</p>
+</blockquote>
+<h3 id="4-8-查看交易信息"><a href="#4-8-查看交易信息" class="headerlink" title="4.8 查看交易信息"></a>4.8 查看交易信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&gt; eth.getTransaction(<span class="string">"0xdc6e22cf55db26a14486375e278712af8a19667f4541a8cca3d7ad67fcb5fad7"</span>)</div><div class="line">&#123;</div><div class="line">  blockHash: <span class="string">"0x6dbf24bcecaad828ca1028209918fdeaa0eb54199a49f5d949823da3d8661fa8"</span>,</div><div class="line">  blockNumber: 179,</div><div class="line">  from: <span class="string">"0x4378f11e3d4a1e26381cfd285f3237d4b7fc5593"</span>,</div><div class="line">  gas: 90000,</div><div class="line">  gasPrice: 18000000000,</div><div class="line">  <span class="built_in">hash</span>: <span class="string">"0xdc6e22cf55db26a14486375e278712af8a19667f4541a8cca3d7ad67fcb5fad7"</span>,</div><div class="line">  input: <span class="string">"0x"</span>,</div><div class="line">  nonce: 0,</div><div class="line">  r: <span class="string">"0x74796e42c71cf051c3a078e56524ff2e4c26ebdef240c4f79a08efc931e1dcbd"</span>,</div><div class="line">  s: <span class="string">"0x355af7b6a46d059cc53f73c878eadd59e0cede1131a7faa78e67e70913470c04"</span>,</div><div class="line">  to: <span class="string">"0xe74fc1abfbac8f598a979b11f23177f69f4de6de"</span>,</div><div class="line">  transactionIndex: 0,</div><div class="line">  v: <span class="string">"0x42"</span>,</div><div class="line">  value: 10000000000000000000</div><div class="line">&#125;</div><div class="line">&gt; eth.getTransaction(<span class="string">"0xdc6e22cf55db26a14486375e278712af8a19667f4541a8cca3d7ad0000000000"</span>)</div><div class="line">null</div></pre></td></tr></table></figure>
+<blockquote>
+<p><code>getTransaction</code> 方法传入的是交易的Hash值. 当交易不存在时, 将返回 <code>null</code>.</p>
+</blockquote>
+<h3 id="4-9-查看支持的智能合约编译器"><a href="#4-9-查看支持的智能合约编译器" class="headerlink" title="4.9 查看支持的智能合约编译器"></a>4.9 查看支持的智能合约编译器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt; eth.compile</div><div class="line">&#123;</div><div class="line">  lll: <span class="keyword">function</span>(),</div><div class="line">  serpent: <span class="keyword">function</span>(),</div><div class="line">  solidity: <span class="keyword">function</span>()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="5-net-管理"><a href="#5-net-管理" class="headerlink" title="5. net 管理"></a>5. net 管理</h2><h3 id="5-1-查看网络监听状态"><a href="#5-1-查看网络监听状态" class="headerlink" title="5.1 查看网络监听状态"></a>5.1 查看网络监听状态</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; net.listening</div><div class="line"><span class="literal">true</span></div></pre></td></tr></table></figure>
+<h3 id="5-2-查看网络的Peer节点数"><a href="#5-2-查看网络的Peer节点数" class="headerlink" title="5.2 查看网络的Peer节点数"></a>5.2 查看网络的Peer节点数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; net.peerCount</div><div class="line">1</div></pre></td></tr></table></figure>
+<h3 id="5-3-查看网络的id"><a href="#5-3-查看网络的id" class="headerlink" title="5.3 查看网络的id"></a>5.3 查看网络的id</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; net.version</div><div class="line"><span class="string">"15"</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>这里有个疑问: <code>version</code> 字面上返回的是 <code>networkid</code> 的值, 而不是什么版本值?<br>很可能节点网络的版本用的就是 <code>networkid</code> 的值</p>
+</blockquote>
+<p><br></p>
+<h2 id="6-txpool-管理"><a href="#6-txpool-管理" class="headerlink" title="6. txpool 管理"></a>6. txpool 管理</h2><h3 id="6-1-查看交易内存池状态"><a href="#6-1-查看交易内存池状态" class="headerlink" title="6.1 查看交易内存池状态"></a>6.1 查看交易内存池状态</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt; txpool.status</div><div class="line">&#123;</div><div class="line">  pending: 1,</div><div class="line">  queued: 0</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="6-2-查看交易内存池的内容"><a href="#6-2-查看交易内存池的内容" class="headerlink" title="6.2 查看交易内存池的内容"></a>6.2 查看交易内存池的内容</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&gt; txpool.content</div><div class="line">&#123;</div><div class="line">  pending: &#123;</div><div class="line">    0x4378f11e3D4a1E26381CfD285f3237D4B7<span class="built_in">fc</span>5593: &#123;</div><div class="line">      1: &#123;</div><div class="line">        blockHash: <span class="string">"0x0000000000000000000000000000000000000000000000000000000000000000"</span>,</div><div class="line">        blockNumber: null,</div><div class="line">        from: <span class="string">"0x4378f11e3d4a1e26381cfd285f3237d4b7fc5593"</span>,</div><div class="line">        gas: <span class="string">"0x15f90"</span>,</div><div class="line">        gasPrice: <span class="string">"0x430e23400"</span>,</div><div class="line">        <span class="built_in">hash</span>: <span class="string">"0x67738610c99674396e9474b099fce96de3d14df706fc966659b511fb1834195a"</span>,</div><div class="line">        input: <span class="string">"0x"</span>,</div><div class="line">        nonce: <span class="string">"0x1"</span>,</div><div class="line">        r: <span class="string">"0xb8dbd2a8f28a3109f23150450df7c7811e564ddd428c49af55b405ce4c28e2ab"</span>,</div><div class="line">        s: <span class="string">"0x59c2df6027bdfdc21ffe641f5e498c34089ae45f5daab323f34a02e3e2f67b5a"</span>,</div><div class="line">        to: <span class="string">"0xe74fc1abfbac8f598a979b11f23177f69f4de6de"</span>,</div><div class="line">        transactionIndex: <span class="string">"0x0"</span>,</div><div class="line">        v: <span class="string">"0x41"</span>,</div><div class="line">        value: <span class="string">"0x1158e460913d00000"</span></div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  queued: &#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="7-web3-工具方法"><a href="#7-web3-工具方法" class="headerlink" title="7. web3 工具方法"></a>7. web3 工具方法</h2><p>在介绍 web3 对象中的工具方法前, 先要对 Ether 币的单位进行说明.<br>Ether 币的最小单位为 wei, 也是命令行中默认的单位. 然后每1000个 wei 进一个单位, 依次为:</p>
+<ul>
+<li>kwei (1000 wei)</li>
+<li>mwei (1000 kwei)</li>
+<li>gwei (1000 mwei)</li>
+<li>szabo (1000 gwei)</li>
+<li>finney (1000 szabo)</li>
+<li>ether (1000 finney)</li>
+</ul>
+<p>也即: <strong>1 ether = 10^18 wei</strong></p>
+<h3 id="7-1-其它单位转换为-wei"><a href="#7-1-其它单位转换为-wei" class="headerlink" title="7.1 其它单位转换为 wei"></a>7.1 其它单位转换为 wei</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&gt; web3.toWei(1, <span class="string">'ether'</span>)</div><div class="line"><span class="string">"1000000000000000000"</span></div><div class="line">&gt; web3.toWei(1, <span class="string">'kwei'</span>)</div><div class="line"><span class="string">"1000"</span></div><div class="line">&gt; web3.toWei(1, <span class="string">'szabo'</span>)</div><div class="line"><span class="string">"1000000000000"</span></div><div class="line">&gt; web3.toWei(10)</div><div class="line"><span class="string">"10000000000000000000"</span></div><div class="line">&gt; web3.toWei(10, null)</div><div class="line"><span class="string">"10000000000000000000"</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>当 <code>toWei</code> 方法的第二个参数不传或者为 <code>null</code> 时, 默认将按 <code>ether</code> 单位进行转换为 wei.</p>
+</blockquote>
+<h3 id="7-2-wei-转换为其它单位"><a href="#7-2-wei-转换为其它单位" class="headerlink" title="7.2 wei 转换为其它单位"></a>7.2 wei 转换为其它单位</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&gt; web3.fromWei(1000000000000000000, <span class="string">'ether'</span>)</div><div class="line"><span class="string">"1"</span></div><div class="line">&gt; web3.fromWei(1000, <span class="string">'kwei'</span>)</div><div class="line"><span class="string">"1"</span></div><div class="line">&gt; web3.fromWei(1000000000000, <span class="string">'szabo'</span>)</div><div class="line"><span class="string">"1"</span></div><div class="line">&gt; web3.fromWei(10000000000000000000)</div><div class="line"><span class="string">"10"</span></div><div class="line">&gt; web3.fromWei(10000000000000000000, null)</div><div class="line"><span class="string">"10"</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>当 <code>fromWei</code> 方法的第二个参数不传或者为 <code>null</code> 时, 默认将转换为单位 <code>ether</code>.</p>
+</blockquote>
+<h3 id="7-3-判断是否为地址"><a href="#7-3-判断是否为地址" class="headerlink" title="7.3 判断是否为地址"></a>7.3 判断是否为地址</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&gt; eth.accounts[0]</div><div class="line"><span class="string">"0x4378f11e3d4a1e26381cfd285f3237d4b7fc5593"</span></div><div class="line">&gt; web3.isAddress(<span class="string">"0x4378f11e3d4a1e26381cfd285f3237d4b7fc5593"</span>)</div><div class="line"><span class="literal">true</span></div><div class="line">&gt; web3.isAddress(0x4378f11e3d4a1e26381cfd285f3237d4b7<span class="built_in">fc</span>5593)</div><div class="line"><span class="literal">false</span></div><div class="line">&gt; web3.isAddress(<span class="string">"0x4378f11e3d4a1e26381cfd285f3237d4b7fc5593000000"</span>)</div><div class="line"><span class="literal">false</span></div><div class="line">&gt; web3.isAddress()</div><div class="line"><span class="literal">false</span></div><div class="line">&gt; web3.isAddress(12345678)</div><div class="line"><span class="literal">false</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>当传入的是一个160位长的字符串数字时, 才返回 <code>true</code>. 否则返回 <code>false</code>.</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/BlockChain/" rel="tag">#BlockChain</a>
+          
+            <a href="/tags/Ethereum/" rel="tag">#Ethereum</a>
+          
+            <a href="/tags/geth/" rel="tag">#geth</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018-06-05-setup-ethereum-private-net-on-macos.html" rel="next" title="在 macOS 中搭建 Ethereum 私有链">
+                <i class="fa fa-chevron-left"></i> 在 macOS 中搭建 Ethereum 私有链
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Sai628" />
+          <p class="site-author-name" itemprop="name">Sai628</p>
+          <p class="site-description motion-element" itemprop="description">Software Developer</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">31</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Sai628" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/c1be039ac799" target="_blank" title="Jianshu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Jianshu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://google.com/" title="Google" target="_blank">Google</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.cocoachina.com" title="cocoachina" target="_blank">cocoachina</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.ibireme.com/" title="ibireme" target="_blank">ibireme</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://ifeve.com/overview/" title="ifeve" target="_blank">ifeve</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sai628</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
