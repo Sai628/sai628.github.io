@@ -72,7 +72,7 @@
 2. 安装 Geth 客户端12$ brew tap ethereum/ethereum # 添加仓库$ brew install ethereum  # 安装 go-ethereum
 
 通过 geth -h 查看是否安装成功">
-<meta property="og:updated_time" content="2018-06-06T10:57:34.753Z">
+<meta property="og:updated_time" content="2018-07-03T11:57:44.922Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在 macOS 中搭建 Ethereum 私有链">
 <meta name="twitter:description" content="1. 安装 Go 语言开发环境参见 Golang 官方安装向导: https://golang.org/doc/install
@@ -306,6 +306,10 @@
 <li>nodiscover: 禁止被发现. 添加这个参数可以确保你的节点不会被非手动添加你的人发现. 否则，你的节点可能因为你与其它的链有相同的创世文件和网络ID而被陌生人的区块链无意添加.</li>
 <li>console: 启动命令行模式，可以在Geth中执行命令</li>
 </ul>
+<p>其它选项:</p>
+<blockquote>
+<p>--dev 使用POA共识网络, 默认预分配一个开发者账户并且会自动开启挖矿.<br>--dev.period value 开发者模式下挖矿周期(0: 仅在交易时, 默认值为0)</p>
+</blockquote>
 <p><br></p>
 <h2 id="6-使用-geth-连接已启动的节点"><a href="#6-使用-geth-连接已启动的节点" class="headerlink" title="6. 使用 geth 连接已启动的节点"></a>6. 使用 geth 连接已启动的节点</h2><p>当启动一个本地或远程的私有链节点后, 可通过使用 <code>geth attach</code> 命令连接上该节点上.</p>
 <h4 id="通过本地IPC的方式"><a href="#通过本地IPC的方式" class="headerlink" title="通过本地IPC的方式:"></a>通过本地IPC的方式:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ geth attach <span class="string">"&lt;path-of-datadir&gt;/geth.ipc"</span>  <span class="comment">#连接本地的IPC</span></div></pre></td></tr></table></figure>
