@@ -42,7 +42,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="python,pandas," />
+  <meta name="keywords" content="Tensorflow,keras," />
 
 
 
@@ -58,22 +58,34 @@
 
 
 
-<meta name="description" content="传送门 Jupyter Notebook
+<meta name="description" content="以下为根据 “TensorFlow+Keras深度学习人工智能实践应用” 一书整理的示例程序代码:
 
-原文: http://pandas.pydata.org/pandas-docs/stable/10min.html">
+00. Keras MNIST 手写数字识别数据集 介绍
+01. Keras 多层感知器识别手写数字 (隐藏层256个神经元)
+02. Keras 多层感知器识别手写数字 (隐藏层1000个神经元)
+03. Keras 多层感知器识别手写数字 (隐藏层1000个神经元+Dropout)
+04. K">
 <meta property="og:type" content="article">
-<meta property="og:title" content="pandas 学习教程简介">
-<meta property="og:url" content="http://sai628.com/2017-05-16-pandas-tutorial.html">
+<meta property="og:title" content="Tensorflow 与 Keras 实践示例程序">
+<meta property="og:url" content="http://sai628.com/2018-08-17-tensorflow-keras-practice.html">
 <meta property="og:site_name" content="Sai628">
-<meta property="og:description" content="传送门 Jupyter Notebook
+<meta property="og:description" content="以下为根据 “TensorFlow+Keras深度学习人工智能实践应用” 一书整理的示例程序代码:
 
-原文: http://pandas.pydata.org/pandas-docs/stable/10min.html">
-<meta property="og:updated_time" content="2017-08-11T08:06:54.000Z">
+00. Keras MNIST 手写数字识别数据集 介绍
+01. Keras 多层感知器识别手写数字 (隐藏层256个神经元)
+02. Keras 多层感知器识别手写数字 (隐藏层1000个神经元)
+03. Keras 多层感知器识别手写数字 (隐藏层1000个神经元+Dropout)
+04. K">
+<meta property="og:updated_time" content="2018-08-17T07:08:51.866Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="pandas 学习教程简介">
-<meta name="twitter:description" content="传送门 Jupyter Notebook
+<meta name="twitter:title" content="Tensorflow 与 Keras 实践示例程序">
+<meta name="twitter:description" content="以下为根据 “TensorFlow+Keras深度学习人工智能实践应用” 一书整理的示例程序代码:
 
-原文: http://pandas.pydata.org/pandas-docs/stable/10min.html">
+00. Keras MNIST 手写数字识别数据集 介绍
+01. Keras 多层感知器识别手写数字 (隐藏层256个神经元)
+02. Keras 多层感知器识别手写数字 (隐藏层1000个神经元)
+03. Keras 多层感知器识别手写数字 (隐藏层1000个神经元+Dropout)
+04. K">
 
 
 
@@ -94,10 +106,10 @@
 
 
 
-  <link rel="canonical" href="http://sai628.com/2017-05-16-pandas-tutorial.html"/>
+  <link rel="canonical" href="http://sai628.com/2018-08-17-tensorflow-keras-practice.html"/>
 
 
-  <title> pandas 学习教程简介 | Sai628 </title>
+  <title> Tensorflow 与 Keras 实践示例程序 | Sai628 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="en">
@@ -217,7 +229,7 @@
             
             
               
-                pandas 学习教程简介
+                Tensorflow 与 Keras 实践示例程序
               
             
           </h1>
@@ -229,8 +241,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2017-05-16T15:47:36+08:00" content="2017-05-16">
-              2017-05-16
+            <time itemprop="dateCreated" datetime="2018-08-17T14:27:58+08:00" content="2018-08-17">
+              2018-08-17
             </time>
           </span>
 
@@ -257,10 +269,34 @@
       
 
       
-        <p>传送门 <a href="http://nbviewer.jupyter.org/github/Sai628/jupyter-notebook/blob/master/Python/000_pandas-tutorial.ipynb" target="_blank" rel="external">Jupyter Notebook</a></p>
-<blockquote>
-<p>原文: <a href="http://pandas.pydata.org/pandas-docs/stable/10min.html" target="_blank" rel="external">http://pandas.pydata.org/pandas-docs/stable/10min.html</a></p>
-</blockquote>
+        <p>以下为根据 <a href="https://book.douban.com/subject/30206042/" target="_blank" rel="external">“TensorFlow+Keras深度学习人工智能实践应用”</a> 一书整理的示例程序代码:</p>
+<ul>
+<li><a href="http://nbviewer.jupyter.org/github/sai628/Tensorflow-Keras-Practice/blob/master/00_keras_mnist_intro.ipynb" target="_blank" rel="external">00. Keras MNIST 手写数字识别数据集 介绍</a></li>
+<li><a href="http://nbviewer.jupyter.org/github/sai628/Tensorflow-Keras-Practice/blob/master/01_keras_mnist_u256.ipynb" target="_blank" rel="external">01. Keras 多层感知器识别手写数字 (隐藏层256个神经元)</a></li>
+<li><a href="http://nbviewer.jupyter.org/github/sai628/Tensorflow-Keras-Practice/blob/master/02_keras_mnist_u1000.ipynb" target="_blank" rel="external">02. Keras 多层感知器识别手写数字 (隐藏层1000个神经元)</a></li>
+<li><a href="http://nbviewer.jupyter.org/github/sai628/Tensorflow-Keras-Practice/blob/master/03_keras_mnist_u1000_dropout.ipynb" target="_blank" rel="external">03. Keras 多层感知器识别手写数字 (隐藏层1000个神经元+Dropout)</a></li>
+<li><a href="http://nbviewer.jupyter.org/github/sai628/Tensorflow-Keras-Practice/blob/master/04_keras_mnist_u1000_dropout_u1000_dropout.ipynb" target="_blank" rel="external">04. Keras 多层感知器识别手写数字 (多层隐藏层1000个神经元+Dropout)</a></li>
+<li><a href="http://nbviewer.jupyter.org/github/sai628/Tensorflow-Keras-Practice/blob/master/05_keras_mnist_cnn.ipynb" target="_blank" rel="external">05. Keras 卷积神经网络识别手写数字 (CNN)</a><br><br></li>
+<li><a href="http://nbviewer.jupyter.org/github/sai628/Tensorflow-Keras-Practice/blob/master/06_keras_cifar10_intro.ipynb" target="_blank" rel="external">06. Keras CIFAR-10 图像识别数据集 介绍</a></li>
+<li><a href="http://nbviewer.jupyter.org/github/sai628/Tensorflow-Keras-Practice/blob/master/07_keras_cifar10_cnn.ipynb" target="_blank" rel="external">07. Keras 卷积神经网络识别 CIFAR-10 图像 (CNN)</a></li>
+<li><a href="http://nbviewer.jupyter.org/github/sai628/Tensorflow-Keras-Practice/blob/master/08_keras_cifar10_cnn_deeper.ipynb" target="_blank" rel="external">08. Keras 更深层的卷积神经网络识别 CIFAR-10 图像 (CNN)</a><br><br><a id="more"></a></li>
+<li><a href="http://nbviewer.jupyter.org/github/sai628/Tensorflow-Keras-Practice/blob/master/09_keras_titanic_intro.ipynb" target="_blank" rel="external">09. Keras 泰坦尼克号上的旅客数据集 介绍</a></li>
+<li><a href="http://nbviewer.jupyter.org/github/sai628/Tensorflow-Keras-Practice/blob/master/10_keras_titanic_mlp.ipynb" target="_blank" rel="external">10. Keras 多层感知器预测泰坦尼克号上旅客的生存概率</a><br><br></li>
+<li><a href="http://nbviewer.jupyter.org/github/sai628/Tensorflow-Keras-Practice/blob/master/11_keras_imdb_intro.ipynb" target="_blank" rel="external">11. Keras IMDb 网络电影数据集 介绍</a></li>
+<li><a href="http://nbviewer.jupyter.org/github/sai628/Tensorflow-Keras-Practice/blob/master/12_keras_imdb_mlp.ipynb" target="_blank" rel="external">12. Keras 多层感知器模型进行 IMDb 情感分析</a></li>
+<li><a href="http://nbviewer.jupyter.org/github/sai628/Tensorflow-Keras-Practice/blob/master/13_keras_imdb_mlp_larger.ipynb" target="_blank" rel="external">13. Keras 多层感知器模型使用较大字典进行 IMDb 情感分析</a></li>
+<li><a href="http://nbviewer.jupyter.org/github/sai628/Tensorflow-Keras-Practice/blob/master/14_keras_imdb_rnn.ipynb" target="_blank" rel="external">14. Keras 使用 RNN 模型进行 IMDb 情感分析</a></li>
+<li><a href="http://nbviewer.jupyter.org/github/sai628/Tensorflow-Keras-Practice/blob/master/15_keras_imdb_lstm.ipynb" target="_blank" rel="external">15. Keras 使用 LSTM 模型进行 IMDb 情感分析</a><br><br></li>
+<li><a href="http://nbviewer.jupyter.org/github/sai628/Tensorflow-Keras-Practice/blob/master/16_tf_basic.ipynb" target="_blank" rel="external">16. Tensorflow 程序设计模式</a></li>
+<li><a href="http://nbviewer.jupyter.org/github/sai628/Tensorflow-Keras-Practice/blob/master/17_tf_board.ipynb" target="_blank" rel="external">17. TensorBoard 使用介绍</a></li>
+<li><a href="http://nbviewer.jupyter.org/github/sai628/Tensorflow-Keras-Practice/blob/master/18_tf_neural.ipynb" target="_blank" rel="external">18. Tensorflow 张量运算仿真神经网络的运行</a></li>
+<li><a href="http://nbviewer.jupyter.org/github/sai628/Tensorflow-Keras-Practice/blob/master/19_tf_activation_func.ipynb" target="_blank" rel="external">19. Tensorflow 常用激活函数的图形</a><br><br></li>
+<li><a href="http://nbviewer.jupyter.org/github/sai628/Tensorflow-Keras-Practice/blob/master/20_tf_mnist_intro.ipynb" target="_blank" rel="external">20. Tensorflow MNIST 手写数字识别数据集 介绍</a></li>
+<li><a href="http://nbviewer.jupyter.org/github/sai628/Tensorflow-Keras-Practice/blob/master/21_tf_mnist_u256.ipynb" target="_blank" rel="external">21. Tensorflow 多层感知器识别手写数字 (隐藏层256个神经元)</a></li>
+<li><a href="http://nbviewer.jupyter.org/github/sai628/Tensorflow-Keras-Practice/blob/master/22_tf_mnist_u1000.ipynb" target="_blank" rel="external">22. Tensorflow 多层感知器识别手写数字 (隐藏层1000个神经元)</a></li>
+<li><a href="http://nbviewer.jupyter.org/github/sai628/Tensorflow-Keras-Practice/blob/master/23_tf_mnist_u1000_u1000.ipynb" target="_blank" rel="external">23. Tensorflow 多层感知器识别手写数字 (多层隐藏层1000个神经元)</a></li>
+<li><a href="http://nbviewer.jupyter.org/github/sai628/Tensorflow-Keras-Practice/blob/master/24_tf_mnist_cnn.ipynb" target="_blank" rel="external">24. Tensorflow 卷积神经网络识别手写数字 (CNN)</a></li>
+</ul>
 
       
     </div>
@@ -283,9 +319,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag">#python</a>
+            <a href="/tags/Tensorflow/" rel="tag">#Tensorflow</a>
           
-            <a href="/tags/pandas/" rel="tag">#pandas</a>
+            <a href="/tags/keras/" rel="tag">#keras</a>
           
         </div>
       
@@ -294,17 +330,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017-02-27-homebrew-cheatsheet.html" rel="next" title="CheatSheet For Homebrew">
-                <i class="fa fa-chevron-left"></i> CheatSheet For Homebrew
+              <a href="/2018-06-07-geth-console.html" rel="next" title="go-ethereum 的常用 console 命令">
+                <i class="fa fa-chevron-left"></i> go-ethereum 的常用 console 命令
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017-08-11-networkx-tutorial.html" rel="prev" title="复杂网络分析库 NetworkX 使用教程">
-                复杂网络分析库 NetworkX 使用教程 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
