@@ -1,0 +1,636 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ngrok," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="服务器系统版本: 
+
+Ubuntu 16.04.3 LTS
+
+1. 安装 golang 等依赖库12345$ add-apt-repository ppa:longsleep/golang-backports$ apt update$ apt install golang$ apt install build-essential mercurial git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自己编译 ngrok 源码以搭建 ngrokd 服务器">
+<meta property="og:url" content="http://sai628.com/2018-10-22-ngrok-server.html">
+<meta property="og:site_name" content="Sai628">
+<meta property="og:description" content="服务器系统版本: 
+
+Ubuntu 16.04.3 LTS
+
+1. 安装 golang 等依赖库12345$ add-apt-repository ppa:longsleep/golang-backports$ apt update$ apt install golang$ apt install build-essential mercurial git">
+<meta property="og:updated_time" content="2018-10-22T03:55:23.681Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="自己编译 ngrok 源码以搭建 ngrokd 服务器">
+<meta name="twitter:description" content="服务器系统版本: 
+
+Ubuntu 16.04.3 LTS
+
+1. 安装 golang 等依赖库12345$ add-apt-repository ppa:longsleep/golang-backports$ apt update$ apt install golang$ apt install build-essential mercurial git">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://sai628.com/2018-10-22-ngrok-server.html"/>
+
+
+  <title> 自己编译 ngrok 源码以搭建 ngrokd 服务器 | Sai628 </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Sai628</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                自己编译 ngrok 源码以搭建 ngrokd 服务器
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2018-10-22T10:42:54+08:00" content="2018-10-22">
+              2018-10-22
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>服务器系统版本: </p>
+<blockquote>
+<p>Ubuntu 16.04.3 LTS</p>
+</blockquote>
+<h2 id="1-安装-golang-等依赖库"><a href="#1-安装-golang-等依赖库" class="headerlink" title="1. 安装 golang 等依赖库"></a>1. 安装 golang 等依赖库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ add-apt-repository ppa:longsleep/golang-backports</div><div class="line">$ apt update</div><div class="line">$ apt install golang</div><div class="line"></div><div class="line">$ apt install build-essential mercurial git</div></pre></td></tr></table></figure>
+<p><br></p>
+<a id="more"></a>
+<h2 id="2-设置-golang-环境变量"><a href="#2-设置-golang-环境变量" class="headerlink" title="2. 设置 golang 环境变量"></a>2. 设置 golang 环境变量</h2><p>在 ~/.bash_profile 或 ~/.zshrc 文件中, 添加如下代码:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> GOPATH=<span class="variable">$HOME</span>/go</div><div class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$HOME</span>/.local/bin:<span class="variable">$HOME</span>/bin:<span class="variable">$GOPATH</span>/bin</div></pre></td></tr></table></figure>
+<p>使配置生效:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">source</span> ~/.bash_profile</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="3-下载-ngrok-项目源码"><a href="#3-下载-ngrok-项目源码" class="headerlink" title="3. 下载 ngrok 项目源码"></a>3. 下载 ngrok 项目源码</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://github.com/inconshreveable/ngrok.git ngrok</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="4-生成自签名证书"><a href="#4-生成自签名证书" class="headerlink" title="4. 生成自签名证书"></a>4. 生成自签名证书</h2><p>使用 ngrok.com 官方服务时, 我们使用的是官方的 SSL 证书. 自建 ngrokd 服务, 如果不想购买 SSL 证书, 我们需要生成自己的自签名证书, 并编译一个携带该证书的 ngrok 客户端.</p>
+<p>证书生成过程需要一个 NGROK_BASE_DOMAIN. 以 ngrok 官方随机生成的地址 xxx.ngrok.com 为例, 其 NGROK_BASE_DOMAIN 就是 “ngrok.com”.<br>如果你要提供服务的地址为 “example.ngrok.xxx.com”, 那 NGROK_BASE_DOMAIN 就应该是 “ngrok.xxx.com”.</p>
+<p>这里设置 NGROK_BASE_DOMAIN 地址为 “ngrok.mywebsite.com”.<br>(请自行替换为自己拥有的域名)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> ngrok  <span class="comment"># 切换到 ngrok 项目源码文件夹</span></div><div class="line"></div><div class="line">$ NGROK_DOMAIN=<span class="string">"ngrok.mywebsite.com"</span></div><div class="line"></div><div class="line">$ openssl genrsa -out base.key 2048</div><div class="line">$ openssl req -new -x509 -nodes -key base.key -days 10000 -subj <span class="string">"/CN=<span class="variable">$NGROK_DOMAIN</span>"</span> -out base.pem</div><div class="line">$ openssl genrsa -out server.key 2048</div><div class="line">$ openssl req -new -key server.key -subj <span class="string">"/CN=<span class="variable">$NGROK_DOMAIN</span>"</span> -out server.csr</div><div class="line">$ openssl x509 -req -in server.csr -CA base.pem -CAkey base.key -CAcreateserial -days 10000 -out server.crt</div></pre></td></tr></table></figure>
+<p>我们在编译可执行文件之前, 需要把生成的证书分别替换到 assets/client/tls 和 assets/server/tls 中，这两个目录分别存放着 ngrok 和 ngrokd 的默认证书。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ cp base.pem assets/client/tls/ngrokroot.crt</div><div class="line">$ cp server.crt assets/server/tls/snakeoil.crt</div><div class="line">$ cp server.key assets/server/tls/snakeoil.key</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="5-编译服务端程序-ngrokd-与客户端程序-ngrok"><a href="#5-编译服务端程序-ngrokd-与客户端程序-ngrok" class="headerlink" title="5. 编译服务端程序 ngrokd 与客户端程序 ngrok"></a>5. 编译服务端程序 ngrokd 与客户端程序 ngrok</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ make release-server  <span class="comment"># 编译服务端程序 ngrokd</span></div></pre></td></tr></table></figure>
+<p>以下命令, 可编译指定系统平台与架构的客户端程序 ngrok:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ GOOS=linux GOARCH=amd64 make release-client</div><div class="line">$ GOOS=linux GOARCH=386 make release-client</div><div class="line"></div><div class="line">$ GOOS=windows GOARCH=amd64 make release-client</div><div class="line">$ GOOS=windows GOARCH=386 make release-client</div><div class="line"></div><div class="line">$ GOOS=darwin GOARCH=amd64 make release-client</div><div class="line">$ GOOS=darwin GOARCH=386 make release-client</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="6-启动-ngrokd-服务端"><a href="#6-启动-ngrokd-服务端" class="headerlink" title="6. 启动 ngrokd 服务端"></a>6. 启动 ngrokd 服务端</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ngrokd -tlsKey=server.key -tlsCrt=server.crt -domain=<span class="string">"ngrok.mywebsite.com"</span> -httpAddr=<span class="string">":8088"</span> -httpsAddr=<span class="string">":8089"</span></div></pre></td></tr></table></figure>
+<p>可通过 -tlsKey -tlsCrt 参数, 可指定服务端的证书. 不加该参数时, 会使用 ngrokd 二进制编译时的证书文件.<br>httpAddr、httpsAddr 分别是 ngrokd 用来转发 http、https 服务的端口，可以随意指定.<br>ngrokd 还会开一个 4443 端口用来跟客户端通讯（可通过 -tunnelAddr=”:xxx” 指定）.  </p>
+<blockquote>
+<p>想要在后台运行 ngrokd 时, 可使用 nohup 启动.</p>
+</blockquote>
+<p><br></p>
+<h2 id="7-设置-ngrokd-为系统程序-并后台运行"><a href="#7-设置-ngrokd-为系统程序-并后台运行" class="headerlink" title="7. 设置 ngrokd 为系统程序, 并后台运行"></a>7. 设置 ngrokd 为系统程序, 并后台运行</h2><p>服务器在运行 ngrokd 时, 如果关闭会话窗口, 会导致服务中断, 很显然这不是我们想要的结果, 我们需要服务不断的在后台运行, 当需要的时候在停止.</p>
+<p>在 /etc/systemd/system/ 目录下创建服务 ngrokd.service，内容为:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[Unit]</div><div class="line">Description=ngrokd</div><div class="line">After=network.target</div><div class="line"></div><div class="line">[Service]</div><div class="line">ExecStart=/path/to/ngrokd -tlsKey=/path/to/server.key -tlsCrt=/path/to/server.crt -domain=<span class="string">"ngrok.mywebsite.com"</span> -httpAddr=<span class="string">":8088"</span> -httpsAddr=<span class="string">":8089"</span></div><div class="line"></div><div class="line">[Install]</div><div class="line">WantedBy=multi-user.target</div></pre></td></tr></table></figure>
+<p>其中, 需根据自己的实际目录修改相应的目录, 这样我们就可通过 systemctl start ngrokd.service 启动服务.</p>
+<p><br></p>
+<h2 id="8-启动-ngrok-本地客户端"><a href="#8-启动-ngrok-本地客户端" class="headerlink" title="8. 启动 ngrok 本地客户端"></a>8. 启动 ngrok 本地客户端</h2><p>先新建一个配置文件 ngrok.cfg, 内容以下:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">server_addr: <span class="string">"ngrok.mywebsite.com:4443"</span>  </div><div class="line">trust_host_root_certs: <span class="literal">false</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>server_addr 端口默认 4443, 可通过修改 ngrokd 启动时的参数去修改该端口</p>
+</blockquote>
+<p>运行客户端, 暴露本地 4000 端口站点(默认为http协议):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ ngrok -subdomain=demo -log=ngrok.log -config=ngrok.cfg 4000  <span class="comment"># 暴露本地4000端口(默认http协议)</span></div><div class="line"></div><div class="line">$ ngrok -proto=tcp -log=ngrok.log -config=ngrok.cfg 22  <span class="comment"># 暴露本地22端口(tcp协议)</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>其中, -config 参数指定配置文件, -log 参数指定存放日志文件位置, -subdomain 参数为自定义的域名前缀. 4000 与 22 为端口号.<br>当未指定协议时, 默认为 http. 可使用 -proto 参数指定协议(http/tcp/tls)</p>
+</blockquote>
+<p>在浏览器中输入: demo.ngrok.mywebsite.com, 则可访问本地 4000 端口的站点内容.<br>在 ngrok 客户端所在计算机的浏览器中, 通过 localhost:4040 可查看页面请求情况.</p>
+<p><br></p>
+<h2 id="9-使用-screen-命令-使后台运行-ngrok-客户端"><a href="#9-使用-screen-命令-使后台运行-ngrok-客户端" class="headerlink" title="9. 使用 screen 命令, 使后台运行 ngrok 客户端"></a>9. 使用 screen 命令, 使后台运行 ngrok 客户端</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ screen -S [名字]  <span class="comment"># 例如: keepngrok</span></div></pre></td></tr></table></figure>
+<p>然后运行 ngrok 启动命令.<br>最后按快捷键 ctrl+A+D. 即可以保持 ngrok 后台运行</p>
+<p><br></p>
+<h2 id="10-设置-ngrok-开机自启动"><a href="#10-设置-ngrok-开机自启动" class="headerlink" title="10. 设置 ngrok 开机自启动"></a>10. 设置 ngrok 开机自启动</h2><p>在 /etc/systemd/system/ 目录下, 创建一个名为 ngrok.service 的文件, 输入以下代码:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">[Unit]</div><div class="line">Description=ngrok</div><div class="line">After=network.target</div><div class="line"></div><div class="line">[Service]</div><div class="line">Type=simple</div><div class="line">ExecStart=/path/to/ngrok -subdomain=demo -log=/path/to/ngrok.log -config=/path/to/ngrok.cfg 4000</div><div class="line"></div><div class="line">[Install]</div><div class="line">WantedBy=multi-user.target</div></pre></td></tr></table></figure>
+<blockquote>
+<p>注意根据实际情况, 修改相应的路径名及参数值.</p>
+</blockquote>
+<h4 id="10-1-运行-ngrok-服务"><a href="#10-1-运行-ngrok-服务" class="headerlink" title="10.1. 运行 ngrok 服务"></a>10.1. 运行 ngrok 服务</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ systemctl start ngrok</div></pre></td></tr></table></figure>
+<h4 id="10-2-查询-ngrok-服务的运行状态"><a href="#10-2-查询-ngrok-服务的运行状态" class="headerlink" title="10.2. 查询 ngrok 服务的运行状态"></a>10.2. 查询 ngrok 服务的运行状态</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ systemctl status ngrok</div></pre></td></tr></table></figure>
+<h4 id="10-3-实现开机自启动-ngrok-服务"><a href="#10-3-实现开机自启动-ngrok-服务" class="headerlink" title="10.3. 实现开机自启动 ngrok 服务"></a>10.3. 实现开机自启动 ngrok 服务</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ systemctl <span class="built_in">enable</span> ngrok</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ngrok/" rel="tag">#ngrok</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018-08-17-tensorflow-keras-practice.html" rel="next" title="Tensorflow 与 Keras 实践示例程序">
+                <i class="fa fa-chevron-left"></i> Tensorflow 与 Keras 实践示例程序
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Sai628" />
+          <p class="site-author-name" itemprop="name">Sai628</p>
+          <p class="site-description motion-element" itemprop="description">Software Developer</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Sai628" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/c1be039ac799" target="_blank" title="Jianshu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Jianshu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://google.com/" title="Google" target="_blank">Google</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.cocoachina.com" title="cocoachina" target="_blank">cocoachina</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.ibireme.com/" title="ibireme" target="_blank">ibireme</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://ifeve.com/overview/" title="ifeve" target="_blank">ifeve</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sai628</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
