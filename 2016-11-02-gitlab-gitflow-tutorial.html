@@ -66,14 +66,14 @@
 <meta property="og:site_name" content="Sai628">
 <meta property="og:description" content="0x00 Git客户端推荐使用 SourceTree. macOS 与 Windows 平台均支持.当然如果你觉得方便的话, 也可以直接命令行.
 0x01 SSH Keys通过 ssh 的方式提交代码, 可以免于每次都输入密码.在  gitlab 平台的 Profile Settings 面板里可以添加 SSH Keys. 里面有相应的简单使用教程.">
-<meta property="og:image" content="http://ofn2gftwa.bkt.clouddn.com/gitlab-gitflow-tutorial-image-2.png?imageView2/2/w/1000">
-<meta property="og:image" content="http://ofn2gftwa.bkt.clouddn.com/gitlab-gitflow-tutorial-image-002.jpg">
-<meta property="og:updated_time" content="2017-02-27T07:22:08.000Z">
+<meta property="og:image" content="http://sai628-blog-image.oss-cn-shenzhen.aliyuncs.com/gitlab-gitflow-tutorial-image-001.png?x-oss-process=image/resize,w_1000">
+<meta property="og:image" content="http://sai628-blog-image.oss-cn-shenzhen.aliyuncs.com/gitlab-gitflow-tutorial-image-002.png">
+<meta property="og:updated_time" content="2018-11-23T07:37:53.833Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GitLab 与 GitFlow 的使用与流程规范">
 <meta name="twitter:description" content="0x00 Git客户端推荐使用 SourceTree. macOS 与 Windows 平台均支持.当然如果你觉得方便的话, 也可以直接命令行.
 0x01 SSH Keys通过 ssh 的方式提交代码, 可以免于每次都输入密码.在  gitlab 平台的 Profile Settings 面板里可以添加 SSH Keys. 里面有相应的简单使用教程.">
-<meta name="twitter:image" content="http://ofn2gftwa.bkt.clouddn.com/gitlab-gitflow-tutorial-image-2.png?imageView2/2/w/1000">
+<meta name="twitter:image" content="http://sai628-blog-image.oss-cn-shenzhen.aliyuncs.com/gitlab-gitflow-tutorial-image-001.png?x-oss-process=image/resize,w_1000">
 
 
 
@@ -260,7 +260,7 @@
         <h2 id="0x00-Git客户端"><a href="#0x00-Git客户端" class="headerlink" title="0x00 Git客户端"></a>0x00 Git客户端</h2><p>推荐使用 <a href="https://www.sourcetreeapp.com" target="_blank" rel="external">SourceTree</a>. macOS 与 Windows 平台均支持.<br>当然如果你觉得方便的话, 也可以直接命令行.</p>
 <h2 id="0x01-SSH-Keys"><a href="#0x01-SSH-Keys" class="headerlink" title="0x01 SSH Keys"></a>0x01 SSH Keys</h2><p>通过 ssh 的方式提交代码, 可以免于每次都输入密码.<br>在  gitlab 平台的 <a href="http://gitlab.libtop.com/profile/keys" target="_blank" rel="external">Profile Settings</a> 面板里可以添加 <code>SSH Keys</code>. 里面有相应的简单使用教程.</p>
 <a id="more"></a>
-<p><img src="http://ofn2gftwa.bkt.clouddn.com/gitlab-gitflow-tutorial-image-2.png?imageView2/2/w/1000" alt=""></p>
+<p><img src="http://sai628-blog-image.oss-cn-shenzhen.aliyuncs.com/gitlab-gitflow-tutorial-image-001.png?x-oss-process=image/resize,w_1000" alt="alt text"></p>
 <h4 id="注意-解决本地多个-SSH-Keys-的问题"><a href="#注意-解决本地多个-SSH-Keys-的问题" class="headerlink" title="注意: 解决本地多个 SSH Keys 的问题"></a>注意: 解决本地多个 <code>SSH Keys</code> 的问题</h4><blockquote>
 <p>如果你之前在其它的 git 平台(比如 github )上添加过<code>ssh keys</code>. 在你的本机上可能已经存在 <code>id_rsa.pub</code> 文件. (若你是第一次生成 <code>SSH Keys</code>, 可以跳过本小节的以下内容)</p>
 </blockquote>
@@ -286,7 +286,7 @@
 <p>Welcome to GitLab, guys!</p>
 </blockquote>
 <h2 id="0x02-Git基础"><a href="#0x02-Git基础" class="headerlink" title="0x02 Git基础"></a>0x02 Git基础</h2><p><a href="http://rogerdudler.github.io/git-guide/index.zh.html" target="_blank" rel="external">git - 简明指南</a><br><br></p>
-<h2 id="0x03-GitFlow-与分支模型"><a href="#0x03-GitFlow-与分支模型" class="headerlink" title="0x03 GitFlow 与分支模型"></a>0x03 GitFlow 与分支模型</h2><p><img src="http://ofn2gftwa.bkt.clouddn.com/gitlab-gitflow-tutorial-image-002.jpg" alt=""></p>
+<h2 id="0x03-GitFlow-与分支模型"><a href="#0x03-GitFlow-与分支模型" class="headerlink" title="0x03 GitFlow 与分支模型"></a>0x03 GitFlow 与分支模型</h2><p><img src="http://sai628-blog-image.oss-cn-shenzhen.aliyuncs.com/gitlab-gitflow-tutorial-image-002.png" alt="alt text"></p>
 <p>出于 <strong>保持分支模型简单</strong> 与 <strong>保证代码库稳定</strong> 的考虑, 项目代码分支使用以上的分支模型.<br>遵从以下的 GitFlow 约定:</p>
 <ol>
 <li><h5 id="master-为稳定分支-develop-为开发分支-feature-为特性分支"><a href="#master-为稳定分支-develop-为开发分支-feature-为特性分支" class="headerlink" title="master 为稳定分支, develop 为开发分支, feature 为特性分支."></a>master 为稳定分支, develop 为开发分支, feature 为特性分支.</h5><p>feature 分支以某功能特性来创建, 而不是以需求点.</p>

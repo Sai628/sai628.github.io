@@ -68,20 +68,20 @@
 <meta property="og:description" content="今天, 我本想更新一下 Flask 的版本. 于是, 我先运行下面的升级命令: 
 1$ sudo pip install --upgrade flask
 刚开始时, 它下载 Flask 的更新库是没问题的, 但在继续下载 Flask 依赖的 Jinja2 库是时, 却提示出错了:">
-<meta property="og:image" content="http://ofn2gftwa.bkt.clouddn.com/pip-upgrade-raise-read-timeout-error-001.png">
-<meta property="og:image" content="http://ofn2gftwa.bkt.clouddn.com/pip-upgrade-raise-read-timeout-error-002.png">
-<meta property="og:image" content="http://ofn2gftwa.bkt.clouddn.com/pip-upgrade-raise-read-timeout-error-003.png">
-<meta property="og:image" content="http://ofn2gftwa.bkt.clouddn.com/pip-upgrade-raise-read-timeout-error-004.png">
-<meta property="og:image" content="http://ofn2gftwa.bkt.clouddn.com/pip-upgrade-raise-read-timeout-error-005.png">
-<meta property="og:image" content="http://ofn2gftwa.bkt.clouddn.com/pip-upgrade-raise-read-timeout-error-006.png">
-<meta property="og:image" content="http://ofn2gftwa.bkt.clouddn.com/pip-upgrade-raise-read-timeout-error-007.png">
-<meta property="og:updated_time" content="2016-11-08T13:46:30.000Z">
+<meta property="og:image" content="http://sai628-blog-image.oss-cn-shenzhen.aliyuncs.com/pip-upgrade-raise-read-timeout-error-001.png">
+<meta property="og:image" content="http://sai628-blog-image.oss-cn-shenzhen.aliyuncs.com/pip-upgrade-raise-read-timeout-error-002.png">
+<meta property="og:image" content="http://sai628-blog-image.oss-cn-shenzhen.aliyuncs.com/pip-upgrade-raise-read-timeout-error-003.png">
+<meta property="og:image" content="http://sai628-blog-image.oss-cn-shenzhen.aliyuncs.com/pip-upgrade-raise-read-timeout-error-004.png">
+<meta property="og:image" content="http://sai628-blog-image.oss-cn-shenzhen.aliyuncs.com/pip-upgrade-raise-read-timeout-error-005.png">
+<meta property="og:image" content="http://sai628-blog-image.oss-cn-shenzhen.aliyuncs.com/pip-upgrade-raise-read-timeout-error-006.png">
+<meta property="og:image" content="http://sai628-blog-image.oss-cn-shenzhen.aliyuncs.com/pip-upgrade-raise-read-timeout-error-007.png">
+<meta property="og:updated_time" content="2018-11-23T07:43:06.826Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用 pip 更新库版本时, 报错 ReadTimeoutError 的解决办法">
 <meta name="twitter:description" content="今天, 我本想更新一下 Flask 的版本. 于是, 我先运行下面的升级命令: 
 1$ sudo pip install --upgrade flask
 刚开始时, 它下载 Flask 的更新库是没问题的, 但在继续下载 Flask 依赖的 Jinja2 库是时, 却提示出错了:">
-<meta name="twitter:image" content="http://ofn2gftwa.bkt.clouddn.com/pip-upgrade-raise-read-timeout-error-001.png">
+<meta name="twitter:image" content="http://sai628-blog-image.oss-cn-shenzhen.aliyuncs.com/pip-upgrade-raise-read-timeout-error-001.png">
 
 
 
@@ -269,13 +269,13 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo pip install --upgrade flask</div></pre></td></tr></table></figure>
 <p>刚开始时, 它下载 <code>Flask</code> 的更新库是没问题的, 但在继续下载 <code>Flask</code> 依赖的 <code>Jinja2</code> 库是时, 却提示出错了:</p>
 <a id="more"></a>
-<p><img src="http://ofn2gftwa.bkt.clouddn.com/pip-upgrade-raise-read-timeout-error-001.png" alt=""></p>
+<p><img src="http://sai628-blog-image.oss-cn-shenzhen.aliyuncs.com/pip-upgrade-raise-read-timeout-error-001.png" alt=""></p>
 <p>一眼看上去, 吸引我注意力的不是那一大片的红色错误, 却是最下面的这个提示:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">You are using pip version 8.1.2, however version 9.0.1 is available.</div><div class="line">You should consider upgrading via the <span class="string">'pip install --upgrade pip'</span> command.</div></pre></td></tr></table></figure>
 <p><code>pip</code> 有新版本了, 赶紧升级一下! 于是, 我兴高采烈地运行下面的命令:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&amp; pip install --upgrade pip</div></pre></td></tr></table></figure>
 <p>可它刚下载了一会, 却又报了一大片红:</p>
-<p><img src="http://ofn2gftwa.bkt.clouddn.com/pip-upgrade-raise-read-timeout-error-002.png" alt=""></p>
+<p><img src="http://sai628-blog-image.oss-cn-shenzhen.aliyuncs.com/pip-upgrade-raise-read-timeout-error-002.png" alt=""></p>
 <p>同样的错误: <code>ReadTimeoutError: HTTPSConnectionPool(host=&#39;pypi.python.org&#39;, port=443): Read timed out.</code><br>我想应该是网络不给力了. 于是, 我把网络代理从 <code>Auto Proxy Mode</code> 直接切换成了 <code>Global Mode</code>. 然后, 又重新运行了一遍更新命令. 可是问题依旧.</p>
 <p>八达岭内的网络环境, 真的是博大精深~</p>
 <p>我只好打开 <a href="https://www.google.com" target="_blank" rel="external">Google</a> 求助. 解决方法还挺简单的, 此处借用一下:<br><a href="http://angelzou.github.io/06-08-2015-update-pip-with-read-timeout-error.html" target="_blank" rel="external">http://angelzou.github.io/06-08-2015-update-pip-with-read-timeout-error.html</a></p>
@@ -286,21 +286,21 @@
 </li>
 </ul>
 <p>先试下第一种方法, 打开 <a href="https://pypi.python.org/simple/pip/" target="_blank" rel="external">https://pypi.python.org/simple/pip/</a> , 搜索到 <code>pip</code> 的最新版本 <code>9.0.1</code>. 然后下载到本地.</p>
-<p><img src="http://ofn2gftwa.bkt.clouddn.com/pip-upgrade-raise-read-timeout-error-003.png" alt=""></p>
+<p><img src="http://sai628-blog-image.oss-cn-shenzhen.aliyuncs.com/pip-upgrade-raise-read-timeout-error-003.png" alt=""></p>
 <p>可下载下来的是 <code>whl</code> 文件. 这个格式的文件怎么安装呢? 我先双击它一下试试, 没反应. 又去 <a href="https://www.google.com" target="_blank" rel="external">Google</a> 了一下关键字 <code>pip whl</code>.</p>
 <p>万能的 stackoverflow 是 <a href="http://stackoverflow.com/questions/27885397/how-do-i-install-a-python-package-with-a-whl-file" target="_blank" rel="external">这样</a> 说的.<br>原来直接使用 <code>pip install &lt;whl-filename&gt;</code> 来安装就可以了:</p>
-<p><img src="http://ofn2gftwa.bkt.clouddn.com/pip-upgrade-raise-read-timeout-error-004.png" alt=""></p>
+<p><img src="http://sai628-blog-image.oss-cn-shenzhen.aliyuncs.com/pip-upgrade-raise-read-timeout-error-004.png" alt=""></p>
 <p><code>pip</code> 是升级完成了, 可我最初想升级的 <code>Flask</code> 还没好呢. 我想这时可以试一下第二种方法了. 于是, 我又运行下面的命令:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip --default-timeout=100 install -U flask</div></pre></td></tr></table></figure>
 <p>可是, 网络还是不给力啊! 我重试了几次都还是报下面的错误:</p>
-<p><img src="http://ofn2gftwa.bkt.clouddn.com/pip-upgrade-raise-read-timeout-error-005.png" alt=""></p>
+<p><img src="http://sai628-blog-image.oss-cn-shenzhen.aliyuncs.com/pip-upgrade-raise-read-timeout-error-005.png" alt=""></p>
 <p>看来国外的原始源地址怕是靠不住了, 还是找个国内的镜像源吧. 我又去搜索了一翻. 还真找到个国内的镜像源. 详情看这里: <a href="http://blog.csdn.net/u010536377/article/details/50564185" target="_blank" rel="external">http://blog.csdn.net/u010536377/article/details/50564185</a> (顺便感谢一下<a href="http://www.ustc.edu.cn" target="_blank" rel="external">中国科学技术大学</a>)</p>
 <p>我又兴高采烈地使用新的镜像源, 运行下面的命令: </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ pip install --upgrade --index https://pypi.mirrors.ustc.edu.cn/simple/ flask</div></pre></td></tr></table></figure>
 <p>那个下载速度真是秒开! 可是, 安装的时候却 <code>Permission denied:</code> 了:</p>
-<p><img src="http://ofn2gftwa.bkt.clouddn.com/pip-upgrade-raise-read-timeout-error-006.png" alt=""></p>
+<p><img src="http://sai628-blog-image.oss-cn-shenzhen.aliyuncs.com/pip-upgrade-raise-read-timeout-error-006.png" alt=""></p>
 <p>赶紧加上 <code>sudo</code> 再来一次. 这次是完美的完成任务了:</p>
-<p><img src="http://ofn2gftwa.bkt.clouddn.com/pip-upgrade-raise-read-timeout-error-007.png" alt=""></p>
+<p><img src="http://sai628-blog-image.oss-cn-shenzhen.aliyuncs.com/pip-upgrade-raise-read-timeout-error-007.png" alt="alt text"></p>
 <p><br></p>
 <blockquote>
 <p>其实, 在升级 Flask 时, 我们也可以像第一种方法那样, 在 <a href="https://pypi.python.org/simple/flask/" target="_blank" rel="external">https://pypi.python.org/simple/flask/</a> 中下载最新的 <code>Flask</code> 对应的 <code>whl</code> 文件到本地, 进行手动的更新.<br>但是, 程序员都是喜欢折腾的啊~</p>
