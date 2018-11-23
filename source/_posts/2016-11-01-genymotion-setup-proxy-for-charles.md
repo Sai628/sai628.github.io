@@ -16,15 +16,22 @@ categories:
 <!-- more -->
 
 ##### 1. 在 Genymotion 模拟器中, 打开 Settings -> Wi-Fi. 长按已连接的 WiFi 的 SSID (这里是 WiredSSID). 打开如下的选择菜单列表, 然后点击 "Modify network":
-![](http://ofn2gftwa.bkt.clouddn.com/genymotion-setup-proxy-for-charles-image-001.png?imageView2/2/h/500)
+![alt text][image-001]
 
 ##### 2. 然后勾选上 "Show advanced options".
-![](http://ofn2gftwa.bkt.clouddn.com/genymotion-setup-proxy-for-charles-image-002.png?imageView2/2/h/500)
+![alt text][image-002]
 
 ##### 3. 在新出现的菜单项中, "Proxy" 一项选择 "Manual". "Proxy hostname" 填写 "10.0.3.2", "Proxy port" 填空 "8888"(我这里的 Charles 中设置的 HTTP Proxy 为 8888). 然后 Save 即可.
-![](http://ofn2gftwa.bkt.clouddn.com/genymotion-setup-proxy-for-charles-image-003.png?imageView2/2/h/500)
-![](http://ofn2gftwa.bkt.clouddn.com/genymotion-setup-proxy-for-charles-image-004.png?imageView2/2/w/600)
+![alt text][image-003]
+![alt text][image-004]
 
 ##### 4. 最后, 您将会看到 Genymotion 中的网络封包情况出现了在 Charles 中.
-![](http://ofn2gftwa.bkt.clouddn.com/genymotion-setup-proxy-for-charles-image-005.png?imageView2/2/h/500)
-![](http://ofn2gftwa.bkt.clouddn.com/genymotion-setup-proxy-for-charles-image-006.png?imageView2/2/h/500)
+![alt text][image-005]
+![alt text][image-006]
+
+[image-001]: http://sai628-blog-image.oss-cn-shenzhen.aliyuncs.com/genymotion-setup-proxy-for-charles-image-001.png?x-oss-process=image/resize,h_500
+[image-002]: http://sai628-blog-image.oss-cn-shenzhen.aliyuncs.com/genymotion-setup-proxy-for-charles-image-002.png?x-oss-process=image/resize,h_500
+[image-003]: http://sai628-blog-image.oss-cn-shenzhen.aliyuncs.com/genymotion-setup-proxy-for-charles-image-003.png?x-oss-process=image/resize,h_500
+[image-004]: http://sai628-blog-image.oss-cn-shenzhen.aliyuncs.com/genymotion-setup-proxy-for-charles-image-004.png?x-oss-process=image/resize,w_600
+[image-005]: http://sai628-blog-image.oss-cn-shenzhen.aliyuncs.com/genymotion-setup-proxy-for-charles-image-005.png?x-oss-process=image/resize,h_500
+[image-006]: http://sai628-blog-image.oss-cn-shenzhen.aliyuncs.com/genymotion-setup-proxy-for-charles-image-006.png?x-oss-process=image/resize,h_500

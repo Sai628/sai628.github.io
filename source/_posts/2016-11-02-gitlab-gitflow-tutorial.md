@@ -17,7 +17,7 @@ categories:
 
 <!-- more -->
 
-![](http://ofn2gftwa.bkt.clouddn.com/gitlab-gitflow-tutorial-image-2.png?imageView2/2/w/1000)
+![alt text][image-001]
 
 #### 注意: 解决本地多个 `SSH Keys` 的问题 
 
@@ -74,7 +74,7 @@ $ ssh -T git@gitlab.com
 
 
 ## 0x03 GitFlow 与分支模型
-![](http://ofn2gftwa.bkt.clouddn.com/gitlab-gitflow-tutorial-image-002.jpg)
+![alt text][image-002]
 
 出于 **保持分支模型简单** 与 **保证代码库稳定** 的考虑, 项目代码分支使用以上的分支模型.  
 遵从以下的 GitFlow 约定:
@@ -177,3 +177,7 @@ refactor code about network handle by using volley | refactor code
 
 ## 0x07
 > 没有0x07
+
+
+[image-001]: http://sai628-blog-image.oss-cn-shenzhen.aliyuncs.com/gitlab-gitflow-tutorial-image-001.png?x-oss-process=image/resize,w_1000
+[image-002]: http://sai628-blog-image.oss-cn-shenzhen.aliyuncs.com/gitlab-gitflow-tutorial-image-002.png

@@ -17,7 +17,7 @@ $ sudo pip install --upgrade flask
 
 <!-- more -->
 
-![](http://ofn2gftwa.bkt.clouddn.com/pip-upgrade-raise-read-timeout-error-001.png)
+![][image-001]
 
 一眼看上去, 吸引我注意力的不是那一大片的红色错误, 却是最下面的这个提示:
 
@@ -34,7 +34,7 @@ You should consider upgrading via the 'pip install --upgrade pip' command.
 
 可它刚下载了一会, 却又报了一大片红:
 
-![](http://ofn2gftwa.bkt.clouddn.com/pip-upgrade-raise-read-timeout-error-002.png)
+![][image-002]
 
 同样的错误: `ReadTimeoutError: HTTPSConnectionPool(host='pypi.python.org', port=443): Read timed out.`
 我想应该是网络不给力了. 于是, 我把网络代理从 `Auto Proxy Mode` 直接切换成了 `Global Mode`. 然后, 又重新运行了一遍更新命令. 可是问题依旧.
@@ -54,14 +54,14 @@ http://angelzou.github.io/06-08-2015-update-pip-with-read-timeout-error.html
 
 先试下第一种方法, 打开 https://pypi.python.org/simple/pip/ , 搜索到 `pip` 的最新版本 `9.0.1`. 然后下载到本地.
 
-![](http://ofn2gftwa.bkt.clouddn.com/pip-upgrade-raise-read-timeout-error-003.png)
+![][image-003]
 
 可下载下来的是 `whl` 文件. 这个格式的文件怎么安装呢? 我先双击它一下试试, 没反应. 又去 [Google](https://www.google.com) 了一下关键字 `pip whl`.
 
 万能的 stackoverflow 是 [这样](http://stackoverflow.com/questions/27885397/how-do-i-install-a-python-package-with-a-whl-file) 说的.
 原来直接使用 `pip install <whl-filename>` 来安装就可以了:
 
-![](http://ofn2gftwa.bkt.clouddn.com/pip-upgrade-raise-read-timeout-error-004.png)
+![][image-004]
 
 `pip` 是升级完成了, 可我最初想升级的 `Flask` 还没好呢. 我想这时可以试一下第二种方法了. 于是, 我又运行下面的命令:
 
@@ -71,7 +71,7 @@ pip --default-timeout=100 install -U flask
 
 可是, 网络还是不给力啊! 我重试了几次都还是报下面的错误:
 
-![](http://ofn2gftwa.bkt.clouddn.com/pip-upgrade-raise-read-timeout-error-005.png)
+![][image-005]
 
 看来国外的原始源地址怕是靠不住了, 还是找个国内的镜像源吧. 我又去搜索了一翻. 还真找到个国内的镜像源. 详情看这里: http://blog.csdn.net/u010536377/article/details/50564185 (顺便感谢一下[中国科学技术大学](http://www.ustc.edu.cn))
 
@@ -83,12 +83,21 @@ $ pip install --upgrade --index https://pypi.mirrors.ustc.edu.cn/simple/ flask
 
 那个下载速度真是秒开! 可是, 安装的时候却 `Permission denied:` 了:
 
-![](http://ofn2gftwa.bkt.clouddn.com/pip-upgrade-raise-read-timeout-error-006.png)
+![][image-006]
 
 赶紧加上 `sudo` 再来一次. 这次是完美的完成任务了:
 
-![](http://ofn2gftwa.bkt.clouddn.com/pip-upgrade-raise-read-timeout-error-007.png)
+![alt text][image-007]
 
 <br/>
 > 其实, 在升级 Flask 时, 我们也可以像第一种方法那样, 在 https://pypi.python.org/simple/flask/ 中下载最新的 `Flask` 对应的 `whl` 文件到本地, 进行手动的更新.
 > 但是, 程序员都是喜欢折腾的啊~
+
+
+[image-001]: http://sai628-blog-image.oss-cn-shenzhen.aliyuncs.com/pip-upgrade-raise-read-timeout-error-001.png
+[image-002]: http://sai628-blog-image.oss-cn-shenzhen.aliyuncs.com/pip-upgrade-raise-read-timeout-error-002.png
+[image-003]: http://sai628-blog-image.oss-cn-shenzhen.aliyuncs.com/pip-upgrade-raise-read-timeout-error-003.png
+[image-004]: http://sai628-blog-image.oss-cn-shenzhen.aliyuncs.com/pip-upgrade-raise-read-timeout-error-004.png
+[image-005]: http://sai628-blog-image.oss-cn-shenzhen.aliyuncs.com/pip-upgrade-raise-read-timeout-error-005.png
+[image-006]: http://sai628-blog-image.oss-cn-shenzhen.aliyuncs.com/pip-upgrade-raise-read-timeout-error-006.png
+[image-007]: http://sai628-blog-image.oss-cn-shenzhen.aliyuncs.com/pip-upgrade-raise-read-timeout-error-007.png
