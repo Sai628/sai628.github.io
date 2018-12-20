@@ -13,7 +13,7 @@ categories:
 
 ## 0x01 SSH Keys
 通过 ssh 的方式提交代码, 可以免于每次都输入密码.  
-在  gitlab 平台的 [Profile Settings](http://gitlab.libtop.com/profile/keys) 面板里可以添加 `SSH Keys`. 里面有相应的简单使用教程.
+在  gitlab 平台的 [Profile Settings](http://gitlab.com/profile/keys) 面板里可以添加 `SSH Keys`. 里面有相应的简单使用教程.
 
 <!-- more -->
 
