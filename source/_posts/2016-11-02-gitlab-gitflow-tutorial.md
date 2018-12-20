@@ -103,7 +103,7 @@ master 分支发包后, 须打上相关 `tag` 信息.
 #### 对于已正式上线的版本, 当发现 bug 后需要进行修复时, 可分以下两种情况考虑:
 
 1. ##### 该 bug 为非紧急问题, 可考虑在下一功能版本中再修复.  
-  - 如新创建 feature 分支的流程一样, 以 develop 分支为基础创建 bugfix 分支, 比如: `bugfix/login-error`. 在该分支上完成修复工作后合并回 develop 分支, 并等待下一次的发包. __(合并操作查看 [0x04 节 Merge Request](2016-11-02-gitlab-gitflow-tutorial.html#merge-request) 的内容)__   
+  - 与新创建 feature 分支的流程一样, 以 develop 分支为基础创建 bugfix 分支, 比如: `bugfix/login-error`. 在该分支上完成修复工作后合并回 develop 分支, 并等待下一次的发包. __(合并操作查看 [0x04 节 Merge Request](2016-11-02-gitlab-gitflow-tutorial.html#merge-request) 的内容)__   
  
   - 其它正进行开发中的 feature 分支注意 pull 该次合并提交.
 
@@ -145,7 +145,7 @@ $ git merge develop  # 合并本地的 develop 到 feature/support-video
 
 
 ## 0x05 Commit Message(提交说明)
-每次 commit 操作须撰写相应的 commit message. 其应该清晰明了, 说明本次提交的目的.  
+每次 commit 操作需撰写相应的 commit message. 其应该清晰明了, 说明本次提交的目的.  
 一表胜千言, 以下是一些 good 与 bad 的对比:
 
 Good|Bad
