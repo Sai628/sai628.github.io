@@ -68,7 +68,7 @@
 0x01 SSH Keys通过 ssh 的方式提交代码, 可以免于每次都输入密码.在  gitlab 平台的 Profile Settings 面板里可以添加 SSH Keys. 里面有相应的简单使用教程.">
 <meta property="og:image" content="http://sai628-blog-image.oss-cn-shenzhen.aliyuncs.com/gitlab-gitflow-tutorial-image-001.png?x-oss-process=image/resize,w_1000">
 <meta property="og:image" content="http://sai628-blog-image.oss-cn-shenzhen.aliyuncs.com/gitlab-gitflow-tutorial-image-002.png">
-<meta property="og:updated_time" content="2018-12-20T06:43:06.314Z">
+<meta property="og:updated_time" content="2018-12-20T07:33:54.893Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GitLab 与 GitFlow 的使用与流程规范">
 <meta name="twitter:description" content="0x00 Git客户端推荐使用 SourceTree. macOS 与 Windows 平台均支持.当然如果你觉得方便的话, 也可以直接命令行.
@@ -312,7 +312,7 @@
 </ol>
 <h4 id="对于已正式上线的版本-当发现-bug-后需要进行修复时-可分以下两种情况考虑"><a href="#对于已正式上线的版本-当发现-bug-后需要进行修复时-可分以下两种情况考虑" class="headerlink" title="对于已正式上线的版本, 当发现 bug 后需要进行修复时, 可分以下两种情况考虑:"></a>对于已正式上线的版本, 当发现 bug 后需要进行修复时, 可分以下两种情况考虑:</h4><ol>
 <li><h5 id="该-bug-为非紧急问题-可考虑在下一功能版本中再修复"><a href="#该-bug-为非紧急问题-可考虑在下一功能版本中再修复" class="headerlink" title="该 bug 为非紧急问题, 可考虑在下一功能版本中再修复."></a>该 bug 为非紧急问题, 可考虑在下一功能版本中再修复.</h5><ul>
-<li><p>如新创建 feature 分支的流程一样, 以 develop 分支为基础创建 bugfix 分支, 比如: <code>bugfix/login-error</code>. 在该分支上完成修复工作后合并回 develop 分支, 并等待下一次的发包. <strong>(合并操作查看 <a href="2016-11-02-gitlab-gitflow-tutorial.html#merge-request">0x04 节 Merge Request</a> 的内容)</strong>   </p>
+<li><p>与新创建 feature 分支的流程一样, 以 develop 分支为基础创建 bugfix 分支, 比如: <code>bugfix/login-error</code>. 在该分支上完成修复工作后合并回 develop 分支, 并等待下一次的发包. <strong>(合并操作查看 <a href="2016-11-02-gitlab-gitflow-tutorial.html#merge-request">0x04 节 Merge Request</a> 的内容)</strong>   </p>
 </li>
 <li><p>其它正进行开发中的 feature 分支注意 pull 该次合并提交.</p>
 </li>
@@ -345,7 +345,7 @@
 </blockquote>
 </li>
 </ol>
-<h2 id="0x05-Commit-Message-提交说明"><a href="#0x05-Commit-Message-提交说明" class="headerlink" title="0x05 Commit Message(提交说明)"></a>0x05 Commit Message(提交说明)</h2><p>每次 commit 操作须撰写相应的 commit message. 其应该清晰明了, 说明本次提交的目的.<br>一表胜千言, 以下是一些 good 与 bad 的对比:</p>
+<h2 id="0x05-Commit-Message-提交说明"><a href="#0x05-Commit-Message-提交说明" class="headerlink" title="0x05 Commit Message(提交说明)"></a>0x05 Commit Message(提交说明)</h2><p>每次 commit 操作需撰写相应的 commit message. 其应该清晰明了, 说明本次提交的目的.<br>一表胜千言, 以下是一些 good 与 bad 的对比:</p>
 <table>
 <thead>
 <tr>
