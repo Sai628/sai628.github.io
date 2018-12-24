@@ -72,7 +72,7 @@ Ubuntu 16.04.3 LTS
 Ubuntu 16.04.3 LTS
 
 1. 安装 golang 等依赖库12345$ add-apt-repository ppa:longsleep/golang-backports$ apt update$ apt install golang$ apt install build-essential mercurial git">
-<meta property="og:updated_time" content="2018-10-22T03:55:23.681Z">
+<meta property="og:updated_time" content="2018-12-24T05:52:39.771Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自己编译 ngrok 源码以搭建 ngrokd 服务器">
 <meta name="twitter:description" content="服务器系统版本: 
@@ -294,7 +294,7 @@ Ubuntu 16.04.3 LTS
 <p>想要在后台运行 ngrokd 时, 可使用 nohup 启动.</p>
 </blockquote>
 <p><br></p>
-<h2 id="7-设置-ngrokd-为系统程序-并后台运行"><a href="#7-设置-ngrokd-为系统程序-并后台运行" class="headerlink" title="7. 设置 ngrokd 为系统程序, 并后台运行"></a>7. 设置 ngrokd 为系统程序, 并后台运行</h2><p>服务器在运行 ngrokd 时, 如果关闭会话窗口, 会导致服务中断, 很显然这不是我们想要的结果, 我们需要服务不断的在后台运行, 当需要的时候在停止.</p>
+<h2 id="7-设置-ngrokd-为系统程序-并后台运行"><a href="#7-设置-ngrokd-为系统程序-并后台运行" class="headerlink" title="7. 设置 ngrokd 为系统程序, 并后台运行"></a>7. 设置 ngrokd 为系统程序, 并后台运行</h2><p>服务器在运行 ngrokd 时, 如果关闭会话窗口, 会导致服务中断, 很显然这不是我们想要的结果, 我们需要服务不断的在后台运行, 当需要的时候再停止.</p>
 <p>在 /etc/systemd/system/ 目录下创建服务 ngrokd.service，内容为:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[Unit]</div><div class="line">Description=ngrokd</div><div class="line">After=network.target</div><div class="line"></div><div class="line">[Service]</div><div class="line">ExecStart=/path/to/ngrokd -tlsKey=/path/to/server.key -tlsCrt=/path/to/server.crt -domain=<span class="string">"ngrok.mywebsite.com"</span> -httpAddr=<span class="string">":8088"</span> -httpsAddr=<span class="string">":8089"</span></div><div class="line"></div><div class="line">[Install]</div><div class="line">WantedBy=multi-user.target</div></pre></td></tr></table></figure>
 <p>其中, 需根据自己的实际目录修改相应的目录, 这样我们就可通过 systemctl start ngrokd.service 启动服务.</p>
