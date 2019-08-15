@@ -213,6 +213,103 @@
             
               
                 
+                <a class="post-title-link" href="/2016-11-02-gitlab-gitflow-tutorial.html" itemprop="url">
+                  GitLab 与 GitFlow 的使用与流程规范
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-11-02T20:41:58+08:00" content="2016-11-02">
+              2016-11-02
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="0x00-Git客户端"><a href="#0x00-Git客户端" class="headerlink" title="0x00 Git客户端"></a>0x00 Git客户端</h2><p>推荐使用 <a href="https://www.sourcetreeapp.com">SourceTree</a>. macOS 与 Windows 平台均支持.<br>当然如果你觉得方便的话, 也可以直接命令行.</p>
+<h2 id="0x01-SSH-Keys"><a href="#0x01-SSH-Keys" class="headerlink" title="0x01 SSH Keys"></a>0x01 SSH Keys</h2><p>通过 ssh 的方式提交代码, 可以免于每次都输入密码.<br>在  gitlab 平台的 <a href="http://gitlab.com/profile/keys">Profile Settings</a> 面板里可以添加 <code>SSH Keys</code>. 里面有相应的简单使用教程.</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016-11-02-gitlab-gitflow-tutorial.html#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016-11-02-using-adb-to-screenshot-on-macosx.html" itemprop="url">
                   使用 adb 命令进行截屏
                 </a>
@@ -589,104 +686,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016-04-13-svn-ignore.html" itemprop="url">
-                  svn:ignore 的用法(忽略文件及目录)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-04-13T12:13:55+08:00" content="2016-04-13">
-              2016-04-13
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>在 svn 中忽略文件或目录, 可以通过 svn:ignore 命令来设置.<br>具体可分为以下几种情况:</p>
-<p><strong>若想创建一个文件夹, 并且把它加入版本控制 ,但忽略文件夹中的所有文件内容:</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ svn mkdir myDir</div><div class="line">$ svn add myDir</div><div class="line">$ svn commit -m <span class="string">"add myDir"</span></div><div class="line">$ svn propset svn:ignore <span class="string">'*'</span> myDir</div><div class="line">$ svn commit -m <span class="string">"ignore contents in myDir"</span></div></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016-04-13-svn-ignore.html#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -732,7 +731,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-count">34</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -742,7 +741,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-count">40</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

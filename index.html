@@ -213,6 +213,106 @@
             
               
                 
+                <a class="post-title-link" href="/2019-08-15-nginx-config-snippets.html" itemprop="url">
+                  Nginx 配置代码片段
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2019-08-15T10:36:25+08:00" content="2019-08-15">
+              2019-08-15
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="请求重定向到新域名-使用-return-指令"><a href="#请求重定向到新域名-使用-return-指令" class="headerlink" title="请求重定向到新域名(使用 return 指令)"></a>请求重定向到新域名(使用 return 指令)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">    listen 80;</div><div class="line">    listen 443 ssl;</div><div class="line">    server_name www.old-name.com old-name.com;</div><div class="line">    <span class="built_in">return</span> 301 <span class="variable">$scheme</span>://www.new-name.com<span class="variable">$request_uri</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>NGINX VARIABLES:</p>
+<p>$scheme: request scheme, “http” or “https”.<br>$request_uri: full original request URI(with arguments).</p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2019-08-15-nginx-config-snippets.html#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2018-10-22-ngrok-server.html" itemprop="url">
                   自己编译 ngrok 源码以搭建 ngrokd 服务器
                 </a>
@@ -598,108 +698,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018-01-03-effective-java-summary-03-methods-common-to-all-objects.html" itemprop="url">
-                  Effective Java中文版(第2版)读书笔记总结之 三(对于所有对象都通用的方法)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2018-01-03T15:13:49+08:00" content="2018-01-03">
-              2018-01-03
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="三-对于所有对象都通用的方法"><a href="#三-对于所有对象都通用的方法" class="headerlink" title="三. 对于所有对象都通用的方法"></a>三. 对于所有对象都通用的方法</h1><h2 id="8-覆盖-equals-时请遵守通用约定"><a href="#8-覆盖-equals-时请遵守通用约定" class="headerlink" title="8. 覆盖 equals 时请遵守通用约定"></a>8. 覆盖 <em>equals</em> 时请遵守通用约定</h2><p><strong><em>以下情况时不要覆盖</em></strong>:</p>
-<ul>
-<li>类的每个实例本质上是唯一的. 例如: <em>Thread</em></li>
-<li>不关心类是否提供了”逻辑相等”的测试功能. 例如: <em>java.util.Random</em></li>
-<li>超类已经覆盖了 <em>equals</em>, 从超类继承过来的行为对于子类也是合适的. 例如: <em>Set</em>, <em>List</em>, <em>Map</em></li>
-<li>类是私有的或者是包级私有的, 可以确定它的 <em>equals</em> 方法永远不会被调用.</li>
-</ul>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2018-01-03-effective-java-summary-03-methods-common-to-all-objects.html#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -745,7 +743,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-count">34</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -755,7 +753,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-count">40</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

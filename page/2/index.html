@@ -213,6 +213,108 @@
             
               
                 
+                <a class="post-title-link" href="/2018-01-03-effective-java-summary-03-methods-common-to-all-objects.html" itemprop="url">
+                  Effective Java中文版(第2版)读书笔记总结之 三(对于所有对象都通用的方法)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2018-01-03T15:13:49+08:00" content="2018-01-03">
+              2018-01-03
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="三-对于所有对象都通用的方法"><a href="#三-对于所有对象都通用的方法" class="headerlink" title="三. 对于所有对象都通用的方法"></a>三. 对于所有对象都通用的方法</h1><h2 id="8-覆盖-equals-时请遵守通用约定"><a href="#8-覆盖-equals-时请遵守通用约定" class="headerlink" title="8. 覆盖 equals 时请遵守通用约定"></a>8. 覆盖 <em>equals</em> 时请遵守通用约定</h2><p><strong><em>以下情况时不要覆盖</em></strong>:</p>
+<ul>
+<li>类的每个实例本质上是唯一的. 例如: <em>Thread</em></li>
+<li>不关心类是否提供了”逻辑相等”的测试功能. 例如: <em>java.util.Random</em></li>
+<li>超类已经覆盖了 <em>equals</em>, 从超类继承过来的行为对于子类也是合适的. 例如: <em>Set</em>, <em>List</em>, <em>Map</em></li>
+<li>类是私有的或者是包级私有的, 可以确定它的 <em>equals</em> 方法永远不会被调用.</li>
+</ul>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018-01-03-effective-java-summary-03-methods-common-to-all-objects.html#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2018-01-03-effective-java-summary-02-creating-and-destroying-objects.html" itemprop="url">
                   Effective Java中文版(第2版)读书笔记总结之 二(创建和销毁对象)
                 </a>
@@ -587,155 +689,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017-08-19-curl-commands.html" itemprop="url">
-                  curl 命令参考
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2017-08-19T16:27:09+08:00" content="2017-08-19">
-              2017-08-19
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <table>
-<thead>
-<tr>
-<th>选项</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>--cookie</td>
-<td>指定请求的 cookie 数据. 例如: “name=Sai”</td>
-</tr>
-<tr>
-<td>-d</td>
-<td>指定请求数据</td>
-</tr>
-<tr>
-<td>--data-binary</td>
-<td>指定发送的文件</td>
-</tr>
-<tr>
-<td>-H</td>
-<td>指定请求头<br/> 例如: “Content-type:application/json”</td>
-</tr>
-<tr>
-<td>-i</td>
-<td>显示响应头部信息</td>
-</tr>
-<tr>
-<td>-o</td>
-<td>将请求的内容保存为文件</td>
-</tr>
-<tr>
-<td>--referer</td>
-<td>指定请求的 Referer 来源</td>
-</tr>
-<tr>
-<td>-u</td>
-<td>指定认证用户名与密码. 例如: name:password</td>
-</tr>
-<tr>
-<td>--user-agent</td>
-<td>指定请求的 User Agent 信息</td>
-</tr>
-<tr>
-<td>-v</td>
-<td>显示一次 HTTP 通信的整个过程, <br/>包括端口连接和 HTTP Request 头信息</td>
-</tr>
-<tr>
-<td>-X</td>
-<td>指定 HTTP 请求方法. 例如: POST, GET, PUT</td>
-</tr>
-</tbody>
-</table>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017-08-19-curl-commands.html#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -781,7 +734,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-count">34</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -791,7 +744,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-count">40</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
